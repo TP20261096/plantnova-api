@@ -1,0 +1,23 @@
+# Entorno de desarrollo para el frontend.
+#
+# Levanta la API sin instalar Python ni PyTorch en el equipo:
+#   docker compose up --build
+#
+# Requiere dos archivos que NO están en el repositorio:
+#   .env                        claves de Supabase
+#   models/best_model_v2.pth    checkpoint del modelo
+services:
+  api:
+    build: .
+    ports:
+      # 8000 en el equipo, 8080 dentro del contenedor.
+      - "8000:8080"
+    env_file: .env
+    volumes:
+      # El checkpoint se monta en lugar de copiarse a la imagen: así
+      # cambiarlo no obliga a reconstruir 2 GB de dependencias.
+      - ./models:/app/models:ro
+    # La inferencia con Grad-CAM ronda 1,5 GB en el pico. Con menos,
+    # el contenedor muere al procesar la primera imagen.
+    mem_limit: 2g
+    restart: unless-stopped

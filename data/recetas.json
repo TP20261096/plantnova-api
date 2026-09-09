@@ -1,0 +1,177 @@
+[
+  {
+    "slug": "bicarbonato",
+    "nombre": "Solución de bicarbonato",
+    "descripcion": "Fungicida preventivo de contacto que altera el pH de la superficie de la hoja y frena la germinación de esporas de oídio, mildiu y manchas foliares.",
+    "ingredientes": [
+      {
+        "item": "Bicarbonato de sodio",
+        "cantidad": "1 cucharadita (5 g)"
+      },
+      {
+        "item": "Jabón líquido neutro o jabón potásico",
+        "cantidad": "3 gotas"
+      },
+      {
+        "item": "Aceite vegetal (opcional, mejora la adherencia)",
+        "cantidad": "1/2 cucharadita"
+      },
+      {
+        "item": "Agua sin cloro",
+        "cantidad": "1 litro"
+      }
+    ],
+    "preparacion": [
+      "Disolver el bicarbonato en un litro de agua a temperatura ambiente hasta que no queden grumos.",
+      "Agregar el aceite y las gotas de jabón, que actúan como adherente para que la solución no escurra de inmediato.",
+      "Mezclar con movimientos suaves, sin generar espuma.",
+      "Trasvasar a un pulverizador limpio y usar el mismo día."
+    ],
+    "modo_uso": "Rociar el haz y sobre todo el envés de las hojas al atardecer, hasta que la superficie quede mojada pero sin escurrir. Repetir cada 7 a 10 días mientras persistan las condiciones de humedad.",
+    "precauciones": "No aplicar bajo sol directo ni con temperaturas altas: quema el follaje. No exceder la dosis, porque el sodio se acumula en el sustrato y afecta la raíz. Probar primero en dos o tres hojas y esperar 48 horas antes de tratar toda la planta. Es preventivo, no cura una infección avanzada.",
+    "costo_aprox": "S/ 1 a S/ 2 por litro"
+  },
+  {
+    "slug": "caldo_bordeles_casero",
+    "nombre": "Caldo bordelés",
+    "descripcion": "Fungicida y bactericida de contacto a base de cobre, de acción preventiva y amplio espectro. Es el recurso de mayor potencia para tizones, mildius, cancro y manchas bacterianas cuando los preparados suaves ya no bastan.",
+    "ingredientes": [
+      {
+        "item": "Sulfato de cobre pentahidratado",
+        "cantidad": "10 g"
+      },
+      {
+        "item": "Cal apagada (hidróxido de calcio)",
+        "cantidad": "10 g"
+      },
+      {
+        "item": "Agua sin cloro",
+        "cantidad": "1 litro"
+      }
+    ],
+    "preparacion": [
+      "Disolver el sulfato de cobre en 500 ml de agua tibia dentro de un recipiente de plástico o vidrio. Nunca usar recipientes ni cucharas de metal.",
+      "En un recipiente aparte, disolver la cal apagada en los otros 500 ml de agua y remover hasta obtener una lechada uniforme.",
+      "Verter lentamente la solución de cobre sobre la lechada de cal, removiendo de forma continua. El orden importa: nunca al revés.",
+      "Comprobar el pH sumergiendo un clavo o cuchillo de acero limpio durante un minuto. Si sale con una capa rojiza de cobre, falta cal: agregar más lechada y volver a probar hasta que el metal salga limpio.",
+      "Colar y trasvasar a un pulverizador. Usar el mismo día; el caldo pierde eficacia y se vuelve corrosivo al guardarse."
+    ],
+    "modo_uso": "Pulverizar cubriendo haz y envés hasta el punto de goteo, al atardecer o muy temprano. Repetir cada 7 a 10 días, con un máximo de 3 a 4 aplicaciones por ciclo de cultivo.",
+    "precauciones": "El cobre es tóxico para personas, peces y fauna del suelo, y se acumula en el sustrato: no abusar ni repetir ciclo tras ciclo. Usar guantes, mascarilla y lentes durante la preparación y la aplicación. Si el pH queda ácido (el clavo sale cobrizo), el caldo quema el follaje. No aplicar en floración plena ni sobre plantas con estrés hídrico. Respetar un plazo mínimo de 15 días entre la última aplicación y la cosecha. Mantener fuera del alcance de niños y mascotas.",
+    "costo_aprox": "S/ 3 a S/ 5 por litro"
+  },
+  {
+    "slug": "ajo_aji",
+    "nombre": "Extracto de ajo y ají",
+    "descripcion": "Repelente e insecticida suave de contacto para pulgones, mosca blanca, ácaros y larvas pequeñas. Actúa por olor y por irritación, sin dejar residuos tóxicos.",
+    "ingredientes": [
+      {
+        "item": "Ajo (dientes pelados)",
+        "cantidad": "1 cabeza completa"
+      },
+      {
+        "item": "Ají picante fresco",
+        "cantidad": "2 unidades"
+      },
+      {
+        "item": "Jabón líquido neutro",
+        "cantidad": "5 gotas"
+      },
+      {
+        "item": "Agua sin cloro",
+        "cantidad": "1 litro"
+      }
+    ],
+    "preparacion": [
+      "Licuar los dientes de ajo y los ajíes con 250 ml de agua hasta obtener una pasta homogénea.",
+      "Agregar el resto del agua, tapar y dejar reposar 24 horas en un lugar oscuro y fresco.",
+      "Colar con un paño o colador fino para retirar todos los sólidos y evitar que obstruyan el pulverizador.",
+      "Agregar las gotas de jabón como adherente y mezclar sin batir.",
+      "Trasvasar al pulverizador. Se conserva hasta 5 días en refrigeración."
+    ],
+    "modo_uso": "Rociar sobre las colonias de insectos y en el envés de las hojas, que es donde se refugian. Aplicar al atardecer cada 5 a 7 días mientras dure la infestación.",
+    "precauciones": "Trabajar con guantes y no tocarse los ojos: la capsaicina irrita fuertemente. No aplicar bajo sol directo. Repele también a insectos benéficos como abejas y mariquitas, así que evitar rociar flores abiertas. Probar en una hoja antes de aplicar a toda la planta.",
+    "costo_aprox": "S/ 3 a S/ 4 por litro"
+  },
+  {
+    "slug": "jabon_potasico",
+    "nombre": "Solución de jabón potásico",
+    "descripcion": "Insecticida de contacto para insectos de cuerpo blando: pulgones, mosca blanca, cochinilla y ácaros. Disuelve la capa cerosa del insecto y lo deshidrata. También limpia la melaza que atrae la fumagina.",
+    "ingredientes": [
+      {
+        "item": "Jabón potásico líquido",
+        "cantidad": "10 ml"
+      },
+      {
+        "item": "Agua sin cloro, preferentemente blanda",
+        "cantidad": "1 litro"
+      }
+    ],
+    "preparacion": [
+      "Verter el jabón potásico en el litro de agua a temperatura ambiente.",
+      "Remover con movimientos lentos hasta integrar, evitando formar espuma.",
+      "Trasvasar de inmediato al pulverizador y usar en el momento; la solución pierde eficacia si se guarda."
+    ],
+    "modo_uso": "Rociar directamente sobre los insectos, mojando bien el envés de las hojas y las axilas de los brotes. Solo actúa por contacto directo, así que la cobertura debe ser completa. Repetir cada 5 a 7 días hasta eliminar la plaga.",
+    "precauciones": "No confundir con detergente ni con jabón de lavar ropa: esos contienen sodio y otros aditivos que queman el follaje. No aplicar bajo sol directo ni sobre plantas con estrés hídrico. Afecta también a insectos benéficos si se rocía sobre ellos. Enjuagar la planta con agua limpia al día siguiente si se aplicó en dosis alta.",
+    "costo_aprox": "S/ 2 a S/ 3 por litro"
+  },
+  {
+    "slug": "leche_herramientas",
+    "nombre": "Desinfección de herramientas con leche o alcohol",
+    "descripcion": "Práctica de higiene, no un tratamiento de la planta. Desinfectar el filo entre corte y corte evita transmitir virus y bacterias de una planta a otra, que es la vía principal de contagio del virus del mosaico y del cancro cítrico.",
+    "ingredientes": [
+      {
+        "item": "Leche descremada",
+        "cantidad": "1 parte"
+      },
+      {
+        "item": "Agua",
+        "cantidad": "9 partes"
+      },
+      {
+        "item": "Alternativa: alcohol de 70°",
+        "cantidad": "Cantidad suficiente para sumergir el filo"
+      },
+      {
+        "item": "Paño limpio o algodón",
+        "cantidad": "1 unidad"
+      }
+    ],
+    "preparacion": [
+      "Para la opción con leche, mezclar una parte de leche descremada con nueve de agua en un recipiente ancho.",
+      "Para la opción con alcohol, verter alcohol de 70° puro en un frasco donde quepa el filo de la tijera.",
+      "Tener el paño a la mano para secar el filo después de cada inmersión."
+    ],
+    "modo_uso": "Sumergir el filo de la tijera o cuchillo durante 10 segundos y secar antes de cada corte, cambiando de solución cada vez que se pasa a otra planta. Al terminar la jornada, lavar las herramientas con agua y jabón y secarlas por completo.",
+    "precauciones": "Renovar la mezcla de leche cada día: fermenta y deja de servir. El alcohol es más eficaz contra virus, pero es inflamable y reseca los mangos de madera. Lavarse las manos con agua y jabón antes de manipular plantas sanas, sobre todo si se fuma, porque el tabaco transmite el virus del mosaico.",
+    "costo_aprox": "S/ 1 por jornada"
+  },
+  {
+    "slug": "trampas_amarillas",
+    "nombre": "Trampas cromáticas amarillas",
+    "descripcion": "Método físico de monitoreo y captura masiva. El amarillo atrae a la mosca blanca, los pulgones alados, el psílido de los cítricos y los minadores, que quedan adheridos. Sirve para detectar la plaga antes de que sea visible en la planta.",
+    "ingredientes": [
+      {
+        "item": "Cartulina, plástico rígido o envase amarillo intenso",
+        "cantidad": "Rectángulos de 15 x 20 cm"
+      },
+      {
+        "item": "Aceite vegetal, vaselina o pegamento entomológico",
+        "cantidad": "Cantidad suficiente para cubrir ambas caras"
+      },
+      {
+        "item": "Estaca, alambre o pabilo para sujetar",
+        "cantidad": "1 por trampa"
+      }
+    ],
+    "preparacion": [
+      "Cortar los rectángulos de material amarillo. Si se usa cartulina, plastificarla o forrarla con cinta transparente para que resista la humedad.",
+      "Untar ambas caras con una capa delgada y pareja de aceite vegetal o vaselina.",
+      "Perforar un extremo y pasar el alambre o pabilo para colgarla."
+    ],
+    "modo_uso": "Colocar una trampa cada 2 metros cuadrados, a la altura del follaje o unos 20 cm por encima. Revisar cada 3 días y reemplazar o volver a untar cuando la superficie esté cubierta de insectos o pierda adherencia.",
+    "precauciones": "No es un tratamiento curativo: reduce la población de adultos y sirve para detectar la plaga a tiempo, pero no elimina huevos ni ninfas y debe combinarse con otro control. Captura también insectos benéficos, así que conviene retirarlas si hay polinizadores activos en floración. Ubicarlas fuera del alcance de niños y mascotas por el pegamento.",
+    "costo_aprox": "S/ 1 a S/ 2 por trampa"
+  }
+]

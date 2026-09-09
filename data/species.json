@@ -1,0 +1,154 @@
+[
+  {
+    "slug": "lechuga",
+    "nombre_comun": "Lechuga",
+    "nombre_cientifico": "Lactuca sativa",
+    "familia": "Asteraceae",
+    "imagen_url": "",
+    "resumen": "Hortaliza de hoja de ciclo corto, ideal para empezar un huerto urbano en Lima porque tolera bien el clima templado y la media sombra.",
+    "dificultad": "Facil",
+    "luz_recomendada": "4 a 6 horas de sol suave o media sombra",
+    "riego_base_dias": 2,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "La lechuga tiene raíces poco profundas, así que basta con una maceta o jardinera de 15 a 20 cm de fondo, siempre con agujeros de drenaje. Prepara un sustrato suelto y que retenga humedad: dos partes de tierra de jardín, una de compost maduro y una de fibra de coco o musgo. Evita los sustratos muy arenosos, porque la lechuga sufre si el sustrato se seca del todo entre riegos.\n\nAntes de sembrar, humedece el sustrato hasta que drene por los agujeros y déjalo reposar un día. Ten a mano una regadera de chorro fino, un desplantador pequeño y tijeras limpias para la cosecha.",
+      "Siembra": "En Lima puedes sembrar casi todo el año, pero los mejores resultados se dan de abril a setiembre, cuando el calor no hace que la planta se espigue. Siembra las semillas a solo 0.5 cm de profundidad, apenas cubiertas, porque necesitan algo de luz para germinar. Germinan entre 5 y 10 días.\n\nSi siembras en almácigo, trasplanta cuando la plántula tenga 3 o 4 hojas verdaderas, hacia los 20 a 25 días. Deja entre 20 y 25 cm entre plantas para las variedades de cabeza, y 15 cm para las de hoja suelta. Trasplanta al atardecer y riega de inmediato para reducir el estrés.",
+      "Cuidados": "El riego es el punto crítico: el sustrato debe mantenerse húmedo de forma constante, sin encharcar. Riega en la base y por la mañana, nunca sobre las hojas, porque el agua estancada en el follaje favorece hongos y bacterias. En días nublados espacia el riego para no pudrir la raíz.\n\nAporta compost o humus de lombriz cada 3 semanas; la lechuga responde muy bien a la materia orgánica. Retira las hojas basales amarillentas para mejorar la ventilación y revisa el envés una vez por semana en busca de pulgones o babosas. Si el sol de verano es muy fuerte, usa una malla raschel para dar media sombra.",
+      "Cosecha": "Las variedades de hoja suelta se cosechan desde los 40 a 50 días; las de cabeza, entre 60 y 80 días. El punto óptimo es cuando la cabeza se siente firme al presionarla suavemente o cuando las hojas externas alcanzan buen tamaño pero siguen tiernas.\n\nPuedes cosechar la planta entera cortando el tallo a ras del sustrato, o ir tomando hojas externas una a una para que la planta siga produciendo durante varias semanas. Cosecha temprano en la mañana, cuando las hojas están más turgentes. Si ves que sale un tallo central alto, la planta se espigó y las hojas amargarán: cosecha de inmediato.",
+      "Consejos": "Siembra cada 2 o 3 semanas en lugar de todo de golpe, así tendrás cosecha escalonada en vez de veinte lechugas listas el mismo día.\n\nLos errores más comunes son sembrar demasiado profundo (la semilla no germina), regar sobre las hojas y dejar las plantas muy juntas, lo que dispara los hongos. Si las hojas amargan, casi siempre es por exceso de calor o por cosechar tarde."
+    }
+  },
+  {
+    "slug": "tomate",
+    "nombre_comun": "Tomate",
+    "nombre_cientifico": "Solanum lycopersicum",
+    "familia": "Solanaceae",
+    "imagen_url": "",
+    "resumen": "Cultivo de fruto muy productivo en macetas, pero exigente en sol, tutorado y control de enfermedades del follaje.",
+    "dificultad": "Media",
+    "luz_recomendada": "6 a 8 horas de sol directo",
+    "riego_base_dias": 3,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "El tomate necesita volumen de raíz: usa una maceta de al menos 20 litros y 40 cm de profundidad por planta. El drenaje es obligatorio, con una capa de grava o piedra pómez en el fondo.\n\nPrepara un sustrato rico y suelto: dos partes de tierra, una de compost maduro y una de fibra de coco o arena gruesa. Ten listo el tutor (caña, estaca o malla) desde antes de sembrar, porque colocarlo después daña las raíces.",
+      "Siembra": "En Lima la siembra ideal es de agosto a diciembre, para que la planta produzca con el calor. Siembra en almácigo a 1 cm de profundidad; germina entre 6 y 12 días.\n\nTrasplanta cuando la plántula tenga 10 a 15 cm y 4 hojas verdaderas, enterrando parte del tallo: el tomate emite raíces nuevas en la zona enterrada y queda más firme. Deja 40 a 50 cm entre plantas para que circule el aire.",
+      "Cuidados": "Riega cada 2 o 3 días en calor, siempre al sustrato y nunca al follaje. El riego irregular provoca que los frutos se rajen y favorece la pudrición apical, así que la constancia importa más que la cantidad.\n\nAta el tallo al tutor cada 20 cm y retira los brotes que salen entre el tallo y las hojas si quieres una planta de un solo eje. Elimina las hojas bajas que tocan el sustrato: es la principal vía de entrada del tizón y de la mancha de Septoria. Abona cada 15 días con compost o un fertilizante rico en potasio desde que aparecen las primeras flores.",
+      "Cosecha": "Los primeros frutos llegan entre los 70 y 90 días del trasplante. Cosecha cuando el fruto tomó color uniforme y cede levemente a la presión de los dedos.\n\nCorta con tijera dejando un trozo de pedúnculo en vez de jalar, porque el tirón rompe la rama. Si se acerca el frío, puedes cosechar los frutos pintones y madurarlos dentro de casa.",
+      "Consejos": "Los tres errores más frecuentes son regar sobre las hojas, plantar demasiado junto y no tutorar a tiempo. Los tres terminan en enfermedades del follaje.\n\nSi ves una mancha oscura y hundida en la base del fruto, no es un hongo: es pudrición apical por riego irregular o falta de calcio. Corrige el riego antes de aplicar cualquier tratamiento. No siembres tomate donde antes hubo papa, pimiento o berenjena: comparten plagas y enfermedades."
+    }
+  },
+  {
+    "slug": "papa",
+    "nombre_comun": "Papa",
+    "nombre_cientifico": "Solanum tuberosum",
+    "familia": "Solanaceae",
+    "imagen_url": "",
+    "resumen": "Tubérculo que se puede cultivar en sacos o macetas altas; requiere aporque y un buen manejo del riego para evitar tizones.",
+    "dificultad": "Media",
+    "luz_recomendada": "6 horas o más de sol directo",
+    "riego_base_dias": 4,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "Usa un saco de cultivo, balde o maceta de al menos 40 litros y 40 cm de alto, con muchos agujeros de drenaje. La papa se pudre con facilidad si el agua se estanca.\n\nEl sustrato debe ser suelto y aireado: tierra, compost y fibra de coco o arena en partes similares. Llena solo un tercio del recipiente al inicio, porque irás agregando sustrato conforme la planta crece.",
+      "Siembra": "Siembra papa semilla certificada o tubérculos con brotes de 1 a 2 cm. Si el tubérculo es grande, córtalo en trozos con al menos dos brotes cada uno y deja cicatrizar los cortes dos días a la sombra antes de sembrar.\n\nColoca los trozos con los brotes hacia arriba a 10 cm de profundidad, separados 30 cm. Emergen entre los 15 y 20 días. En Lima la mejor época es de abril a agosto.",
+      "Cuidados": "Riega cada 3 o 4 días manteniendo el sustrato húmedo pero nunca encharcado, y siempre en la base. El exceso de humedad con follaje mojado es la condición exacta que dispara el tizón tardío.\n\nEl aporque es clave: cuando la planta alcance 20 cm, agrega sustrato hasta cubrir la mitad del tallo, y repite dos o tres veces. Esto genera más tubérculos y evita que se pongan verdes por exposición a la luz. Abona con compost al momento de cada aporque.",
+      "Cosecha": "La cosecha se da entre los 90 y 120 días. La señal es clara: el follaje amarillea y se seca por completo. Deja de regar dos semanas antes para que la piel del tubérculo endurezca.\n\nVuelca el saco o excava con cuidado usando las manos para no herir los tubérculos. Deja secar la papa a la sombra unas horas y guárdala en un lugar oscuro, seco y ventilado. Nunca al sol: se pone verde y se vuelve tóxica.",
+      "Consejos": "No uses papas de mercado como semilla: suelen venir tratadas contra el brotado y arrastran enfermedades.\n\nSi el follaje muestra manchas acuosas que avanzan en pocos días, actúa de inmediato: el tizón tardío puede acabar con el cultivo en menos de una semana. Rota el cultivo y no siembres papa donde antes hubo tomate."
+    }
+  },
+  {
+    "slug": "pimiento",
+    "nombre_comun": "Pimiento",
+    "nombre_cientifico": "Capsicum annuum",
+    "familia": "Solanaceae",
+    "imagen_url": "",
+    "resumen": "Planta de fruto que rinde bien en maceta y tolera el calor, pero es lenta para germinar y sensible al exceso de agua.",
+    "dificultad": "Media",
+    "luz_recomendada": "6 a 8 horas de sol directo",
+    "riego_base_dias": 3,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "Una maceta de 15 a 20 litros y 30 cm de profundidad basta por planta. Asegura el drenaje con agujeros amplios y una capa de grava al fondo.\n\nPrepara un sustrato fértil y bien aireado con tierra, compost maduro y fibra de coco o arena gruesa. El pimiento sufre mucho con el sustrato compactado.",
+      "Siembra": "Siembra en almácigo a 0.5 cm de profundidad de setiembre a diciembre. Ten paciencia: la germinación tarda entre 10 y 20 días y necesita calor, así que ubica el almácigo en el punto más abrigado.\n\nTrasplanta cuando la plántula tenga 10 cm y 4 a 6 hojas verdaderas, dejando 40 cm entre plantas. A diferencia del tomate, no entierres el tallo: plántalo al mismo nivel que estaba en el almácigo.",
+      "Cuidados": "Riega cada 2 o 3 días en calor y cada 5 a 7 en clima fresco, siempre en la base. El pimiento tolera peor el exceso que la falta de agua.\n\nCuando la planta alcance unos 20 cm suele aparecer la primera flor en la bifurcación del tallo; retirarla favorece que la planta se ramifique más antes de producir. Abona cada 15 días desde la floración, priorizando potasio. Coloca un tutor ligero, porque las ramas cargadas de frutos se quiebran con facilidad.",
+      "Cosecha": "Los frutos están listos entre los 70 y 90 días del trasplante. Puedes cosecharlos verdes o esperar a que tomen color rojo o amarillo, que es cuando concentran más sabor y vitamina C.\n\nCorta siempre con tijera dejando un trozo de pedúnculo; jalar el fruto arranca ramas enteras. Cosechar seguido estimula que la planta siga produciendo.",
+      "Consejos": "El error más común es regar de más: si las hojas bajas amarillean y el sustrato está siempre húmedo, espacia el riego antes de asumir que es una enfermedad.\n\nSi las flores se caen sin cuajar, suele ser por calor extremo, falta de sol o riego irregular. No siembres pimiento donde antes hubo tomate, papa o berenjena."
+    }
+  },
+  {
+    "slug": "berenjena",
+    "nombre_comun": "Berenjena",
+    "nombre_cientifico": "Solanum melongena",
+    "familia": "Solanaceae",
+    "imagen_url": "",
+    "resumen": "Cultivo de clima cálido que necesita maceta amplia y sol abundante; muy productivo cuando encuentra calor sostenido.",
+    "dificultad": "Media",
+    "luz_recomendada": "6 a 8 horas de sol directo",
+    "riego_base_dias": 3,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "La berenjena es una planta grande: usa una maceta de al menos 25 litros y 40 cm de profundidad por planta, con muy buen drenaje.\n\nPrepara un sustrato rico en materia orgánica mezclando tierra, compost maduro y fibra de coco. Instala el tutor desde el inicio, porque la planta llega a superar el metro de altura.",
+      "Siembra": "Siembra en almácigo a 1 cm de profundidad entre setiembre y diciembre. Germina en 10 a 15 días y, al igual que el pimiento, necesita calor para arrancar.\n\nTrasplanta con 5 o 6 hojas verdaderas, hacia los 40 o 50 días, dejando 50 a 60 cm entre plantas. Necesita más espacio del que la mayoría le da.",
+      "Cuidados": "Riega cada 3 días en verano y cada 6 a 8 en invierno, manteniendo el sustrato húmedo sin encharcar y regando siempre en la base.\n\nAta el tallo al tutor conforme crece y retira las hojas bajas que rocen el sustrato para prevenir la mancha de Cercospora. Abona cada 15 días desde la floración. Revisa el envés de las hojas una vez por semana: la araña roja aparece rápido en ambiente caluroso y seco.",
+      "Cosecha": "Los frutos se cosechan entre los 100 y 120 días del trasplante. El punto óptimo es cuando la piel está brillante y tensa, y el fruto cede levemente a la presión.\n\nSi la piel pierde brillo y se ve opaca, el fruto se pasó: las semillas endurecen y amarga. Corta con tijera dejando el cáliz y un trozo de pedúnculo. Cosechar seguido prolonga la producción.",
+      "Consejos": "El error más frecuente es cosechar tarde esperando que el fruto crezca más; la berenjena se disfruta más joven que grande.\n\nSi la planta crece frondosa pero no cuaja frutos, suele haber exceso de nitrógeno o falta de sol. No la siembres donde antes hubo tomate, papa o pimiento."
+    }
+  },
+  {
+    "slug": "repollo",
+    "nombre_comun": "Repollo",
+    "nombre_cientifico": "Brassica oleracea var. capitata",
+    "familia": "Brassicaceae",
+    "imagen_url": "",
+    "resumen": "Brásica de clima fresco que forma cabeza compacta; muy adecuada para el invierno limeño, pero sensible a plagas y hongos foliares.",
+    "dificultad": "Media",
+    "luz_recomendada": "6 horas de sol directo o sol de media mañana",
+    "riego_base_dias": 3,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "Necesita una maceta de 20 litros y al menos 30 cm de profundidad por planta, con buen drenaje.\n\nEl sustrato debe ser fértil y con buena retención de humedad: tierra, compost maduro y fibra de coco. El repollo agradece un pH cercano al neutro; si tu suelo es ácido, incorpora un poco de cal agrícola antes de sembrar, lo que además previene la hernia de la col.",
+      "Siembra": "La mejor época en Lima es de marzo a agosto, porque el repollo forma cabeza con temperaturas frescas. Siembra en almácigo a 1 cm de profundidad; germina en 5 a 8 días.\n\nTrasplanta a los 25 o 30 días, con 4 a 5 hojas verdaderas, dejando 40 a 50 cm entre plantas. Apretarlas es el origen de casi todos los problemas de hongos.",
+      "Cuidados": "Riega cada 3 días manteniendo el sustrato húmedo de forma constante, siempre en la base. La falta de agua durante la formación de la cabeza hace que se raje.\n\nAbona con compost cada 3 semanas y revisa el envés de las hojas dos veces por semana: los pulgones y las larvas de mariposa blanca son la plaga principal. Retira las hojas externas dañadas para mejorar la ventilación y no riegues al atardecer, porque el follaje pasa la noche mojado.",
+      "Cosecha": "La cosecha llega entre los 80 y 110 días del trasplante. El punto exacto se reconoce presionando la cabeza con la palma: debe sentirse firme y compacta.\n\nCorta el tallo a ras del sustrato con un cuchillo limpio, dejando dos o tres hojas externas de protección. Si dejas el tocón en la maceta, a veces rebrotan cabezas pequeñas aprovechables.",
+      "Consejos": "No siembres repollo, brócoli o coliflor en el mismo sustrato dos ciclos seguidos: la hernia de la col permanece años en la tierra y no tiene cura.\n\nSi la cabeza se raja, casi siempre es por un riego abundante después de varios días de sequía, o por cosechar tarde. Mantén el riego parejo y cosecha a tiempo."
+    }
+  },
+  {
+    "slug": "maiz",
+    "nombre_comun": "Maíz",
+    "nombre_cientifico": "Zea mays",
+    "familia": "Poaceae",
+    "imagen_url": "",
+    "resumen": "Cereal que necesita mucho sol y espacio; en huerto urbano se siembra en bloque, nunca en fila única, porque se poliniza con el viento.",
+    "dificultad": "Media",
+    "luz_recomendada": "8 horas o más de sol directo",
+    "riego_base_dias": 3,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "El maíz no se lleva bien con las macetas pequeñas: calcula 20 litros y 40 cm de profundidad por planta, o mejor un cajón o cantero corrido.\n\nPrepara un sustrato profundo y rico en materia orgánica. El maíz es muy exigente en nitrógeno, así que incorpora bastante compost maduro o estiércol bien descompuesto antes de sembrar.",
+      "Siembra": "Siembra directo, sin almácigo, porque el maíz no tolera bien el trasplante. Coloca las semillas a 3 cm de profundidad de setiembre a diciembre. Emergen en 6 a 10 días.\n\nLo más importante: siembra en bloque de varias filas juntas, no en una sola línea. El polen cae por el viento desde la panoja hacia los pelos de la mazorca, y en fila única muchas mazorcas salen con granos faltantes. Deja 25 a 30 cm entre plantas y 60 cm entre filas.",
+      "Cuidados": "Riega cada 2 o 3 días, y con más frecuencia durante la floración y el llenado del grano, que es la etapa más sensible a la falta de agua. Riega en la base para no dejar el follaje mojado.\n\nAporca la base del tallo cuando la planta alcance 40 cm: le da anclaje contra el viento y estimula raíces de sostén. Abona con nitrógeno a los 30 días y otra vez al aparecer la panoja. Retira los hijuelos solo si compiten mucho; en general pueden dejarse.",
+      "Cosecha": "El choclo tierno se cosecha entre los 90 y 120 días, unos 20 días después de que salen los pelos de la mazorca. La señal: los pelos se secan y oscurecen, y al pinchar un grano sale un líquido lechoso.\n\nSi el líquido sale transparente, falta tiempo; si el grano está pastoso y duro, se pasó. Jala la mazorca hacia abajo girando para desprenderla del tallo.",
+      "Consejos": "El error clásico del huerto urbano es sembrar una sola fila contra la pared: se ve ordenado pero la polinización falla y las mazorcas salen incompletas.\n\nSi las hojas bajas muestran lesiones alargadas o pústulas color canela, retira el rastrojo al terminar el ciclo y no siembres maíz seguido en el mismo lugar."
+    }
+  },
+  {
+    "slug": "citricos",
+    "nombre_comun": "Cítricos",
+    "nombre_cientifico": "Citrus spp.",
+    "familia": "Rutaceae",
+    "imagen_url": "",
+    "resumen": "Grupo de árboles frutales perennes (limón, naranja, mandarina) que se pueden mantener en maceta grande, con manejo de riego, poda y vigilancia constante de plagas.",
+    "dificultad": "Dificil",
+    "luz_recomendada": "6 a 8 horas de sol directo",
+    "riego_base_dias": 5,
+    "diagnosticable": true,
+    "secciones": {
+      "Preparacion": "Un cítrico en maceta necesita al menos 50 litros de volumen y 50 cm de profundidad, y con los años agradecerá un trasplante a un recipiente mayor.\n\nEl drenaje es lo más crítico de todo: los cítricos mueren por raíces encharcadas más que por cualquier otra causa. Usa un sustrato muy aireado con tierra, compost, fibra de coco y arena gruesa o perlita, y coloca una capa de grava al fondo. Ubica la maceta en su sitio definitivo antes de llenarla, porque después pesará demasiado.",
+      "Siembra": "No se recomienda partir de semilla: tarda entre 5 y 10 años en dar fruto y no conserva las características de la planta madre. Compra un plantón injertado y certificado de un vivero formal.\n\nPlanta de setiembre a noviembre. Al colocarlo, cuida que el punto de injerto quede por encima del nivel del sustrato; si lo entierras, la planta puede pudrirse en la unión. Riega abundantemente el primer día y protege del sol fuerte las primeras dos semanas.",
+      "Cuidados": "Riega de forma profunda pero espaciada: es preferible un riego abundante cada 5 días que un poco de agua todos los días. Comprueba con el dedo que los primeros 3 cm estén secos antes de volver a regar.\n\nAbona con un fertilizante para cítricos o compost cada 6 a 8 semanas durante primavera y verano. Poda solo para airear la copa y retirar ramas secas, cruzadas o chupones que salen debajo del injerto. Revisa los brotes nuevos cada semana: el psílido, la mosca blanca y el minador atacan justo ahí, y el psílido transmite el HLB, que no tiene cura.",
+      "Cosecha": "Un plantón injertado empieza a producir entre el segundo y el tercer año. El limón puede dar fruto casi todo el año; naranja y mandarina concentran su cosecha en invierno.\n\nLos cítricos no maduran después de cortados, así que cosecha solo cuando el color esté completo y el fruto se sienta pesado para su tamaño. Corta con tijera dejando un trozo de pedúnculo en lugar de jalar, porque el desgarro es puerta de entrada para el cancro cítrico.",
+      "Consejos": "El error más común es regar poco y muy seguido: la raíz se queda en la superficie y la planta se debilita. Riega profundo y espacia.\n\nSi las hojas amarillean entre las nervaduras pero las nervaduras siguen verdes, suele ser falta de hierro, frecuente en suelos calcáreos. Si el amarilleo es moteado y asimétrico, sospecha de HLB y consulta antes de tratar. Nunca traigas plantones de zonas con cuarentena fitosanitaria."
+    }
+  }
+]

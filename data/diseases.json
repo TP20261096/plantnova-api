@@ -1,0 +1,1103 @@
+[
+  {
+    "clase_raw": "Bell_pepper_Bell_pepper_Bacterial_spot",
+    "species_slug": "pimiento",
+    "nombre_enfermedad": "Mancha bacteriana",
+    "nombre_cientifico": "Xanthomonas spp.",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Bacteriosis del pimiento que se dispersa con las salpicaduras de agua y penetra por heridas o estomas; en clima templado y húmedo puede defoliar la planta.",
+    "sintomas": "Manchas pequeñas de aspecto acuoso que se vuelven marrones y angulosas, con halo amarillo; en fruto aparecen costras rugosas.",
+    "causas": "Agua sobre el follaje, semilla o plantín contaminado y restos de cultivos anteriores en el suelo.",
+    "prevencion": "Usar semilla sana, regar en la base, no manipular las plantas mojadas y rotar el cultivo al menos dos años.",
+    "riego_frecuencia_dias": 2,
+    "riego_nota": "Riego cada 2-3 días en climas cálidos. Evitar mojar el follaje; usar riego en la base. En clima más frío, puede ser cada 5-7 días.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, nunca mojando las hojas. Rotar cultivo: no sembrar pimiento en el mismo suelo por al menos 2 años.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días. Si la enfermedad persiste tras 2 semanas, pasar a caldo bordelés."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días. Usar si el tratamiento casero no funciona tras 2 semanas."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Bell_pepper_Bell_pepper_Healthy",
+    "species_slug": "pimiento",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener la rutina de riego y revisar el envés de las hojas una vez por semana.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días en climas cálidos. En clima más frío, cada 5-7 días. Mantener sustrato húmedo pero sin encharcar.",
+    "otros_cuidados": "Aplicar compost o abono orgánico cada 3-4 semanas. Revisar el envés de las hojas una vez por semana.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Brinjal_Diseased_Brinjal_Leaf_-_Cercospora_Leaf_Spot",
+    "species_slug": "berenjena",
+    "nombre_enfermedad": "Mancha de Cercospora",
+    "nombre_cientifico": "Cercospora solani-melongenae",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo foliar que avanza de las hojas bajas hacia arriba y reduce la superficie fotosintética de la berenjena.",
+    "sintomas": "Manchas circulares de centro grisáceo y borde oscuro; con el avance las hojas amarillean y caen.",
+    "causas": "Humedad prolongada sobre la hoja, follaje denso sin ventilación y restos vegetales infectados.",
+    "prevencion": "Espaciar las plantas, regar temprano y en la base, y retirar las hojas bajas en contacto con el suelo.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "En verano, regar cada 3-4 días; en invierno, cada 7-12 días. Mantener la tierra húmeda pero no encharcada.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Dejar espacio entre plantas para ventilación. Rotar el cultivo.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días. Si no mejora en 2 semanas, pasar a caldo bordelés."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si el tratamiento casero no es suficiente."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Brinjal_Fresh_Brinjal_Leaf",
+    "species_slug": "berenjena",
+    "nombre_enfermedad": "Hoja sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "Follaje de berenjena sin síntomas de enfermedad ni presencia de plagas.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener el riego regular y revisar semanalmente el envés de las hojas.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "En verano, regar cada 3-4 días; en invierno, cada 7-12 días. Mantener la tierra húmeda pero no encharcada.",
+    "otros_cuidados": "Fertilizar con compost o humus de lombriz cada mes. Inspeccionar el envés de las hojas buscando insectos.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Cabbage_Alternaria_Leaf_Spot",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Mancha de Alternaria",
+    "nombre_cientifico": "Alternaria brassicicola",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo que ataca hojas y cabezas del repollo, especialmente en épocas de rocío abundante.",
+    "sintomas": "Manchas redondas con anillos concéntricos de color oscuro, a veces con centro que se desprende.",
+    "causas": "Follaje mojado por varias horas, semilla contaminada y restos de brásicas del ciclo anterior.",
+    "prevencion": "Rotar con cultivos que no sean brásicas, regar en la base y eliminar los restos de cosecha.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. En climas calurosos, regar día por medio. Evitar encharcar.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo cada temporada.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días. Si persiste tras 2 semanas, usar caldo bordelés."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Cabbage_Bacterial_spot_rot",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Mancha bacteriana / pudrición",
+    "nombre_cientifico": "Pseudomonas syringae pv. maculicola",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Bacteriosis que produce manchas foliares y, en condiciones húmedas, pudriciones blandas en la cabeza.",
+    "sintomas": "Manchas oscuras de aspecto empapado que se unen entre sí y tejido blando con mal olor en la cabeza.",
+    "causas": "Exceso de humedad, heridas por manipulación y agua de riego sobre el follaje.",
+    "prevencion": "Regar al sustrato, evitar heridas al cosechar, desinfectar herramientas y no trabajar con las plantas mojadas.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión. Mejorar el drenaje.",
+    "otros_cuidados": "Retirar plantas muy afectadas para frenar el contagio. Mejorar el drenaje y evitar encharcamientos. Desinfectar tijeras y herramientas.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días de forma preventiva o ante los primeros síntomas."
+      },
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
+      },
+      {
+        "receta_slug": "leche_herramientas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Cabbage_Black_Rot",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Podredumbre negra",
+    "nombre_cientifico": "Xanthomonas campestris pv. campestris",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Enfermedad bacteriana sistémica que entra por los bordes de la hoja y coloniza los vasos conductores.",
+    "sintomas": "Lesiones amarillas en forma de V desde el borde de la hoja, con nervaduras que se oscurecen.",
+    "causas": "Semilla infectada, salpicaduras de riego y restos de brásicas en el suelo.",
+    "prevencion": "Usar semilla certificada, rotar al menos dos años, regar en la base y retirar las plantas enfermas completas.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión. Mejorar el drenaje.",
+    "otros_cuidados": "Retirar plantas muy afectadas. Usar semilla certificada o tratar semilla con agua caliente. Rotar cultivo por 2-3 años.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días de forma preventiva."
+      },
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
+      },
+      {
+        "receta_slug": "leche_herramientas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Cabbage_Cabbage_aphid_colony",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Colonia de pulgón (áfido)",
+    "nombre_cientifico": "Brevicoryne brassicae",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Plaga de insectos chupadores que forma colonias en el envés de las hojas y en los brotes tiernos.",
+    "sintomas": "Grupos de insectos grisáceos cubiertos de polvo ceroso, hojas deformadas y melaza pegajosa con fumagina.",
+    "causas": "Exceso de nitrógeno, brotes tiernos abundantes y ausencia de enemigos naturales.",
+    "prevencion": "Revisar el envés semanalmente, moderar la fertilización nitrogenada y favorecer la presencia de mariquitas.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar encharcar.",
+    "otros_cuidados": "Lavar las hojas con agua para tumbar insectos. Atraer insectos benéficos (mariquitas) sembrando flores cerca.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "jabon_potasico",
+        "frecuencia_dias": 3,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 2-3 días hasta que desaparezca la plaga."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "trampas_amarillas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Colocar trampas amarillas cerca de las plantas afectadas. Cambiar o limpiar cuando se llenen."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Cabbage_club_root",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Hernia de la col (Club root)",
+    "nombre_cientifico": "Plasmodiophora brassicae",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Patógeno de suelo que deforma las raíces e impide que la planta absorba agua y nutrientes; persiste muchos años en el terreno.",
+    "sintomas": "Marchitez en las horas de calor pese al riego, crecimiento detenido y raíces engrosadas con forma de nudos.",
+    "causas": "Suelos ácidos, mal drenados y con historial de brásicas; se disemina con tierra, calzado y herramientas.",
+    "prevencion": "Subir el pH con cal agrícola, mejorar el drenaje, no reutilizar el sustrato y evitar sembrar brásicas por varios años.",
+    "riego_frecuencia_dias": 5,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. Mejorar el drenaje para evitar encharcamientos.",
+    "otros_cuidados": "No sembrar coles en ese suelo por varios años. Si es maceta, cambiar toda la tierra.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Cabbage_Downy_Mildew",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Mildiu velloso",
+    "nombre_cientifico": "Hyaloperonospora parasitica",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Oomiceto favorecido por noches frescas y humedad alta, condiciones habituales del invierno limeño.",
+    "sintomas": "Manchas amarillas de bordes angulosos en el haz y polvillo grisáceo en el envés.",
+    "causas": "Alta humedad relativa, rocío persistente y follaje sin ventilación.",
+    "prevencion": "Separar las plantas, regar temprano en la base y retirar las hojas afectadas.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión. Regar en la base.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Dejar espacio entre plantas para ventilación.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Cabbage_Healthy",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener la rutina de riego y revisar el envés de las hojas una vez por semana.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. En climas calurosos, regar día por medio. Mantener la tierra húmeda pero sin encharcar.",
+    "otros_cuidados": "Fertilizar con compost cada 3-4 semanas. Revisar el envés de las hojas semanalmente.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Cabbage_ring_spot",
+    "species_slug": "repollo",
+    "nombre_enfermedad": "Mancha anular (Ring spot)",
+    "nombre_cientifico": "Mycosphaerella brassicicola",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo foliar de clima fresco y húmedo que afecta hojas externas y reduce la calidad comercial.",
+    "sintomas": "Manchas circulares grises con anillos concéntricos y puntos negros diminutos en el centro.",
+    "causas": "Temperaturas frescas con humedad sostenida y restos de brásicas infectados.",
+    "prevencion": "Rotar el cultivo, eliminar restos vegetales y evitar el riego por aspersión al atardecer.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo cada año.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Citrus_Citrus_Black_spot",
+    "species_slug": "citricos",
+    "nombre_enfermedad": "Mancha negra de los cítricos",
+    "nombre_cientifico": "Phyllosticta citricarpa",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo que afecta principalmente el fruto y deprecia la cosecha; las infecciones ocurren en fruto joven.",
+    "sintomas": "Manchas negras hundidas con borde rojizo en la cáscara y puntos oscuros en las hojas.",
+    "causas": "Lluvia o riego por aspersión durante el cuajado y hojarasca infectada bajo el árbol.",
+    "prevencion": "Recoger la hojarasca y los frutos caídos, podar para airear la copa y regar por goteo.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "En verano, regar 2-3 veces por semana. En invierno, menos frecuente. Evitar encharcamientos.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Mantener limpio el suelo bajo el árbol, sin hojarasca.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Citrus_Citrus_canker",
+    "species_slug": "citricos",
+    "nombre_enfermedad": "Cancro cítrico",
+    "nombre_cientifico": "Xanthomonas citri subsp. citri",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Bacteriosis muy contagiosa que se dispersa con el viento con lluvia y por herramientas contaminadas.",
+    "sintomas": "Lesiones corchosas y elevadas en hoja, ramas y fruto, rodeadas de un halo amarillo.",
+    "causas": "Heridas por espinas o minador de los cítricos, salpicaduras de agua y material vegetal infectado.",
+    "prevencion": "Desinfectar las herramientas de poda, controlar el minador, evitar mojar el follaje y no traer plantones de zonas afectadas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "En verano, regar 2-3 veces por semana. En invierno, menos frecuente. Evitar encharcamientos.",
+    "otros_cuidados": "Retirar hojas o plantas muy afectadas. Usar plantas certificadas libres de la enfermedad. Consultar a la autoridad agrícola local (puede ser de reporte obligatorio).",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días de forma preventiva."
+      },
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
+      },
+      {
+        "receta_slug": "leche_herramientas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Citrus_Citrus_greening",
+    "species_slug": "citricos",
+    "nombre_enfermedad": "HLB / Enverdecimiento de los cítricos",
+    "nombre_cientifico": "Candidatus Liberibacter asiaticus",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Enfermedad bacteriana transmitida por el psílido asiático; no tiene cura y termina matando al árbol.",
+    "sintomas": "Moteado amarillo asimétrico en las hojas, brotes amarillentos y frutos pequeños, deformes y amargos.",
+    "causas": "Picadura del psílido Diaphorina citri y plantones infectados.",
+    "prevencion": "Controlar el psílido, comprar plantones certificados y eliminar de inmediato los árboles confirmados.",
+    "riego_frecuencia_dias": 1,
+    "riego_nota": "Riego frecuente es clave. Se recomienda riego diario, incluso 3 veces al día en intervalos cortos. Mantener humedad constante.",
+    "otros_cuidados": "Si la planta muestra síntomas avanzados, retirarla del huerto (no tiene cura). Cubrir plantas jóvenes con malla antiáfidos. Consultar con SENASA o autoridad agrícola.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "jabon_potasico",
+        "frecuencia_dias": 5,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días sobre brotes nuevos para controlar el insecto vector (psílido)."
+      },
+      {
+        "receta_slug": "trampas_amarillas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Colocar trampas amarillas para atrapar al insecto vector."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Citrus_Citrus_Healthy",
+    "species_slug": "citricos",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener el riego regular y revisar los brotes nuevos en busca de psílidos.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "En verano, regar 2-3 veces por semana. En invierno, menos frecuente. Evitar encharcamientos.",
+    "otros_cuidados": "Fertilizar con compost o abono orgánico según la época. Revisar brotes nuevos buscando insectos.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Corn_Corn_Common_rust",
+    "species_slug": "maiz",
+    "nombre_enfermedad": "Roya común",
+    "nombre_cientifico": "Puccinia sorghi",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo foliar cuyas esporas viajan con el viento; prospera con temperaturas moderadas y humedad alta.",
+    "sintomas": "Pústulas alargadas de color canela a marrón en ambas caras de la hoja, que sueltan polvo al frotarlas.",
+    "causas": "Humedad prolongada sobre la hoja, siembra densa y variedades susceptibles.",
+    "prevencion": "Sembrar con distanciamiento adecuado, usar variedades resistentes y evitar el riego por aspersión.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riegos innecesarios. Realizar riegos de auxilio solo si hay sequía.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Usar variedades resistentes a roya.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Corn_Corn_Gray_leaf_spot",
+    "species_slug": "maiz",
+    "nombre_enfermedad": "Mancha gris de la hoja",
+    "nombre_cientifico": "Cercospora zeae-maydis",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo que sobrevive en los rastrojos y avanza desde las hojas bajas; puede reducir mucho el rendimiento.",
+    "sintomas": "Lesiones rectangulares grises o bronceadas limitadas por las nervaduras de la hoja.",
+    "causas": "Rastrojo de maíz en superficie, alta humedad y siembra continua sin rotación.",
+    "prevencion": "Incorporar o retirar el rastrojo, rotar el cultivo y mejorar la ventilación entre plantas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riegos innecesarios.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Usar híbridos de maíz tolerantes a esta enfermedad.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Corn_Corn_Healthy",
+    "species_slug": "maiz",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener el riego regular y revisar el cogollo y las hojas bajas una vez por semana.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días.",
+    "otros_cuidados": "Aplicar compost o abono orgánico al momento de la siembra. Rotar el cultivo cada temporada.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Corn_Corn_Northern_Leaf_Blight",
+    "species_slug": "maiz",
+    "nombre_enfermedad": "Tizón foliar del norte",
+    "nombre_cientifico": "Exserohilum turcicum",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo foliar de clima fresco y húmedo que forma lesiones grandes y puede secar la hoja completa.",
+    "sintomas": "Lesiones alargadas en forma de cigarro, de color gris verdoso a marrón, que empiezan en las hojas bajas.",
+    "causas": "Rastrojo infectado, rocío prolongado y temperaturas moderadas.",
+    "prevencion": "Rotar el cultivo, eliminar el rastrojo y regar en la base para que la hoja no permanezca mojada.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riegos innecesarios.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. No sembrar maíz muy denso.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Lettuce_Bacterial",
+    "species_slug": "lechuga",
+    "nombre_enfermedad": "Mancha bacteriana",
+    "nombre_cientifico": "Xanthomonas campestris pv. vitians",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Bacteriosis de la lechuga que se propaga con el agua y arruina rápidamente las hojas externas.",
+    "sintomas": "Manchas angulosas de aspecto acuoso que se vuelven negras y se secan como papel.",
+    "causas": "Riego por aspersión, alta densidad de siembra y semilla contaminada.",
+    "prevencion": "Regar en la base y por la mañana, distanciar las plantas y usar semilla sana.",
+    "riego_frecuencia_dias": 1,
+    "riego_nota": "Riegos frecuentes y con poca cantidad de agua. En etapas iniciales, riego diario. Evitar mojar el follaje.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Usar semilla certificada.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Lettuce_fungal",
+    "species_slug": "lechuga",
+    "nombre_enfermedad": "Enfermedad fúngica (mildiu/mancha foliar)",
+    "nombre_cientifico": "Bremia lactucae",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Enfermedad fúngica u oomicética favorecida por el clima fresco y húmedo típico de Lima.",
+    "sintomas": "Manchas amarillas delimitadas por las nervaduras en el haz y vello blanquecino en el envés.",
+    "causas": "Humedad relativa alta, follaje mojado por la noche y poca circulación de aire.",
+    "prevencion": "Regar temprano y en la base, aumentar la separación entre plantas y retirar las hojas afectadas.",
+    "riego_frecuencia_dias": 1,
+    "riego_nota": "Riegos frecuentes y con poca cantidad de agua. En etapas iniciales, riego diario. Evitar mojar el follaje.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Dejar espacio entre plantas.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Lettuce_healthy",
+    "species_slug": "lechuga",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener el sustrato húmedo sin encharcar y revisar el envés de las hojas una vez por semana.",
+    "riego_frecuencia_dias": 1,
+    "riego_nota": "Riegos frecuentes y con poca cantidad de agua. En etapas iniciales, riego diario. Mantener humedad constante.",
+    "otros_cuidados": "Fertilizar con compost cada 2-3 semanas. Revisar el cultivo con frecuencia por su ciclo corto.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Potato_Potato_Early_blight",
+    "species_slug": "papa",
+    "nombre_enfermedad": "Tizón temprano",
+    "nombre_cientifico": "Alternaria solani",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo que ataca primero a las hojas más viejas y se agrava cuando la planta está mal nutrida.",
+    "sintomas": "Manchas marrones con anillos concéntricos y halo amarillo, que comienzan en las hojas bajas.",
+    "causas": "Ciclos de mojado y secado del follaje, estrés nutricional y restos de cultivo infectados.",
+    "prevencion": "Rotar el cultivo, abonar de forma equilibrada, regar en la base y retirar las hojas bajas afectadas.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riego cada 3-4 días. Evitar encharcamientos. Riego por goteo para limitar humedad en follaje.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Rotar el cultivo, no sembrar papa en el mismo suelo por 2-3 años.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Potato_Potato_Healthy",
+    "species_slug": "papa",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener el riego regular y aporcar para proteger los tubérculos.",
+    "riego_frecuencia_dias": 4,
+    "riego_nota": "Riego cada 3-4 días. Evitar encharcamientos.",
+    "otros_cuidados": "Aplicar compost antes de la siembra. Aporcar (cubrir con tierra la base del tallo).",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Potato_Potato_Late_blight",
+    "species_slug": "papa",
+    "nombre_enfermedad": "Tizón tardío",
+    "nombre_cientifico": "Phytophthora infestans",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Oomiceto que avanza muy rápido con humedad alta y temperaturas frescas; puede destruir el cultivo en pocos días.",
+    "sintomas": "Manchas acuosas marrón oscuro en hojas y tallos, con halo pálido y moho blanquecino en el envés.",
+    "causas": "Humedad relativa sostenida sobre 85 %, riego por aspersión y follaje sin ventilación.",
+    "prevencion": "Regar en la base, distanciar las plantas, aporcar bien y retirar de inmediato el follaje afectado.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 3-4 días. Evitar encharcamientos. Riego por goteo para limitar humedad en follaje.",
+    "otros_cuidados": "Actuar rápido: retirar plantas muy afectadas. Mejorar el drenaje. Usar variedades con tolerancia a tizón tardío.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días de forma preventiva."
+      },
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
+      },
+      {
+        "receta_slug": "leche_herramientas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Bacterial_spot",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Mancha bacteriana",
+    "nombre_cientifico": "Xanthomonas spp.",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Bacteriosis que se dispersa con salpicaduras de agua y penetra por heridas pequeñas del follaje.",
+    "sintomas": "Manchas pequeñas oscuras de aspecto grasiento con halo amarillo en hoja, y costras ásperas en fruto.",
+    "causas": "Riego sobre el follaje, semilla o plantín contaminado y manipulación de plantas mojadas.",
+    "prevencion": "Usar semilla sana, regar al sustrato, tutorar para separar el follaje del suelo y desinfectar herramientas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base. No trabajar plantas mojadas.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Usar semilla o plántula certificada.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Early_blight",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Tizón temprano",
+    "nombre_cientifico": "Alternaria solani",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo que comienza en las hojas inferiores y sube; se agrava con plantas estresadas o mal nutridas.",
+    "sintomas": "Manchas marrones con anillos concéntricos tipo diana y halo amarillo en las hojas bajas.",
+    "causas": "Follaje mojado con frecuencia, restos de cultivo infectados y baja fertilidad del sustrato.",
+    "prevencion": "Rotar el cultivo, acolchar el suelo, regar en la base y retirar las hojas bajas afectadas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Healthy",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Planta sana",
+    "nombre_cientifico": null,
+    "estado": "Sana",
+    "urgencia": "Baja",
+    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "sintomas": null,
+    "causas": null,
+    "prevencion": "Mantener la rutina de riego y revisar el envés de las hojas una vez por semana.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar mojar las hojas para prevenir hongos.",
+    "otros_cuidados": "Fertilizar con compost cada 3-4 semanas. Entutorar las plantas para mejorar ventilación.",
+    "insumos_no_caseros": [],
+    "tratamientos": []
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Late_blight",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Tizón tardío",
+    "nombre_cientifico": "Phytophthora infestans",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Oomiceto que avanza muy rápido en condiciones de alta humedad, típicas del invierno limeño.",
+    "sintomas": "Manchas acuosas de color marrón oscuro en hojas y tallos, con halo pálido y moho blanquecino en el envés.",
+    "causas": "Humedad relativa sostenida por encima del 85 %, riego por aspersión y follaje sin ventilación.",
+    "prevencion": "Regar en la base y nunca sobre las hojas, separar las plantas para que circule el aire y retirar de inmediato el follaje afectado.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
+    "otros_cuidados": "Actuar rápido: retirar plantas muy afectadas. Mejorar el drenaje. Dar espacio entre plantas para ventilación.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días de forma preventiva."
+      },
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
+      },
+      {
+        "receta_slug": "leche_herramientas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Leaf_Mold",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Moho de la hoja",
+    "nombre_cientifico": "Passalora fulva",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo típico de ambientes cerrados y húmedos, como invernaderos o patios con poca ventilación.",
+    "sintomas": "Manchas amarillas difusas en el haz y una capa aterciopelada verde oliva en el envés.",
+    "causas": "Humedad relativa muy alta, escasa ventilación y follaje demasiado denso.",
+    "prevencion": "Ventilar el espacio, podar hojas para abrir la planta y regar en la base por la mañana.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Mosaic_virus",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Virus del mosaico",
+    "nombre_cientifico": "Tomato mosaic virus (ToMV)",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Virus muy estable que se transmite por contacto: manos, herramientas y restos vegetales. No tiene cura.",
+    "sintomas": "Mosaico verde claro y oscuro en las hojas, follaje deformado o afilado y crecimiento desigual.",
+    "causas": "Manipulación de plantas sin higiene, semilla infectada y restos de cultivos contaminados.",
+    "prevencion": "Lavarse las manos y desinfectar herramientas antes de podar, no fumar cerca del cultivo y eliminar las plantas confirmadas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar mojar el follaje.",
+    "otros_cuidados": "No existe cura: retirar y sacar la planta enferma. Lavarse bien las manos antes de manipular las plantas. Usar semilla certificada libre de virus.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "leche_herramientas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Septoria_leaf_spot",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Mancha foliar de Septoria",
+    "nombre_cientifico": "Septoria lycopersici",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo foliar que provoca defoliación desde abajo y expone los frutos al sol.",
+    "sintomas": "Manchas pequeñas y numerosas de centro gris claro con borde oscuro y puntos negros en el centro.",
+    "causas": "Salpicaduras de agua desde el suelo, humedad alta y restos de cultivo infectados.",
+    "prevencion": "Acolchar la base, regar al sustrato, tutorar y retirar las hojas bajas afectadas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Spider_mites",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Ácaros (araña roja)",
+    "nombre_cientifico": "Tetranychus urticae",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Plaga de ácaros que prolifera con calor y ambiente seco, chupando la savia del envés de las hojas.",
+    "sintomas": "Punteado amarillo fino en el haz, telarañas muy delgadas en el envés y hojas que se secan y caen.",
+    "causas": "Ambiente caluroso y seco, plantas con estrés hídrico y polvo acumulado en el follaje.",
+    "prevencion": "Aumentar la humedad ambiental, mojar el envés con agua a presión suave y revisar semanalmente con lupa.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar estrés hídrico.",
+    "otros_cuidados": "Lavar las hojas con agua para tumbar ácaros. Revisar el envés de las hojas cada semana.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "jabon_potasico",
+        "frecuencia_dias": 3,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 2-3 días hasta que desaparezca la plaga."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "trampas_amarillas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Colocar trampas amarillas cerca de las plantas afectadas."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Target_Spot",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Mancha de diana (Target spot)",
+    "nombre_cientifico": "Corynespora cassiicola",
+    "estado": "Enferma",
+    "urgencia": "Media",
+    "descripcion": "Hongo foliar de clima cálido y húmedo que también puede afectar tallos y frutos.",
+    "sintomas": "Manchas marrones con anillos concéntricos y centro claro que puede perforarse.",
+    "causas": "Humedad alta sostenida, follaje denso y restos de cultivo infectados.",
+    "prevencion": "Podar para ventilar, regar en la base y eliminar los restos vegetales del cultivo anterior.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
+    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "bicarbonato",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días como refuerzo."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 10,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+      }
+    ]
+  },
+  {
+    "clase_raw": "Tomato_Tomato_Yellow_Leaf_Curl_Virus",
+    "species_slug": "tomate",
+    "nombre_enfermedad": "Virus del rizado amarillo (TYLCV)",
+    "nombre_cientifico": "Tomato yellow leaf curl virus (TYLCV)",
+    "estado": "Enferma",
+    "urgencia": "Alta",
+    "descripcion": "Virus transmitido por la mosca blanca; no tiene cura y el manejo se centra en controlar al insecto vector.",
+    "sintomas": "Hojas pequeñas, enrolladas hacia arriba y con bordes amarillos; la planta detiene su crecimiento.",
+    "causas": "Picadura de la mosca blanca Bemisia tabaci y plantines ya infectados.",
+    "prevencion": "Usar mallas o trampas amarillas, revisar el envés en busca de mosca blanca y eliminar las plantas confirmadas.",
+    "riego_frecuencia_dias": 3,
+    "riego_nota": "Riego cada 2-3 días. Evitar estrés hídrico.",
+    "otros_cuidados": "Si la planta muestra síntomas avanzados, retirarla del huerto (no tiene cura). Cubrir plantas jóvenes con malla antiáfidos. Usar variedades resistentes al virus.",
+    "insumos_no_caseros": [],
+    "tratamientos": [
+      {
+        "receta_slug": "jabon_potasico",
+        "frecuencia_dias": 5,
+        "num_aplicaciones": null,
+        "nota": "Aplicar cada 5-7 días sobre brotes nuevos para controlar el insecto vector (mosca blanca)."
+      },
+      {
+        "receta_slug": "trampas_amarillas",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Colocar trampas amarillas para atrapar al insecto vector."
+      }
+    ]
+  }
+]

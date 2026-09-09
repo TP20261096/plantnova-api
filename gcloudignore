@@ -1,0 +1,11 @@
+# IMPORTANTE: si este archivo no existe, gcloud usa .gitignore para
+# decidir qué subir. Como .gitignore excluye models/*.pt, el
+# checkpoint no llegaría a la imagen y la API fallaría al arrancar.
+.venv/
+__pycache__/
+*.pyc
+.env
+.git/
+data/
+supabase/
+scripts/
