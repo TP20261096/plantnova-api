@@ -25,8 +25,9 @@ def diagnosticar(
 ) -> DiagnosticoOut:
     
     contenido = imagen.file.read()
+    plant_id = plant_id.strip() if plant_id else None
     return service.diagnosticar(
-        usuario, contenido, imagen.content_type, plant_id
+        usuario, contenido, imagen.content_type, plant_id or None
     )
 
 
