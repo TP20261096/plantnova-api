@@ -117,11 +117,17 @@ def eliminar_cuenta(usuario: CurrentUser) -> None:
     cliente = service_client()
 
     try:
-        archivos = cliente.storage.from_("diagnoses").list(usuario.id)
-        rutas = [f"{usuario.id}/{a['name']}" for a in archivos]
+        bucket = cliente.storage.from_("diagnoses")
+        rutas = []
+        # list no es recursivo: hay que recorrer cada subcarpeta.
+        for carpeta in (usuario.id, f"{usuario.id}/plants"):
+            for archivo in bucket.list(carpeta):
+                rutas.append(f"{carpeta}/{archivo['name']}")
         if rutas:
-            cliente.storage.from_("diagnoses").remove(rutas)
-    except Exception: 
+            bucket.remove(rutas)
+    except Exception:  # noqa: BLE001
+        # Un fallo al limpiar imágenes no debe impedir que el usuario
+        # elimine su cuenta.
         pass
 
     try:

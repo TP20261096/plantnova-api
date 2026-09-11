@@ -2,10 +2,11 @@ import uuid
 
 from fastapi import HTTPException, status
 
+from app.core.images import validar_imagen
 from app.core.security import CurrentUser
 from app.core.supabase import user_client
 from app.modules.diagnoses import repository as repo
-from app.modules.diagnoses import storage
+from app.core import storage
 from app.modules.diagnoses.inference import (
     UMBRAL_CONFIANZA,
     Inferencia,
@@ -20,32 +21,10 @@ from app.modules.activities.service import generar_plan_tratamiento
 from app.modules.plants import repository as plants_repo
 from app.modules.plants.service import recalcular_estado, recalcular_riego
 
-TIPOS_PERMITIDOS = {"image/jpeg", "image/png", "image/webp"}
-TAMANO_MAXIMO = 10 * 1024 * 1024
-
 _NO_ENCONTRADO = HTTPException(
     status_code=status.HTTP_404_NOT_FOUND,
     detail="El diagnóstico no existe",
 )
-
-
-def validar_archivo(content_type: str | None, contenido: bytes) -> None:
-    
-    if not contenido:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="El archivo está vacío",
-        )
-    if content_type not in TIPOS_PERMITIDOS:
-        raise HTTPException(
-            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-            detail="Formato no admitido. Usa JPEG, PNG o WEBP",
-        )
-    if len(contenido) > TAMANO_MAXIMO:
-        raise HTTPException(
-            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
-            detail="La imagen supera los 10 MB",
-        )
 
 
 def _guardar_imagenes(
@@ -116,7 +95,7 @@ def diagnosticar(
     plant_id: str | None = None,
 ) -> DiagnosticoOut:
     
-    validar_archivo(content_type, contenido)
+    validar_imagen(content_type, contenido)
     cliente = user_client(usuario.token)
 
     planta = None

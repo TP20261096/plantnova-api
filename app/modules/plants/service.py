@@ -4,9 +4,10 @@ from fastapi import HTTPException, status
 from supabase import Client
 
 from app.core.clima import obtener_clima
+from app.core.images import a_jpeg, validar_imagen
 from app.core.security import CurrentUser
 from app.core.supabase import user_client
-from app.modules.diagnoses.storage import firmar_varias
+from app.core.storage import firmar, firmar_varias, subir
 from app.modules.plants import repository as repo
 from app.modules.plants.riego import calcular_frecuencia
 from app.modules.plants.schemas import (
@@ -61,7 +62,7 @@ def _a_resumen(planta: dict) -> PlantaResumen:
         ubicacion=planta["ubicacion"],
         etapa=planta["etapa"],
         estado=planta["estado"],
-        foto_url=planta.get("foto_url"),
+        foto_url=firmar(planta.get("foto_url")),
         riego_frecuencia_dias=planta.get("riego_frecuencia_dias"),
         ultimo_riego=planta.get("ultimo_riego"),
         proximo_riego=proximo,
@@ -216,3 +217,23 @@ def eliminar_planta(usuario: CurrentUser, planta_id: str) -> None:
     if repo.obtener(cliente, planta_id) is None:
         raise _NO_ENCONTRADA
     repo.eliminar(cliente, planta_id)
+
+
+def subir_foto(
+    usuario: CurrentUser,
+    planta_id: str,
+    contenido: bytes,
+    content_type: str | None,
+) -> PlantaDetalle:
+    
+    cliente = user_client(usuario.token)
+    if repo.obtener(cliente, planta_id) is None:
+        raise _NO_ENCONTRADA
+
+    validar_imagen(content_type, contenido)
+    ruta = subir(
+        f"{usuario.id}/plants/{planta_id}.jpg", a_jpeg(contenido)
+    )
+    repo.actualizar(cliente, planta_id, {"foto_url": ruta})
+
+    return obtener_planta(usuario, planta_id)

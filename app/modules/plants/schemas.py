@@ -1,5 +1,3 @@
-"""Contratos de entrada y salida del módulo Jardín."""
-
 from datetime import date, datetime
 from typing import Literal
 
@@ -15,39 +13,25 @@ EstadoPlanta = Literal["Sin_diagnostico", "Sana", "En_tratamiento"]
 
 
 class PlantaCreate(BaseModel):
-    """Datos para registrar una planta.
-
-    species_id es opcional a propósito: si el usuario cultiva una
-    especie que no está en el catálogo debe poder registrarla igual.
-    En ese caso el riego parte de un valor por defecto hasta que
-    exista un diagnóstico.
-    """
 
     apodo: str = Field(min_length=1, max_length=60)
     ubicacion: Ubicacion
     etapa: Etapa = "Crecimiento"
     species_id: str | None = None
     fecha_siembra: date | None = None
-    foto_url: str | None = None
 
 
 class PlantaUpdate(BaseModel):
-    """Campos editables de una planta.
-
-    No incluye estado ni riego_frecuencia_dias: ambos los deriva el
-    backend y el cliente no debe poder sobrescribirlos.
-    """
 
     apodo: str | None = Field(default=None, min_length=1, max_length=60)
     ubicacion: Ubicacion | None = None
     etapa: Etapa | None = None
     species_id: str | None = None
     fecha_siembra: date | None = None
-    foto_url: str | None = None
 
 
 class PlantaResumen(BaseModel):
-    """Tarjeta de planta para el listado del jardín."""
+    #Tarjeta de planta para el listado del jardín.
 
     id: str
     apodo: str
@@ -63,7 +47,7 @@ class PlantaResumen(BaseModel):
 
 
 class DiagnosticoResumen(BaseModel):
-    """Entrada del historial de diagnósticos de una planta."""
+    #Entrada del historial de diagnósticos de una planta.
 
     id: str
     nombre_enfermedad: str | None
@@ -74,7 +58,7 @@ class DiagnosticoResumen(BaseModel):
 
 
 class PlantaDetalle(PlantaResumen):
-    """Vista completa de una planta con su historial."""
+    #Vista completa de una planta con su historial.
 
     species_id: str | None
     fecha_siembra: date | None

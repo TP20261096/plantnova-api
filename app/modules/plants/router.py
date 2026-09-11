@@ -1,6 +1,4 @@
-"""Endpoints del módulo Jardín."""
-
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, File, UploadFile, status
 
 from app.core.security import CurrentUser, get_current_user
 from app.modules.plants import service
@@ -65,6 +63,24 @@ def actualizar(
 ) -> PlantaResumen:
     """Modifica apodo, ubicación, etapa, especie o fecha de siembra."""
     return service.actualizar_planta(usuario, planta_id, cambios)
+
+
+@router.post(
+    "/{planta_id}/photo",
+    response_model=PlantaDetalle,
+    summary="Sube o reemplaza la foto de una planta",
+)
+def subir_foto(
+    planta_id: str,
+    imagen: UploadFile = File(
+        description="Foto en JPEG, PNG o WEBP, máximo 10 MB"
+    ),
+    usuario: CurrentUser = Depends(get_current_user),
+) -> PlantaDetalle:
+    """Guarda la imagen y devuelve la planta actualizada."""
+    return service.subir_foto(
+        usuario, planta_id, imagen.file.read(), imagen.content_type
+    )
 
 
 @router.delete(
