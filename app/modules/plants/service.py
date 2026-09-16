@@ -25,7 +25,6 @@ _NO_ENCONTRADA = HTTPException(
 
 
 def _base_dias(planta: dict, ultimo_diagnostico: dict | None) -> int | None:
-    
     if ultimo_diagnostico:
         catalogo = ultimo_diagnostico.get("disease_catalog") or {}
         if catalogo.get("riego_frecuencia_dias"):
@@ -36,25 +35,41 @@ def _base_dias(planta: dict, ultimo_diagnostico: dict | None) -> int | None:
 
 
 def _proximo_riego(planta: dict) -> tuple[date | None, int | None]:
-    
     frecuencia = planta.get("riego_frecuencia_dias")
     if not frecuencia:
         return None, None
 
     referencia = planta.get("ultimo_riego")
     if referencia:
-        base = date.fromisoformat(referencia)
+        base = date.fromisoformat(str(referencia)[:10])
     else:
-        base = date.fromisoformat(planta["created_at"][:10])
+        base = date.fromisoformat(str(planta["created_at"])[:10])
 
     proximo = base + timedelta(days=frecuencia)
-    return proximo, (proximo - date.today()).days
+    faltan = (proximo - date.today()).days
+    return proximo, faltan
 
 
-def _a_resumen(planta: dict) -> PlantaResumen:
-    
+def _proximo_tratamiento(cliente: Client, planta_id: str) -> tuple[date | None, int | None]:
+    actividad = repo.proxima_actividad_tratamiento(cliente, planta_id)
+    if not actividad or not actividad.get("fecha_programada"):
+        return None, None
+
+    fecha_dt = date.fromisoformat(str(actividad["fecha_programada"])[:10])
+    hoy = date.today()
+    faltan = (fecha_dt - hoy).days
+    return fecha_dt, faltan
+
+
+def _a_resumen(cliente: Client, planta: dict) -> PlantaResumen:
     proximo, faltan = _proximo_riego(planta)
+    prox_trat, faltan_trat = _proximo_tratamiento(cliente, planta["id"])
     especie = planta.get("species") or {}
+
+    ultimo = None
+    if planta.get("ultimo_riego"):
+        ultimo = date.fromisoformat(str(planta["ultimo_riego"])[:10])
+
     return PlantaResumen(
         id=planta["id"],
         apodo=planta["apodo"],
@@ -64,14 +79,15 @@ def _a_resumen(planta: dict) -> PlantaResumen:
         estado=planta["estado"],
         foto_url=firmar(planta.get("foto_url")),
         riego_frecuencia_dias=planta.get("riego_frecuencia_dias"),
-        ultimo_riego=planta.get("ultimo_riego"),
+        ultimo_riego=ultimo,
         proximo_riego=proximo,
         dias_para_riego=faltan,
+        proximo_tratamiento=prox_trat,
+        dias_para_tratamiento=faltan_trat,
     )
 
 
 def recalcular_estado(cliente: Client, planta_id: str) -> str:
-    
     diagnosticos = repo.historial(cliente, planta_id)
 
     if not diagnosticos:
@@ -90,7 +106,6 @@ def recalcular_estado(cliente: Client, planta_id: str) -> str:
 
 
 def recalcular_riego(cliente: Client, planta_id: str) -> int | None:
-    
     planta = repo.obtener(cliente, planta_id)
     if planta is None:
         raise _NO_ENCONTRADA
@@ -101,6 +116,7 @@ def recalcular_riego(cliente: Client, planta_id: str) -> int | None:
         planta["ubicacion"],
         obtener_clima(),
     )
+
     repo.actualizar(
         cliente, planta_id, {"riego_frecuencia_dias": frecuencia}
     )
@@ -110,7 +126,6 @@ def recalcular_riego(cliente: Client, planta_id: str) -> int | None:
 def crear_planta(
     usuario: CurrentUser, datos: PlantaCreate
 ) -> PlantaResumen:
-    
     cliente = user_client(usuario.token)
 
     base = None
@@ -137,17 +152,15 @@ def crear_planta(
 
     creada = repo.crear(cliente, fila)
     completa = repo.obtener(cliente, creada["id"])
-    return _a_resumen(completa)
+    return _a_resumen(cliente, completa)
 
 
 def listar_plantas(usuario: CurrentUser) -> list[PlantaResumen]:
-    
     cliente = user_client(usuario.token)
-    return [_a_resumen(p) for p in repo.listar(cliente, usuario.id)]
+    return [_a_resumen(cliente, p) for p in repo.listar(cliente, usuario.id)]
 
 
 def obtener_planta(usuario: CurrentUser, planta_id: str) -> PlantaDetalle:
-    
     cliente = user_client(usuario.token)
     planta = repo.obtener(cliente, planta_id)
     if planta is None:
@@ -157,12 +170,9 @@ def obtener_planta(usuario: CurrentUser, planta_id: str) -> PlantaDetalle:
     ultimo = diagnosticos[0] if diagnosticos else None
     catalogo = (ultimo or {}).get("disease_catalog") or {}
 
-    # Las imagenes se guardan como rutas de un bucket privado, asi
-    # que hay que firmarlas. Se hace en una sola llamada para no
-    # multiplicar las peticiones a Storage.
     firmadas = firmar_varias([d["imagen_url"] for d in diagnosticos])
 
-    resumen = _a_resumen(planta)
+    resumen = _a_resumen(cliente, planta)
     return PlantaDetalle(
         **resumen.model_dump(),
         species_id=planta.get("species_id"),
@@ -191,7 +201,6 @@ def obtener_planta(usuario: CurrentUser, planta_id: str) -> PlantaDetalle:
 def actualizar_planta(
     usuario: CurrentUser, planta_id: str, cambios: PlantaUpdate
 ) -> PlantaResumen:
-    
     cliente = user_client(usuario.token)
     if repo.obtener(cliente, planta_id) is None:
         raise _NO_ENCONTRADA
@@ -205,14 +214,13 @@ def actualizar_planta(
 
     repo.actualizar(cliente, planta_id, valores)
 
-    if {"ubicacion", "species_id"} & valores.keys():
+    if {"ubicacion", "species_id", "ultimo_riego"} & valores.keys():
         recalcular_riego(cliente, planta_id)
 
-    return _a_resumen(repo.obtener(cliente, planta_id))
+    return _a_resumen(cliente, repo.obtener(cliente, planta_id))
 
 
 def eliminar_planta(usuario: CurrentUser, planta_id: str) -> None:
-    
     cliente = user_client(usuario.token)
     if repo.obtener(cliente, planta_id) is None:
         raise _NO_ENCONTRADA
@@ -225,7 +233,6 @@ def subir_foto(
     contenido: bytes,
     content_type: str | None,
 ) -> PlantaDetalle:
-    
     cliente = user_client(usuario.token)
     if repo.obtener(cliente, planta_id) is None:
         raise _NO_ENCONTRADA

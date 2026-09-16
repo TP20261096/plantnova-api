@@ -1,5 +1,7 @@
 from fastapi import HTTPException, status
 
+from app.core import storage
+from app.core.images import validar_imagen
 from app.core.security import CurrentUser
 from app.core.supabase import anon_client, service_client, user_client
 from app.modules.auth.service import AuthApiError
@@ -12,7 +14,6 @@ from app.modules.profile.schemas import (
 
 
 def _cargar(usuario: CurrentUser) -> PerfilOut:
-    
     cliente = user_client(usuario.token)
 
     perfil = (
@@ -36,11 +37,22 @@ def _cargar(usuario: CurrentUser) -> PerfilOut:
     )
 
     fila = perfil.data[0]
+    foto_raw = fila.get("foto_url")
+
+    # Si foto_raw no es una URL externa (http), se firma con storage
+    foto_firmada = None
+    if foto_raw:
+        foto_firmada = (
+            foto_raw
+            if foto_raw.startswith("http://") or foto_raw.startswith("https://")
+            else storage.firmar(foto_raw)
+        )
+
     return PerfilOut(
         id=fila["id"],
         email=usuario.email,
         nombre=fila.get("nombre"),
-        foto_url=fila.get("foto_url"),
+        foto_url=foto_firmada,
         distrito=fila.get("distrito"),
         notificaciones=fila["notificaciones"],
         plantas_registradas=plantas.count or 0,
@@ -49,14 +61,30 @@ def _cargar(usuario: CurrentUser) -> PerfilOut:
 
 
 def obtener_perfil(usuario: CurrentUser) -> PerfilOut:
-    
+    return _cargar(usuario)
+
+
+def actualizar_avatar(
+    usuario: CurrentUser, contenido: bytes, content_type: str | None
+) -> PerfilOut:
+    validar_imagen(content_type, contenido)
+
+    # Subir imagen al Storage de Supabase
+    ruta_storage = f"{usuario.id}/avatar.jpg"
+    storage.subir(ruta_storage, contenido)
+
+    # Actualizar la columna en la tabla profiles
+    cliente = user_client(usuario.token)
+    cliente.table("profiles").update({"foto_url": ruta_storage}).eq(
+        "id", usuario.id
+    ).execute()
+
     return _cargar(usuario)
 
 
 def actualizar_perfil(
     usuario: CurrentUser, cambios: PerfilUpdate
 ) -> PerfilOut:
-    
     valores = cambios.model_dump(exclude_unset=True)
     if not valores:
         raise HTTPException(
@@ -82,7 +110,6 @@ def actualizar_perfil(
 def cambiar_password(
     usuario: CurrentUser, datos: PasswordUpdate
 ) -> None:
-    
     if not usuario.email:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -113,21 +140,17 @@ def cambiar_password(
 
 
 def eliminar_cuenta(usuario: CurrentUser) -> None:
-    
     cliente = service_client()
 
     try:
         bucket = cliente.storage.from_("diagnoses")
         rutas = []
-        # list no es recursivo: hay que recorrer cada subcarpeta.
         for carpeta in (usuario.id, f"{usuario.id}/plants"):
             for archivo in bucket.list(carpeta):
                 rutas.append(f"{carpeta}/{archivo['name']}")
         if rutas:
             bucket.remove(rutas)
     except Exception:  # noqa: BLE001
-        # Un fallo al limpiar imágenes no debe impedir que el usuario
-        # elimine su cuenta.
         pass
 
     try:

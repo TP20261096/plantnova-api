@@ -30,7 +30,6 @@ _NO_ENCONTRADO = HTTPException(
 def _guardar_imagenes(
     user_id: str, diagnostico_id: str, resultado: Inferencia
 ) -> tuple[str, str]:
-    
     base = f"{user_id}/{diagnostico_id}"
     return (
         storage.subir(f"{base}/original.jpg", resultado.original_jpg),
@@ -38,12 +37,80 @@ def _guardar_imagenes(
     )
 
 
+def _resolver_slug_ideal(clase_raw: str, urgencia: str) -> str:
+    clase = clase_raw.lower()
+    urg = (urgencia or "").lower()
+
+    if "mosaic_virus" in clase:
+        return "leche_herramientas"
+    elif "yellow_leaf_curl" in clase or "greening" in clase:
+        return "trampas_amarillas"
+    elif "spider_mites" in clase or "aphid" in clase:
+        return "jabon_potasico"
+    elif urg == "alta" or any(p in clase for p in ["late_blight", "black_rot", "canker"]):
+        return "caldo_bordeles_casero"
+    elif "bacterial" in clase and "rot" not in clase:
+        return "ajo_aji"
+    return "bicarbonato"
+
+
+def _nombre_coincide_con_slug(nombre: str, slug_ideal: str) -> bool:
+    n = (nombre or "").lower()
+    if slug_ideal == "bicarbonato":
+        return "bicarbonato" in n
+    elif slug_ideal == "caldo_bordeles_casero":
+        return "bordel" in n or "cobre" in n
+    elif slug_ideal == "jabon_potasico":
+        return "potásico" in n or "potasico" in n or "jabón" in n
+    elif slug_ideal == "ajo_aji":
+        return "ajo" in n or "ají" in n or "aji" in n
+    elif slug_ideal == "leche_herramientas":
+        return "leche" in n or "herramientas" in n or "desinfección" in n
+    elif slug_ideal == "trampas_amarillas":
+        return "trampa" in n or "amarilla" in n
+    return False
+
+
+def _ordenar_tratamientos_por_prioridad(
+    clase_raw: str, urgencia: str, tratamientos: list[RecetaOut]
+) -> list[RecetaOut]:
+    if not tratamientos:
+        return []
+
+    slug_ideal = _resolver_slug_ideal(clase_raw, urgencia)
+
+    ideales = [t for t in tratamientos if _nombre_coincide_con_slug(t.nombre, slug_ideal)]
+    otros = [t for t in tratamientos if not _nombre_coincide_con_slug(t.nombre, slug_ideal)]
+
+    return (ideales + otros) if ideales else tratamientos
+
+
+def _obtener_tratamiento_prioritario_raw(
+    clase_raw: str, urgencia: str, ficha: dict
+) -> dict | None:
+    tratamientos = ficha.get("disease_treatments") or []
+    if not tratamientos:
+        return None
+
+    slug_ideal = _resolver_slug_ideal(clase_raw, urgencia)
+
+    for t in tratamientos:
+        receta = t.get("recetas") or {}
+        slug = receta.get("slug")
+        if slug and slug.lower() == slug_ideal:
+            return t
+        nombre = receta.get("nombre") or ""
+        if _nombre_coincide_con_slug(nombre, slug_ideal):
+            return t
+
+    return tratamientos[0]
+
+
 def _componer(
     fila: dict, ficha: dict, confianza_baja: bool, top3: list[dict]
 ) -> DiagnosticoOut:
-    
     especie = ficha.get("species") or {}
-    tratamientos = [
+    tratamientos_crudos = [
         RecetaOut(
             nombre=t["recetas"]["nombre"],
             descripcion=t["recetas"].get("descripcion"),
@@ -59,6 +126,12 @@ def _componer(
         for t in (ficha.get("disease_treatments") or [])
         if t.get("recetas")
     ]
+
+    tratamientos = _ordenar_tratamientos_por_prioridad(
+        clase_raw=fila["clase_raw"],
+        urgencia=ficha.get("urgencia", "Media"),
+        tratamientos=tratamientos_crudos,
+    )
 
     return DiagnosticoOut(
         id=fila["id"],
@@ -94,7 +167,6 @@ def diagnosticar(
     content_type: str | None,
     plant_id: str | None = None,
 ) -> DiagnosticoOut:
-    
     validar_imagen(content_type, contenido)
     cliente = user_client(usuario.token)
 
@@ -118,8 +190,6 @@ def diagnosticar(
     principal = resultado.principal
     ficha = repo.buscar_ficha(cliente, principal.clase_raw)
     if ficha is None:
-        # Ocurre si el catálogo y el orden de CLASS_NAMES divergen.
-        # Es un error de configuración, no del usuario.
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=(
@@ -173,7 +243,6 @@ def diagnosticar(
 
 
 def _especies_coinciden(planta: dict, ficha: dict) -> bool:
-    
     especie_planta = planta.get("species_id")
     especie_ficha = ficha.get("species_id")
     return bool(
@@ -191,7 +260,12 @@ def _actualizar_planta(
     fila: dict,
     ficha: dict,
 ) -> None:
-    
+    t_prioritario = _obtener_tratamiento_prioritario_raw(
+        clase_raw=fila["clase_raw"],
+        urgencia=ficha.get("urgencia", "Media"),
+        ficha=ficha,
+    )
+
     generar_plan_tratamiento(
         cliente=cliente,
         user_id=user_id,
@@ -200,6 +274,7 @@ def _actualizar_planta(
         disease_id=ficha["id"],
         estado_diagnostico=fila["estado"],
         apodo=planta.get("apodo", ""),
+        tratamiento_prioritario=t_prioritario,
     )
     recalcular_estado(cliente, plant_id)
     recalcular_riego(cliente, plant_id)
@@ -208,7 +283,6 @@ def _actualizar_planta(
 def vincular(
     usuario: CurrentUser, diagnostico_id: str, plant_id: str
 ) -> DiagnosticoOut:
-    
     cliente = user_client(usuario.token)
 
     fila = repo.obtener(cliente, diagnostico_id)
@@ -227,6 +301,17 @@ def vincular(
         )
 
     ficha = repo.buscar_ficha(cliente, fila["clase_raw"])
+
+    cambios_planta = {}
+
+    if not planta.get("species_id") and ficha.get("species_id"):
+        cambios_planta["species_id"] = ficha["species_id"]
+
+    if not planta.get("foto_url") and fila.get("imagen_url"):
+        cambios_planta["foto_url"] = fila["imagen_url"]
+
+    if cambios_planta:
+        planta = plants_repo.actualizar(cliente, plant_id, cambios_planta)
 
     fila = repo.actualizar(
         cliente,
@@ -247,7 +332,6 @@ def vincular(
 def obtener_diagnostico(
     usuario: CurrentUser, diagnostico_id: str
 ) -> DiagnosticoOut:
-    
     cliente = user_client(usuario.token)
     fila = repo.obtener(cliente, diagnostico_id)
     if fila is None:

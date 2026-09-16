@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, File, UploadFile, status
 
 from app.core.security import CurrentUser, get_current_user
 from app.modules.profile import service
@@ -20,7 +20,7 @@ router = APIRouter(prefix="/profile", tags=["Perfil"])
 def obtener(
     usuario: CurrentUser = Depends(get_current_user),
 ) -> PerfilOut:
-    #Datos personales, preferencias y total de plantas.
+    """Datos personales, preferencias y total de plantas."""
     return service.obtener_perfil(usuario)
 
 
@@ -35,6 +35,20 @@ def actualizar(
 ) -> PerfilOut:
     """Modifica nombre, foto, distrito o notificaciones."""
     return service.actualizar_perfil(usuario, cambios)
+
+
+@router.post(
+    "/avatar",
+    response_model=PerfilOut,
+    summary="Sube o actualiza la foto de perfil del usuario",
+)
+def subir_avatar(
+    foto: UploadFile = File(description="Imagen del avatar (JPEG, PNG o WEBP)"),
+    usuario: CurrentUser = Depends(get_current_user),
+) -> PerfilOut:
+    """Sube el archivo a Supabase Storage y actualiza foto_url en profiles."""
+    contenido = foto.file.read()
+    return service.actualizar_avatar(usuario, contenido, foto.content_type)
 
 
 @router.get(
@@ -56,7 +70,7 @@ def cambiar_password(
     datos: PasswordUpdate,
     usuario: CurrentUser = Depends(get_current_user),
 ) -> None:
-    #Requiere la contraseña actual para autorizar el cambio.
+    """Requiere la contraseña actual para autorizar el cambio."""
     service.cambiar_password(usuario, datos)
 
 
@@ -68,5 +82,5 @@ def cambiar_password(
 def eliminar(
     usuario: CurrentUser = Depends(get_current_user),
 ) -> None:
-    #Borra la cuenta de forma irreversible.
+    """Borra la cuenta de forma irreversible."""
     service.eliminar_cuenta(usuario)

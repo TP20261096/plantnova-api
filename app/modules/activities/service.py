@@ -1,3 +1,4 @@
+import math
 from datetime import date, timedelta
 
 from fastapi import HTTPException, status
@@ -19,13 +20,11 @@ _NO_ENCONTRADA = HTTPException(
     detail="La actividad no existe",
 )
 
-# Días entre la última aplicación del tratamiento y la revisión que
-# cierra el ciclo.
 _DIAS_HASTA_REVISION = 1
+_DIAS_VENTANA_TRATAMIENTO = 14
 
 
 def _a_salida(fila: dict, dia: date) -> ActividadOut:
-    
     planta = fila.get("plants") or {}
     receta = fila.get("recetas") or {}
     programada = date.fromisoformat(fila["fecha_programada"])
@@ -49,7 +48,6 @@ def _a_salida(fila: dict, dia: date) -> ActividadOut:
 
 
 def _fecha_proximo_riego(planta: dict) -> date | None:
-    
     frecuencia = planta.get("riego_frecuencia_dias")
     if not frecuencia:
         return None
@@ -61,7 +59,6 @@ def _fecha_proximo_riego(planta: dict) -> date | None:
 def _materializar_riegos(
     cliente: Client, user_id: str, dia: date
 ) -> None:
-    
     for planta in plants_repo.listar(cliente, user_id):
         proximo = _fecha_proximo_riego(planta)
         if proximo is None or proximo > dia:
@@ -76,9 +73,7 @@ def _materializar_riegos(
                 "plant_id": planta["id"],
                 "tipo": "Riego",
                 "titulo": f"Regar {planta['apodo']}",
-                "descripcion": (
-                    "Riega en la base, evitando mojar el follaje."
-                ),
+                "descripcion": "Riega en la base, evitando mojar el follaje.",
                 "fecha_programada": proximo.isoformat(),
             },
         )
@@ -87,7 +82,6 @@ def _materializar_riegos(
 def _proyectar_riegos(
     cliente: Client, user_id: str, dia: date
 ) -> list[ActividadOut]:
-    
     proyectadas = []
     for planta in plants_repo.listar(cliente, user_id):
         if repo.pendiente_de_tipo(cliente, planta["id"], "Riego"):
@@ -120,7 +114,6 @@ def _proyectar_riegos(
 def listar_agenda(
     usuario: CurrentUser, dia: date | None = None
 ) -> list[ActividadOut]:
-
     dia = dia or date.today()
     cliente = user_client(usuario.token)
 
@@ -142,6 +135,8 @@ def listar_agenda(
     return actividades
 
 
+# app/modules/activities/service.py
+
 def generar_plan_tratamiento(
     cliente: Client,
     user_id: str,
@@ -150,8 +145,8 @@ def generar_plan_tratamiento(
     disease_id: str,
     estado_diagnostico: str,
     apodo: str,
+    tratamiento_prioritario: dict | None = None,
 ) -> None:
-
     repo.cancelar_pendientes(
         cliente, plant_id, ["Tratamiento", "Revision"]
     )
@@ -159,37 +154,43 @@ def generar_plan_tratamiento(
     if estado_diagnostico == "Sana":
         return
 
-    plan = repo.tratamiento_de_enfermedad(cliente, disease_id)
+    # Usar el tratamiento prioritario calculado o caer en la búsqueda por enfermedad
+    plan = tratamiento_prioritario or repo.tratamiento_de_enfermedad(cliente, disease_id)
     if plan is None:
         return
 
     receta = plan.get("recetas") or {}
+    frecuencia = plan.get("frecuencia_dias") or 7
+
+    num_aplicaciones = plan.get("num_aplicaciones")
+    if not num_aplicaciones:
+        num_aplicaciones = max(1, math.ceil(_DIAS_VENTANA_TRATAMIENTO / frecuencia))
+
+    # Extracción segura sin KeyError
+    receta_id = plan.get("receta_id") or receta.get("id")
+
     repo.crear(
         cliente,
         {
             "user_id": user_id,
             "plant_id": plant_id,
             "diagnosis_id": diagnosis_id,
-            "receta_id": plan["receta_id"],
+            "receta_id": receta_id,
             "tipo": "Tratamiento",
             "titulo": f"Aplicar {receta.get('nombre', 'tratamiento')}",
-            "descripcion": plan.get("nota"),
+            "descripcion": plan.get("nota") or receta.get("modo_uso"),
             "fecha_programada": date.today().isoformat(),
             "aplicacion_num": 1,
-            "total_aplicaciones": plan["num_aplicaciones"],
+            "total_aplicaciones": num_aplicaciones,
         },
     )
 
 
 def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
-
     completada = date.fromisoformat(fila["fecha_completada"])
     tipo = fila["tipo"]
 
     if tipo == "Riego":
-        # El riego no se encadena aquí: se registra la fecha en la
-        # planta y la próxima tarea se materializa al consultar la
-        # agenda, ya con la frecuencia recalculada.
         plants_repo.actualizar(
             cliente,
             fila["plant_id"],
@@ -208,7 +209,12 @@ def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
         plan = repo.tratamiento_de_enfermedad(
             cliente, _disease_id_de(cliente, fila)
         )
-        frecuencia = plan["frecuencia_dias"] if plan else 7
+        frecuencia = (
+            plan["frecuencia_dias"]
+            if plan and plan.get("frecuencia_dias")
+            else 7
+        )
+
         repo.crear(
             cliente,
             {
@@ -228,8 +234,6 @@ def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
         )
         return
 
-    # Ciclo terminado: toca volver a fotografiar la planta para
-    # comprobar si el tratamiento funcionó.
     repo.crear(
         cliente,
         {
@@ -250,7 +254,6 @@ def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
 
 
 def _disease_id_de(cliente: Client, fila: dict) -> str | None:
-    
     if not fila.get("diagnosis_id"):
         return None
 
@@ -267,7 +270,6 @@ def _disease_id_de(cliente: Client, fila: dict) -> str | None:
 def crear_actividad(
     usuario: CurrentUser, datos: ActividadCreate
 ) -> ActividadOut:
-    
     cliente = user_client(usuario.token)
     if plants_repo.obtener(cliente, datos.plant_id) is None:
         raise HTTPException(
@@ -294,7 +296,6 @@ def crear_actividad(
 def actualizar_actividad(
     usuario: CurrentUser, actividad_id: str, cambios: ActividadUpdate
 ) -> ActividadOut:
-    
     cliente = user_client(usuario.token)
     fila = repo.obtener(cliente, actividad_id)
     if fila is None:
@@ -332,7 +333,6 @@ def actualizar_actividad(
 def eliminar_actividad(
     usuario: CurrentUser, actividad_id: str
 ) -> None:
-    
     cliente = user_client(usuario.token)
     if repo.obtener(cliente, actividad_id) is None:
         raise _NO_ENCONTRADA

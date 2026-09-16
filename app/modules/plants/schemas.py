@@ -13,26 +13,25 @@ EstadoPlanta = Literal["Sin_diagnostico", "Sana", "En_tratamiento"]
 
 
 class PlantaCreate(BaseModel):
-
     apodo: str = Field(min_length=1, max_length=60)
     ubicacion: Ubicacion
     etapa: Etapa = "Crecimiento"
     species_id: str | None = None
     fecha_siembra: date | None = None
+    ultimo_riego: date | None = None
 
 
 class PlantaUpdate(BaseModel):
-
     apodo: str | None = Field(default=None, min_length=1, max_length=60)
     ubicacion: Ubicacion | None = None
     etapa: Etapa | None = None
     species_id: str | None = None
     fecha_siembra: date | None = None
+    ultimo_riego: date | None = None
 
 
 class PlantaResumen(BaseModel):
-    #Tarjeta de planta para el listado del jardín.
-
+    # Tarjeta de planta para el listado del jardín.
     id: str
     apodo: str
     especie: str | None
@@ -44,11 +43,13 @@ class PlantaResumen(BaseModel):
     ultimo_riego: date | None
     proximo_riego: date | None
     dias_para_riego: int | None
+    # Campos añadidos para sincronizar la próxima aplicación de tratamiento
+    proximo_tratamiento: date | None = None
+    dias_para_tratamiento: int | None = None
 
 
 class DiagnosticoResumen(BaseModel):
-    #Entrada del historial de diagnósticos de una planta.
-
+    # Entrada del historial de diagnósticos de una planta.
     id: str
     nombre_enfermedad: str | None
     estado: str
@@ -58,8 +59,7 @@ class DiagnosticoResumen(BaseModel):
 
 
 class PlantaDetalle(PlantaResumen):
-    #Vista completa de una planta con su historial.
-
+    # Vista completa de una planta con su historial.
     species_id: str | None
     fecha_siembra: date | None
     riego_nota: str | None

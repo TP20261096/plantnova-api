@@ -10,29 +10,13 @@ from supabase import Client
 
 
 def crear(cliente: Client, datos: dict) -> dict:
-    """Inserta una planta.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        datos: Fila lista para insertar.
-
-    Returns:
-        La planta creada.
-    """
+    """Inserta una planta."""
     respuesta = cliente.table("plants").insert(datos).execute()
     return respuesta.data[0]
 
 
 def listar(cliente: Client, user_id: str) -> list[dict]:
-    """Devuelve las plantas del usuario con el nombre de su especie.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        user_id: UUID del usuario.
-
-    Returns:
-        Filas de plants con la especie embebida.
-    """
+    """Devuelve las plantas del usuario con el nombre de su especie."""
     respuesta = (
         cliente.table("plants")
         .select("*, species(nombre_comun)")
@@ -44,15 +28,7 @@ def listar(cliente: Client, user_id: str) -> list[dict]:
 
 
 def obtener(cliente: Client, planta_id: str) -> dict | None:
-    """Busca una planta por su identificador.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        planta_id: UUID de la planta.
-
-    Returns:
-        La planta, o None si no existe o pertenece a otro usuario.
-    """
+    """Busca una planta por su identificador."""
     respuesta = (
         cliente.table("plants")
         .select("*, species(nombre_comun, riego_base_dias)")
@@ -64,16 +40,7 @@ def obtener(cliente: Client, planta_id: str) -> dict | None:
 
 
 def actualizar(cliente: Client, planta_id: str, cambios: dict) -> dict:
-    """Aplica cambios parciales a una planta.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        planta_id: UUID de la planta.
-        cambios: Columnas a modificar.
-
-    Returns:
-        La planta ya actualizada.
-    """
+    """Aplica cambios parciales a una planta."""
     respuesta = (
         cliente.table("plants")
         .update(cambios)
@@ -84,26 +51,12 @@ def actualizar(cliente: Client, planta_id: str, cambios: dict) -> dict:
 
 
 def eliminar(cliente: Client, planta_id: str) -> None:
-    """Elimina una planta y, en cascada, su historial y actividades.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        planta_id: UUID de la planta.
-    """
+    """Elimina una planta y, en cascada, su historial y actividades."""
     cliente.table("plants").delete().eq("id", planta_id).execute()
 
 
 def historial(cliente: Client, planta_id: str) -> list[dict]:
-    """Devuelve los diagnósticos de una planta, del más reciente al
-    más antiguo.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        planta_id: UUID de la planta.
-
-    Returns:
-        Filas de diagnoses con el nombre de la enfermedad.
-    """
+    """Devuelve los diagnósticos de una planta, del más reciente al más antiguo."""
     respuesta = (
         cliente.table("diagnoses")
         .select(
@@ -119,16 +72,7 @@ def historial(cliente: Client, planta_id: str) -> list[dict]:
 
 
 def tiene_tratamiento_pendiente(cliente: Client, planta_id: str) -> bool:
-    """Indica si quedan aplicaciones de tratamiento sin completar.
-
-    Args:
-        cliente: Cliente Supabase del usuario.
-        planta_id: UUID de la planta.
-
-    Returns:
-        True si existe al menos una actividad de tratamiento
-        pendiente.
-    """
+    """Indica si quedan aplicaciones de tratamiento sin completar."""
     respuesta = (
         cliente.table("activities")
         .select("id")
@@ -139,3 +83,18 @@ def tiene_tratamiento_pendiente(cliente: Client, planta_id: str) -> bool:
         .execute()
     )
     return bool(respuesta.data)
+
+
+def proxima_actividad_tratamiento(cliente: Client, planta_id: str) -> dict | None:
+    """Obtiene la actividad de tratamiento o revisión pendiente más próxima."""
+    respuesta = (
+        cliente.table("activities")
+        .select("fecha_programada")
+        .eq("plant_id", planta_id)
+        .in_("tipo", ["Tratamiento", "Revision"])
+        .eq("estado", "Pendiente")
+        .order("fecha_programada", desc=False)
+        .limit(1)
+        .execute()
+    )
+    return respuesta.data[0] if respuesta.data else None

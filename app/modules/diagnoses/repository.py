@@ -3,16 +3,17 @@ from supabase import Client
 # La ficha completa de la enfermedad, con sus recetas asociadas, se
 # obtiene en una sola consulta anidada. Evita tres viajes a la base
 # justo después de la inferencia, que es la parte lenta del proceso.
+# app/modules/diagnoses/repository.py
+
 _FICHA = (
     "*, species(slug, nombre_comun), "
-    "disease_treatments(frecuencia_dias, num_aplicaciones, nota, "
-    "recetas(nombre, descripcion, ingredientes, preparacion, "
+    "disease_treatments(receta_id, frecuencia_dias, num_aplicaciones, nota, "
+    "recetas(slug, nombre, descripcion, ingredientes, preparacion, "
     "modo_uso, precauciones, costo_aprox))"
-)
+)   
 
 
 def buscar_ficha(cliente: Client, clase_raw: str) -> dict | None:
-    
     respuesta = (
         cliente.table("disease_catalog")
         .select(_FICHA)
@@ -26,7 +27,6 @@ def buscar_ficha(cliente: Client, clase_raw: str) -> dict | None:
 def nombres_por_clase(
     cliente: Client, clases: list[str]
 ) -> dict[str, str]:
-    
     respuesta = (
         cliente.table("disease_catalog")
         .select("clase_raw, nombre_enfermedad")
@@ -39,12 +39,10 @@ def nombres_por_clase(
 
 
 def crear(cliente: Client, datos: dict) -> dict:
-    
     return cliente.table("diagnoses").insert(datos).execute().data[0]
 
 
 def obtener(cliente: Client, diagnostico_id: str) -> dict | None:
-    
     respuesta = (
         cliente.table("diagnoses")
         .select("*")
@@ -58,7 +56,6 @@ def obtener(cliente: Client, diagnostico_id: str) -> dict | None:
 def actualizar(
     cliente: Client, diagnostico_id: str, cambios: dict
 ) -> dict:
-    
     respuesta = (
         cliente.table("diagnoses")
         .update(cambios)
