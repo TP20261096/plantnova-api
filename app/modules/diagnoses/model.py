@@ -93,7 +93,7 @@ class ConvNeXtWithCBAM(nn.Module):
         
         super().__init__()
         self.backbone = timm.create_model(
-            "convnext_tiny",
+            "convnext_small",
             pretrained=pretrained,
             num_classes=0,
             global_pool="",

@@ -14,7 +14,9 @@ ENV PYTHONUNBUFFERED=1 \
     # PyTorch abre un hilo por núcleo por defecto y compite consigo
     # mismo en contenedores pequeños. Se limita al número de vCPU.
     OMP_NUM_THREADS=2 \
-    MKL_NUM_THREADS=2
+    MKL_NUM_THREADS=2 \
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1
 
 # libgomp1 lo requiere el runtime de PyTorch. opencv-python-headless
 # evita tener que instalar las bibliotecas gráficas de OpenCV.
