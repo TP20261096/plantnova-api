@@ -31,21 +31,20 @@ class PlantaUpdate(BaseModel):
 
 
 class PlantaResumen(BaseModel):
-    # Tarjeta de planta para el listado del jardín.
     id: str
     apodo: str
-    especie: str | None
-    ubicacion: Ubicacion
-    etapa: Etapa
-    estado: EstadoPlanta
-    foto_url: str | None
-    riego_frecuencia_dias: int | None
-    ultimo_riego: date | None
-    proximo_riego: date | None
-    dias_para_riego: int | None
-    # Campos añadidos para sincronizar la próxima aplicación de tratamiento
+    especie: str | None = None
+    ubicacion: str
+    etapa: str
+    estado: str
+    foto_url: str | None = None
+    riego_frecuencia_dias: int | None = None
+    ultimo_riego: date | None = None
+    proximo_riego: date | None = None
+    dias_para_riego: int | None = None
     proximo_tratamiento: date | None = None
     dias_para_tratamiento: int | None = None
+    proximo_tipo: str | None = None  # <--- Este campo es obligatorio
 
 
 class DiagnosticoResumen(BaseModel):

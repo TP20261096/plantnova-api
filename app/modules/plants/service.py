@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 from fastapi import HTTPException, status
 from supabase import Client
@@ -6,8 +6,8 @@ from supabase import Client
 from app.core.clima import obtener_clima
 from app.core.images import a_jpeg, validar_imagen
 from app.core.security import CurrentUser
-from app.core.supabase import user_client
 from app.core.storage import firmar, firmar_varias, subir
+from app.core.supabase import user_client
 from app.modules.plants import repository as repo
 from app.modules.plants.riego import calcular_frecuencia
 from app.modules.plants.schemas import (
@@ -17,6 +17,8 @@ from app.modules.plants.schemas import (
     PlantaResumen,
     PlantaUpdate,
 )
+
+PERU_TZ = timezone(timedelta(hours=-5))
 
 _NO_ENCONTRADA = HTTPException(
     status_code=status.HTTP_404_NOT_FOUND,
@@ -46,24 +48,64 @@ def _proximo_riego(planta: dict) -> tuple[date | None, int | None]:
         base = date.fromisoformat(str(planta["created_at"])[:10])
 
     proximo = base + timedelta(days=frecuencia)
-    faltan = (proximo - date.today()).days
+    hoy_peru = datetime.now(PERU_TZ).date()
+    faltan = (proximo - hoy_peru).days
     return proximo, faltan
 
 
-def _proximo_tratamiento(cliente: Client, planta_id: str) -> tuple[date | None, int | None]:
-    actividad = repo.proxima_actividad_tratamiento(cliente, planta_id)
-    if not actividad or not actividad.get("fecha_programada"):
-        return None, None
+def _proximo_tratamiento(cliente: Client, planta_id: str) -> tuple[date | None, int | None, str | None]:
+    # 1. Buscamos primero si hay alguna actividad de tipo 'Revision' en estado 'Pendiente'
+    revision_pendiente = (
+        cliente.table("activities")
+        .select("*")
+        .eq("plant_id", planta_id)
+        .eq("tipo", "Revision")
+        .eq("estado", "Pendiente")
+        .order("fecha_programada", desc=False)
+        .limit(1)
+        .execute()
+    )
+    
+    if revision_pendiente.data:
+        actividad = revision_pendiente.data[0]
+        tipo_actividad = "Revision"
+    else:
+        # 2. Si no hay revisión pendiente, buscamos un tratamiento pendiente normal usando el repositorio
+        actividad = repo.proxima_actividad_tratamiento(cliente, planta_id)
+        tipo_actividad = "Tratamiento"
+        
+        if not actividad:
+            # 3. Si tampoco hay tratamiento, buscamos si la revisión ya fue completada
+            revision_completada = (
+                cliente.table("activities")
+                .select("*")
+                .eq("plant_id", planta_id)
+                .eq("tipo", "Revision")
+                .eq("estado", "Completada")
+                .order("fecha_completada", desc=False)
+                .limit(1)
+                .execute()
+            )
+            if revision_completada.data:
+                actividad = revision_completada.data[0]
+                tipo_actividad = "RevisionCompletada"
+            else:
+                return None, None, None
 
-    fecha_dt = date.fromisoformat(str(actividad["fecha_programada"])[:10])
-    hoy = date.today()
-    faltan = (fecha_dt - hoy).days
-    return fecha_dt, faltan
+    fecha_str = actividad.get("fecha_completada") if tipo_actividad == "RevisionCompletada" else actividad.get("fecha_programada")
+    if not fecha_str:
+        return None, None, None
+
+    fecha_dt = date.fromisoformat(str(fecha_str)[:10])
+    hoy_peru = datetime.now(PERU_TZ).date()
+    faltan = (fecha_dt - hoy_peru).days
+    
+    return fecha_dt, faltan, tipo_actividad
 
 
 def _a_resumen(cliente: Client, planta: dict) -> PlantaResumen:
     proximo, faltan = _proximo_riego(planta)
-    prox_trat, faltan_trat = _proximo_tratamiento(cliente, planta["id"])
+    prox_trat, faltan_trat, tipo_prox = _proximo_tratamiento(cliente, planta["id"])
     especie = planta.get("species") or {}
 
     ultimo = None
@@ -84,6 +126,7 @@ def _a_resumen(cliente: Client, planta: dict) -> PlantaResumen:
         dias_para_riego=faltan,
         proximo_tratamiento=prox_trat,
         dias_para_tratamiento=faltan_trat,
+        proximo_tipo=tipo_prox,  # <--- Envía el tipo correcto al front
     )
 
 
@@ -97,8 +140,6 @@ def recalcular_estado(cliente: Client, planta_id: str) -> str:
     elif diagnosticos[0]["estado"] == "Sana":
         estado = "Sana"
     else:
-        # Hay un diagnóstico adverso pero ya no quedan aplicaciones
-        # pendientes: el ciclo terminó y corresponde revisar de nuevo.
         estado = "En_tratamiento"
 
     repo.actualizar(cliente, planta_id, {"estado": estado})

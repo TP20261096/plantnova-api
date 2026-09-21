@@ -1,20 +1,16 @@
 [
   {
     "slug": "bicarbonato",
-    "nombre": "Solución de bicarbonato",
-    "descripcion": "Fungicida preventivo de contacto que altera el pH de la superficie de la hoja y frena la germinación de esporas de oídio, mildiu y manchas foliares.",
+    "nombre": "Solución de bicarbonato de sodio",
+    "descripcion": "Tratamiento preventivo para hongos superficiales (como el oídio). Cambia el pH sobre la hoja volviéndolo más alcalino, lo que impide que las esporas germinen en las hojas sanas. No cura hojas ya dañadas, ni sirve contra virus, bacterias o pudriciones profundas.",
     "ingredientes": [
       {
-        "item": "Bicarbonato de sodio",
-        "cantidad": "1 cucharadita (5 g)"
+        "item": "Bicarbonato de sodio (casero o agrícola)",
+        "cantidad": "3 a 5 g (1 cucharadita al ras)"
       },
       {
-        "item": "Jabón líquido neutro o jabón potásico",
-        "cantidad": "3 gotas"
-      },
-      {
-        "item": "Aceite vegetal (opcional, mejora la adherencia)",
-        "cantidad": "1/2 cucharadita"
+        "item": "Jabón potásico agrícola (ayuda a que el líquido no resbale)",
+        "cantidad": "1 a 2 ml"
       },
       {
         "item": "Agua sin cloro",
@@ -22,22 +18,100 @@
       }
     ],
     "preparacion": [
-      "Disolver el bicarbonato en un litro de agua a temperatura ambiente hasta que no queden grumos.",
-      "Agregar el aceite y las gotas de jabón, que actúan como adherente para que la solución no escurra de inmediato.",
-      "Mezclar con movimientos suaves, sin generar espuma.",
-      "Trasvasar a un pulverizador limpio y usar el mismo día."
+      "Disuelve entre 3 y 5 g de bicarbonato en 1 litro de agua a temperatura ambiente.",
+      "Agrega 1 o 2 ml de jabón potásico para que la mezcla se adhiera a la hoja y no escurra de inmediato.",
+      "Mezcla despacio para no hacer demasiada espuma.",
+      "Pasa la mezcla a un atomizador limpio y úsala el mismo día."
     ],
-    "modo_uso": "Rociar el haz y sobre todo el envés de las hojas al atardecer, hasta que la superficie quede mojada pero sin escurrir. Repetir cada 7 a 10 días mientras persistan las condiciones de humedad.",
-    "precauciones": "No aplicar bajo sol directo ni con temperaturas altas: quema el follaje. No exceder la dosis, porque el sodio se acumula en el sustrato y afecta la raíz. Probar primero en dos o tres hojas y esperar 48 horas antes de tratar toda la planta. Es preventivo, no cura una infección avanzada.",
-    "costo_aprox": "S/ 1 a S/ 2 por litro"
+    "modo_uso": "Rocía con atomizador tanto la parte de arriba como la parte de atrás de las hojas sanas, siempre al atardecer (nunca con sol directo). Repite cada 7 a 10 días si hay mucha humedad. Esto es solo un apoyo: podar y ventilar la planta sigue siendo lo más importante.",
+    "precauciones": "Haz una prueba rociando solo 1 o 2 hojas y espera 24 a 48 horas para confirmar que no se quemen. No apliques si hace más de 28 °C ni en plantas marchitas por falta de agua. No abuses en macetas, ya que el sodio se acumula en la tierra y daña las raíces.\n\nFuentes de respaldo técnico:\n• INTA: Compuestos biorracionales para el manejo de enfermedades vegetales (https://inta.gob.ar)\n• UC IPM: Pautas para el uso de bicarbonato potásico y sales minerales (https://ipm.ucanr.edu)",
+    "costo_aprox": null
+  },
+  {
+    "slug": "jabon_potasico",
+    "nombre": "Solución de jabón potásico agrícola",
+    "descripcion": "Tratamiento de contacto contra insectos y plagas de cuerpo blando (pulgones, mosca blanca, cochinillas y araña roja). Disuelve la capa de cera que protege a la plaga y hace que se deshidrate. También ayuda a limpiar la melaza pegajosa. No cura hongos internos ni enfermedades.",
+    "ingredientes": [
+      {
+        "item": "Jabón potásico líquido agrícola",
+        "cantidad": "10 ml"
+      },
+      {
+        "item": "Agua sin cloro (preferiblemente blanda)",
+        "cantidad": "1 litro"
+      }
+    ],
+    "preparacion": [
+      "Diluye 10 ml de jabón potásico en un litro de agua tibia para que se disuelva fácilmente.",
+      "Mueve suavemente hasta que el agua quede homogénea y sin grumos.",
+      "Pásalo directo al atomizador y úsalo de inmediato. No guardes mezclas diluidas de un día para otro."
+    ],
+    "modo_uso": "Rocía directamente sobre los insectos. Moja muy bien la parte de atrás de las hojas y los brotes nuevos, que es donde se esconden. Repite cada 5 a 7 días mientras veas presencia de plagas.",
+    "precauciones": "Nunca uses detergente de cocina ni jabón de lavar ropa; tienen químicos y sal que queman las hojas y arruinan la tierra. No apliques sobre flores abiertas para no afectar a las abejas. Evita usarlo bajo sol fuerte.\n\nFuentes de respaldo técnico:\n• University of Minnesota Extension: Insecticidal soaps and horticultural oils (https://extension.umn.edu)\n• UC IPM: Manejo fitosanitario orgánico con jabones insecticidas (https://ipm.ucanr.edu)",
+    "costo_aprox": null
+  },
+  {
+    "slug": "ajo_aji",
+    "nombre": "Extracto natural de ajo y ají",
+    "descripcion": "Repelente casero para alejar plagas que comen o chupan hojas tiernas. El olor fuerte del ajo y el picante del ají ahuyentan a los insectos y evitan que pongan huevos en la planta. No combate hongos, tizones ni bacterias.",
+    "ingredientes": [
+      {
+        "item": "Dientes de ajo pelados",
+        "cantidad": "1 cabeza entera"
+      },
+      {
+        "item": "Ajíes picantes frescos (con semillas)",
+        "cantidad": "1 a 2 unidades"
+      },
+      {
+        "item": "Jabón potásico agrícola (ayuda a que pegue)",
+        "cantidad": "2 ml"
+      },
+      {
+        "item": "Agua sin cloro",
+        "cantidad": "1 litro"
+      }
+    ],
+    "preparacion": [
+      "Licúa el ajo y los ajíes con una taza (250 ml) de agua hasta que quede una pasta bien triturada.",
+      "Tapa y deja reposar de 12 a 24 horas en un lugar fresco y sin sol.",
+      "Cuela con un colador muy fino o tela para que las partículas no tapen la boquilla del atomizador.",
+      "Agrega agua limpia hasta completar el litro y suma los 2 ml de jabón potásico.",
+      "Guarda en la refrigeradora en frasco cerrado hasta por 5 días."
+    ],
+    "modo_uso": "Rocía al atardecer sobre las partes donde veas insectos. Aplica cada 5 a 7 días como protección para mantener alejadas a las plagas.",
+    "precauciones": "Usa guantes y cuidado con los ojos; el ají irrita bastante. Prueba primero en una sola hoja para comprobar que la planta lo tolere bien. No rocíes sobre flores abiertas.\n\nFuentes de respaldo técnico:\n• FAO: Directrices para el uso de pesticidas botánicos en agricultura sostenible (https://www.fao.org)\n• UC ANR: Repelentes botánicos en el Manejo Integrado de Plagas (https://ipm.ucanr.edu)",
+    "costo_aprox": null
+  },
+  {
+    "slug": "desinfeccion_alcohol",
+    "nombre": "Desinfección de herramientas con alcohol al 70%",
+    "descripcion": "Higiene básica y obligatoria. Limpiar y desinfectar las tijeras o navajas entre corte y corte evita pasar virus incurables (como el mosaico del tomate), bacterias y hongos de una planta enferma a otra sana.",
+    "ingredientes": [
+      {
+        "item": "Alcohol al 70% sin diluir",
+        "cantidad": "Suficiente para mojar el filo de corte"
+      },
+      {
+        "item": "Paño limpio o papel toalla",
+        "cantidad": "1 unidad"
+      }
+    ],
+    "preparacion": [
+      "Coloca el alcohol al 70% en un frasco donde puedas meter el filo de la tijera, o en un spray.",
+      "Ten a la mano papel toalla para limpiar restos de savia y tierra antes de desinfectar."
+    ],
+    "modo_uso": "Limpia la tierra y savia de la herramienta con el papel. Remoja o frota el filo con alcohol durante 15 a 30 segundos cada vez que cambies de planta o cortes una parte sospechosa. Deja secar al aire.",
+    "precauciones": "El alcohol es inflamable; no lo uses cerca del fuego. Al terminar el día, seca bien las tijeras y ponles unas gotas de aceite lubricante para que no se oxiden.\n\nFuentes de respaldo técnico:\n• University of Minnesota Extension: Prevención y manejo sanitario de virus hortícolas (https://extension.umn.edu)\n• UC ANR: Saneamiento y desinfección de herramientas de poda (https://ipm.ucanr.edu)",
+    "costo_aprox": null
   },
   {
     "slug": "caldo_bordeles_casero",
-    "nombre": "Caldo bordelés",
-    "descripcion": "Fungicida y bactericida de contacto a base de cobre, de acción preventiva y amplio espectro. Es el recurso de mayor potencia para tizones, mildius, cancro y manchas bacterianas cuando los preparados suaves ya no bastan.",
+    "nombre": "Caldo bordelés (Uso avanzado con cobre)",
+    "descripcion": "Protector tradicional a base de cobre para prevenir tizones, mildius y manchas por bacterias. Su acción es únicamente preventiva: crea un escudo sobre la hoja que no deja entrar al patógeno. No cura hojas secas ni manchas ya existentes. Para huertos caseros es más seguro comprar un cobre orgánico comercial ya preparado.",
     "ingredientes": [
       {
-        "item": "Sulfato de cobre pentahidratado",
+        "item": "Sulfato de cobre",
         "cantidad": "10 g"
       },
       {
@@ -50,128 +124,40 @@
       }
     ],
     "preparacion": [
-      "Disolver el sulfato de cobre en 500 ml de agua tibia dentro de un recipiente de plástico o vidrio. Nunca usar recipientes ni cucharas de metal.",
-      "En un recipiente aparte, disolver la cal apagada en los otros 500 ml de agua y remover hasta obtener una lechada uniforme.",
-      "Verter lentamente la solución de cobre sobre la lechada de cal, removiendo de forma continua. El orden importa: nunca al revés.",
-      "Comprobar el pH sumergiendo un clavo o cuchillo de acero limpio durante un minuto. Si sale con una capa rojiza de cobre, falta cal: agregar más lechada y volver a probar hasta que el metal salga limpio.",
-      "Colar y trasvasar a un pulverizador. Usar el mismo día; el caldo pierde eficacia y se vuelve corrosivo al guardarse."
+      "Disuelve los 10 g de sulfato de cobre en 500 ml de agua tibia dentro de un balde plástico (nunca uses recipientes de metal).",
+      "En otro recipiente de plástico, mezcla los 10 g de cal en los otros 500 ml de agua hasta que quede como una leche blanquecina.",
+      "Vierte lentamente la mezcla de cobre dentro de la mezcla de cal mientras revuelves (nunca al revés).",
+      "Prueba que no esté ácido metiendo un clavo de acero limpio por 1 minuto: si sale con manchas de color rojizo/óxido, agrégale un poco más de cal hasta que el metal salga limpio.",
+      "Cuela con una tela y échalo al atomizador. Úsalo dentro de las primeras 4 horas; después pierde su efecto."
     ],
-    "modo_uso": "Pulverizar cubriendo haz y envés hasta el punto de goteo, al atardecer o muy temprano. Repetir cada 7 a 10 días, con un máximo de 3 a 4 aplicaciones por ciclo de cultivo.",
-    "precauciones": "El cobre es tóxico para personas, peces y fauna del suelo, y se acumula en el sustrato: no abusar ni repetir ciclo tras ciclo. Usar guantes, mascarilla y lentes durante la preparación y la aplicación. Si el pH queda ácido (el clavo sale cobrizo), el caldo quema el follaje. No aplicar en floración plena ni sobre plantas con estrés hídrico. Respetar un plazo mínimo de 15 días entre la última aplicación y la cosecha. Mantener fuera del alcance de niños y mascotas.",
-    "costo_aprox": "S/ 3 a S/ 5 por litro"
-  },
-  {
-    "slug": "ajo_aji",
-    "nombre": "Extracto de ajo y ají",
-    "descripcion": "Repelente e insecticida suave de contacto para pulgones, mosca blanca, ácaros y larvas pequeñas. Actúa por olor y por irritación, sin dejar residuos tóxicos.",
-    "ingredientes": [
-      {
-        "item": "Ajo (dientes pelados)",
-        "cantidad": "1 cabeza completa"
-      },
-      {
-        "item": "Ají picante fresco",
-        "cantidad": "2 unidades"
-      },
-      {
-        "item": "Jabón líquido neutro",
-        "cantidad": "5 gotas"
-      },
-      {
-        "item": "Agua sin cloro",
-        "cantidad": "1 litro"
-      }
-    ],
-    "preparacion": [
-      "Licuar los dientes de ajo y los ajíes con 250 ml de agua hasta obtener una pasta homogénea.",
-      "Agregar el resto del agua, tapar y dejar reposar 24 horas en un lugar oscuro y fresco.",
-      "Colar con un paño o colador fino para retirar todos los sólidos y evitar que obstruyan el pulverizador.",
-      "Agregar las gotas de jabón como adherente y mezclar sin batir.",
-      "Trasvasar al pulverizador. Se conserva hasta 5 días en refrigeración."
-    ],
-    "modo_uso": "Rociar sobre las colonias de insectos y en el envés de las hojas, que es donde se refugian. Aplicar al atardecer cada 5 a 7 días mientras dure la infestación.",
-    "precauciones": "Trabajar con guantes y no tocarse los ojos: la capsaicina irrita fuertemente. No aplicar bajo sol directo. Repele también a insectos benéficos como abejas y mariquitas, así que evitar rociar flores abiertas. Probar en una hoja antes de aplicar a toda la planta.",
-    "costo_aprox": "S/ 3 a S/ 4 por litro"
-  },
-  {
-    "slug": "jabon_potasico",
-    "nombre": "Solución de jabón potásico",
-    "descripcion": "Insecticida de contacto para insectos de cuerpo blando: pulgones, mosca blanca, cochinilla y ácaros. Disuelve la capa cerosa del insecto y lo deshidrata. También limpia la melaza que atrae la fumagina.",
-    "ingredientes": [
-      {
-        "item": "Jabón potásico líquido",
-        "cantidad": "10 ml"
-      },
-      {
-        "item": "Agua sin cloro, preferentemente blanda",
-        "cantidad": "1 litro"
-      }
-    ],
-    "preparacion": [
-      "Verter el jabón potásico en el litro de agua a temperatura ambiente.",
-      "Remover con movimientos lentos hasta integrar, evitando formar espuma.",
-      "Trasvasar de inmediato al pulverizador y usar en el momento; la solución pierde eficacia si se guarda."
-    ],
-    "modo_uso": "Rociar directamente sobre los insectos, mojando bien el envés de las hojas y las axilas de los brotes. Solo actúa por contacto directo, así que la cobertura debe ser completa. Repetir cada 5 a 7 días hasta eliminar la plaga.",
-    "precauciones": "No confundir con detergente ni con jabón de lavar ropa: esos contienen sodio y otros aditivos que queman el follaje. No aplicar bajo sol directo ni sobre plantas con estrés hídrico. Afecta también a insectos benéficos si se rocía sobre ellos. Enjuagar la planta con agua limpia al día siguiente si se aplicó en dosis alta.",
-    "costo_aprox": "S/ 2 a S/ 3 por litro"
-  },
-  {
-    "slug": "leche_herramientas",
-    "nombre": "Desinfección de herramientas con leche o alcohol",
-    "descripcion": "Práctica de higiene, no un tratamiento de la planta. Desinfectar el filo entre corte y corte evita transmitir virus y bacterias de una planta a otra, que es la vía principal de contagio del virus del mosaico y del cancro cítrico.",
-    "ingredientes": [
-      {
-        "item": "Leche descremada",
-        "cantidad": "1 parte"
-      },
-      {
-        "item": "Agua",
-        "cantidad": "9 partes"
-      },
-      {
-        "item": "Alternativa: alcohol de 70°",
-        "cantidad": "Cantidad suficiente para sumergir el filo"
-      },
-      {
-        "item": "Paño limpio o algodón",
-        "cantidad": "1 unidad"
-      }
-    ],
-    "preparacion": [
-      "Para la opción con leche, mezclar una parte de leche descremada con nueve de agua en un recipiente ancho.",
-      "Para la opción con alcohol, verter alcohol de 70° puro en un frasco donde quepa el filo de la tijera.",
-      "Tener el paño a la mano para secar el filo después de cada inmersión."
-    ],
-    "modo_uso": "Sumergir el filo de la tijera o cuchillo durante 10 segundos y secar antes de cada corte, cambiando de solución cada vez que se pasa a otra planta. Al terminar la jornada, lavar las herramientas con agua y jabón y secarlas por completo.",
-    "precauciones": "Renovar la mezcla de leche cada día: fermenta y deja de servir. El alcohol es más eficaz contra virus, pero es inflamable y reseca los mangos de madera. Lavarse las manos con agua y jabón antes de manipular plantas sanas, sobre todo si se fuma, porque el tabaco transmite el virus del mosaico.",
-    "costo_aprox": "S/ 1 por jornada"
+    "modo_uso": "Rocía de forma fina cubriendo arriba y abajo de las hojas sanas, por la mañana temprano o al atardecer. Máximo 3 veces por ciclo de cultivo, esperando de 10 a 14 días entre aplicaciones.",
+    "precauciones": "Receta avanzada: si queda mal mezclada o ácida, quemará las hojas al instante. No apliques en floración, ni con calor fuerte, ni si la planta tiene sed. Espera al menos 15 días antes de comer frutos o verduras tratadas. Usa guantes, mascarilla y lentes. No abuses porque el cobre se acumula en la tierra.\n\nFuentes de respaldo técnico:\n• INTA: Pautas para la preparación y uso seguro del caldo bordelés (https://inta.gob.ar)\n• University of Minnesota Extension: Uso responsable de compuestos cúpricos en agricultura (https://extension.umn.edu)",
+    "costo_aprox": null
   },
   {
     "slug": "trampas_amarillas",
-    "nombre": "Trampas cromáticas amarillas",
-    "descripcion": "Método físico de monitoreo y captura masiva. El amarillo atrae a la mosca blanca, los pulgones alados, el psílido de los cítricos y los minadores, que quedan adheridos. Sirve para detectar la plaga antes de que sea visible en la planta.",
+    "nombre": "Trampas adhesivas amarillas",
+    "descripcion": "Método físico para vigilar y atrapar plagas voladoras. El color amarillo brillante atrae a la mosca blanca, pulgones con alas, minadores y al insecto que transmite el HLB. No sirve contra la araña roja ni plagas que no vuelan.",
     "ingredientes": [
       {
-        "item": "Cartulina, plástico rígido o envase amarillo intenso",
-        "cantidad": "Rectángulos de 15 x 20 cm"
+        "item": "Plástico rígido amarillo brillante (unos 15 x 20 cm)",
+        "cantidad": "1 o más láminas"
       },
       {
-        "item": "Aceite vegetal, vaselina o pegamento entomológico",
-        "cantidad": "Cantidad suficiente para cubrir ambas caras"
+        "item": "Pegamento para insectos o vaselina espesa",
+        "cantidad": "Una capa delgada en ambos lados"
       },
       {
-        "item": "Estaca, alambre o pabilo para sujetar",
+        "item": "Alambre o cordel para colgar",
         "cantidad": "1 por trampa"
       }
     ],
     "preparacion": [
-      "Cortar los rectángulos de material amarillo. Si se usa cartulina, plastificarla o forrarla con cinta transparente para que resista la humedad.",
-      "Untar ambas caras con una capa delgada y pareja de aceite vegetal o vaselina.",
-      "Perforar un extremo y pasar el alambre o pabilo para colgarla."
+      "Limpia el plástico amarillo y unta una capa delgada y uniforme de pegamento o vaselina en ambas caras.",
+      "Hazle un hueco arriba y ponle el alambre para sujetarla."
     ],
-    "modo_uso": "Colocar una trampa cada 2 metros cuadrados, a la altura del follaje o unos 20 cm por encima. Revisar cada 3 días y reemplazar o volver a untar cuando la superficie esté cubierta de insectos o pierda adherencia.",
-    "precauciones": "No es un tratamiento curativo: reduce la población de adultos y sirve para detectar la plaga a tiempo, pero no elimina huevos ni ninfas y debe combinarse con otro control. Captura también insectos benéficos, así que conviene retirarlas si hay polinizadores activos en floración. Ubicarlas fuera del alcance de niños y mascotas por el pegamento.",
-    "costo_aprox": "S/ 1 a S/ 2 por trampa"
+    "modo_uso": "Cuélgalas a la altura de las hojas más altas (unos 10 o 20 cm por encima). Revísalas cada semana para ver cuántas plagas caen y cámbialas cuando estén llenas de polvo o insectos.",
+    "precauciones": "Sirve para detectar a tiempo la llegada de plagas; si la planta ya está repleta de insectos por debajo, la trampa sola no solucionará el problema. Retíralas si ves que caen abejas u otros insectos buenos.\n\nFuentes de respaldo técnico:\n• SENASA Perú: Vigilancia fitosanitaria y uso de trampas de monitoreo (https://www.gob.pe/senasa)\n• FAO: Monitoreo fitosanitario y herramientas físicas en agroecología (https://www.fao.org)",
+    "costo_aprox": null
   }
 ]

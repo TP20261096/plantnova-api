@@ -1,5 +1,5 @@
+from datetime import date, datetime, timedelta, timezone
 import math
-from datetime import date, timedelta
 
 from fastapi import HTTPException, status
 from supabase import Client
@@ -15,13 +15,14 @@ from app.modules.activities.schemas import (
 from app.modules.plants import repository as plants_repo
 from app.modules.plants.service import recalcular_estado, recalcular_riego
 
+PERU_TZ = timezone(timedelta(hours=-5))
+
 _NO_ENCONTRADA = HTTPException(
     status_code=status.HTTP_404_NOT_FOUND,
     detail="La actividad no existe",
 )
 
 _DIAS_HASTA_REVISION = 1
-_DIAS_VENTANA_TRATAMIENTO = 14
 
 
 def _a_salida(fila: dict, dia: date) -> ActividadOut:
@@ -114,10 +115,11 @@ def _proyectar_riegos(
 def listar_agenda(
     usuario: CurrentUser, dia: date | None = None
 ) -> list[ActividadOut]:
-    dia = dia or date.today()
+    hoy_peru = datetime.now(PERU_TZ).date()
+    dia = dia or hoy_peru
     cliente = user_client(usuario.token)
 
-    if dia > date.today():
+    if dia > hoy_peru:
         reales = [
             _a_salida(f, dia)
             for f in repo.programadas_desde(cliente, usuario.id, dia)
@@ -134,8 +136,6 @@ def listar_agenda(
     )
     return actividades
 
-
-# app/modules/activities/service.py
 
 def generar_plan_tratamiento(
     cliente: Client,
@@ -154,20 +154,17 @@ def generar_plan_tratamiento(
     if estado_diagnostico == "Sana":
         return
 
-    # Usar el tratamiento prioritario calculado o caer en la búsqueda por enfermedad
     plan = tratamiento_prioritario or repo.tratamiento_de_enfermedad(cliente, disease_id)
     if plan is None:
         return
 
     receta = plan.get("recetas") or {}
-    frecuencia = plan.get("frecuencia_dias") or 7
-
+    frecuencia = plan.get("frecuencia_dias")
     num_aplicaciones = plan.get("num_aplicaciones")
-    if not num_aplicaciones:
-        num_aplicaciones = max(1, math.ceil(_DIAS_VENTANA_TRATAMIENTO / frecuencia))
-
-    # Extracción segura sin KeyError
     receta_id = plan.get("receta_id") or receta.get("id")
+
+    tiene_secuencia = (frecuencia is not None) or (num_aplicaciones is not None)
+    aplicacion_inicial = 1 if tiene_secuencia else None
 
     repo.crear(
         cliente,
@@ -179,8 +176,8 @@ def generar_plan_tratamiento(
             "tipo": "Tratamiento",
             "titulo": f"Aplicar {receta.get('nombre', 'tratamiento')}",
             "descripcion": plan.get("nota") or receta.get("modo_uso"),
-            "fecha_programada": date.today().isoformat(),
-            "aplicacion_num": 1,
+            "fecha_programada": datetime.now(PERU_TZ).date().isoformat(),
+            "aplicacion_num": aplicacion_inicial,
             "total_aplicaciones": num_aplicaciones,
         },
     )
@@ -202,19 +199,32 @@ def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
     if tipo != "Tratamiento":
         return
 
-    actual = fila.get("aplicacion_num") or 1
-    total = fila.get("total_aplicaciones") or 1
+    actual = fila.get("aplicacion_num")
+    total = fila.get("total_aplicaciones")
 
-    if actual < total:
-        plan = repo.tratamiento_de_enfermedad(
-            cliente, _disease_id_de(cliente, fila)
-        )
-        frecuencia = (
-            plan["frecuencia_dias"]
-            if plan and plan.get("frecuencia_dias")
-            else 7
-        )
+    plan = repo.tratamiento_de_enfermedad(
+        cliente, _disease_id_de(cliente, fila)
+    )
+    frecuencia = plan.get("frecuencia_dias") if plan else None
 
+    if not frecuencia and not total:
+        repo.crear(
+            cliente,
+            {
+                "user_id": fila["user_id"],
+                "plant_id": fila["plant_id"],
+                "diagnosis_id": fila.get("diagnosis_id"),
+                "tipo": "Revision",
+                "titulo": "Revisar la planta con una nueva captura",
+                "descripcion": "Aplicación única completada. Revisa la evolución.",
+                "fecha_programada": (
+                    completada + timedelta(days=_DIAS_HASTA_REVISION)
+                ).isoformat(),
+            },
+        )
+        return
+
+    if frecuencia and total is None:
         repo.crear(
             cliente,
             {
@@ -228,8 +238,25 @@ def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
                 "fecha_programada": (
                     completada + timedelta(days=frecuencia)
                 ).isoformat(),
-                "aplicacion_num": actual + 1,
-                "total_aplicaciones": total,
+                "aplicacion_num": (actual or 1) + 1,
+                "total_aplicaciones": None,
+            },
+        )
+        return
+
+    if total is not None and actual is not None and actual >= total:
+        repo.crear(
+            cliente,
+            {
+                "user_id": fila["user_id"],
+                "plant_id": fila["plant_id"],
+                "diagnosis_id": fila.get("diagnosis_id"),
+                "tipo": "Revision",
+                "titulo": "Revisar la planta con una nueva captura",
+                "descripcion": "Terminó el tratamiento. Toma una foto para evaluar la evolución.",
+                "fecha_programada": (
+                    completada + timedelta(days=_DIAS_HASTA_REVISION)
+                ).isoformat(),
             },
         )
         return
@@ -240,15 +267,15 @@ def _encadenar_siguiente(cliente: Client, fila: dict) -> None:
             "user_id": fila["user_id"],
             "plant_id": fila["plant_id"],
             "diagnosis_id": fila.get("diagnosis_id"),
-            "tipo": "Revision",
-            "titulo": "Revisar la planta con una nueva captura",
-            "descripcion": (
-                "Terminó el ciclo de tratamiento. Toma una foto para "
-                "evaluar la evolución."
-            ),
+            "receta_id": fila.get("receta_id"),
+            "tipo": "Tratamiento",
+            "titulo": fila["titulo"],
+            "descripcion": fila.get("descripcion"),
             "fecha_programada": (
-                completada + timedelta(days=_DIAS_HASTA_REVISION)
+                completada + timedelta(days=frecuencia)
             ).isoformat(),
+            "aplicacion_num": (actual or 1) + 1,
+            "total_aplicaciones": total,
         },
     )
 
@@ -289,7 +316,7 @@ def crear_actividad(
     fila["user_id"] = usuario.id
     creada = repo.crear(cliente, fila)
     return _a_salida(
-        repo.obtener(cliente, creada["id"]), date.today()
+        repo.obtener(cliente, creada["id"]), datetime.now(PERU_TZ).date()
     )
 
 
@@ -315,9 +342,9 @@ def actualizar_actividad(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="La actividad ya estaba completada",
             )
-        valores["fecha_completada"] = date.today().isoformat()
+        valores["fecha_completada"] = datetime.now(PERU_TZ).date().isoformat()
     elif valores.get("estado") == "Cancelada":
-        valores["fecha_completada"] = date.today().isoformat()
+        valores["fecha_completada"] = datetime.now(PERU_TZ).date().isoformat()
 
     actualizada = repo.actualizar(cliente, actividad_id, valores)
 
@@ -326,7 +353,7 @@ def actualizar_actividad(
         recalcular_estado(cliente, fila["plant_id"])
 
     return _a_salida(
-        repo.obtener(cliente, actividad_id), date.today()
+        repo.obtener(cliente, actividad_id), datetime.now(PERU_TZ).date()
     )
 
 
