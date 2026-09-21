@@ -110,17 +110,12 @@ def cancelar_pendientes(
     )
 
 
-def tratamiento_de_enfermedad(
-    cliente: Client, disease_id: str
-) -> dict | None:
-    
+def tratamiento_de_enfermedad(cliente: Client, disease_id: str) -> dict | None:
     respuesta = (
         cliente.table("disease_treatments")
-        .select(
-            "receta_id, frecuencia_dias, num_aplicaciones, nota, "
-            "recetas(nombre)"
-        )
+        .select("*, recetas(*)")
         .eq("disease_id", disease_id)
+        .order("frecuencia_dias", desc=False)  # <-- Esto prioriza el de menor días (el principal)
         .limit(1)
         .execute()
     )

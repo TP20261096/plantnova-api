@@ -21,8 +21,8 @@ class RecetaOut(BaseModel):
     modo_uso: str | None
     precauciones: str | None
     costo_aprox: str | None
-    frecuencia_dias: int
-    num_aplicaciones: int
+    frecuencia_dias: int | None = None
+    num_aplicaciones: int | None = None
     nota: str | None
 
 
@@ -52,7 +52,7 @@ class DiagnosticoOut(BaseModel):
     otros_cuidados: str | None
 
     tratamientos: list[RecetaOut]
-    insumos_no_caseros: list[dict]
+    insumos_no_caseros: list[str]  # <-- CAMBIA list[dict] por list[str]
 
     imagen_url: str | None
     gradcam_url: str | None

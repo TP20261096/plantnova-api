@@ -86,12 +86,27 @@ def tiene_tratamiento_pendiente(cliente: Client, planta_id: str) -> bool:
 
 
 def proxima_actividad_tratamiento(cliente: Client, planta_id: str) -> dict | None:
-    """Obtiene la actividad de tratamiento o revisión pendiente más próxima."""
+    """Obtiene la actividad pendiente más próxima, priorizando revisiones si existen."""
+    # 1. Buscar primero si hay una Revisión Pendiente
+    revision = (
+        cliente.table("activities")
+        .select("*")
+        .eq("plant_id", planta_id)
+        .eq("tipo", "Revision")
+        .eq("estado", "Pendiente")
+        .order("fecha_programada", desc=False)
+        .limit(1)
+        .execute()
+    )
+    if revision.data:
+        return revision.data[0]
+
+    # 2. Si no hay revisión, buscar el Tratamiento pendiente
     respuesta = (
         cliente.table("activities")
-        .select("fecha_programada")
+        .select("*")
         .eq("plant_id", planta_id)
-        .in_("tipo", ["Tratamiento", "Revision"])
+        .eq("tipo", "Tratamiento")
         .eq("estado", "Pendiente")
         .order("fecha_programada", desc=False)
         .limit(1)

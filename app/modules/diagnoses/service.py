@@ -2,11 +2,17 @@ import uuid
 
 from fastapi import HTTPException, status
 
+from app.core import storage
+from datetime import date, datetime, timedelta, timezone
+import math
+
+PERU_TZ = timezone(timedelta(hours=-5))
+
 from app.core.images import validar_imagen
 from app.core.security import CurrentUser
 from app.core.supabase import user_client
+from app.modules.activities.service import generar_plan_tratamiento
 from app.modules.diagnoses import repository as repo
-from app.core import storage
 from app.modules.diagnoses.inference import (
     UMBRAL_CONFIANZA,
     Inferencia,
@@ -17,7 +23,6 @@ from app.modules.diagnoses.schemas import (
     PrediccionOut,
     RecetaOut,
 )
-from app.modules.activities.service import generar_plan_tratamiento
 from app.modules.plants import repository as plants_repo
 from app.modules.plants.service import recalcular_estado, recalcular_riego
 
@@ -118,9 +123,10 @@ def _componer(
             preparacion=t["recetas"].get("preparacion") or [],
             modo_uso=t["recetas"].get("modo_uso"),
             precauciones=t["recetas"].get("precauciones"),
-            costo_aprox=t["recetas"].get("costo_aprox"),
-            frecuencia_dias=t["frecuencia_dias"],
-            num_aplicaciones=t["num_aplicaciones"],
+            costo_aprox=None if t["recetas"].get("costo_aprox") in (None, "", "null") else t["recetas"].get("costo_aprox"),
+            # Se permiten valores nulos reales sin forzar 0 o 7 por defecto
+            frecuencia_dias=t.get("frecuencia_dias"),
+            num_aplicaciones=t.get("num_aplicaciones"),
             nota=t.get("nota"),
         )
         for t in (ficha.get("disease_treatments") or [])
@@ -260,22 +266,39 @@ def _actualizar_planta(
     fila: dict,
     ficha: dict,
 ) -> None:
-    t_prioritario = _obtener_tratamiento_prioritario_raw(
-        clase_raw=fila["clase_raw"],
-        urgencia=ficha.get("urgencia", "Media"),
-        ficha=ficha,
-    )
+    estado_diag = (fila.get("estado") or ficha.get("estado") or "").lower()
+    
+    # 1. Buscar si la planta tenía una tarea de tipo "Revision" pendiente y completarla
+    revision_pendiente = cliente.table("activities").select("id").eq("plant_id", plant_id).eq("tipo", "Revision").eq("estado", "Pendiente").execute()
+    if revision_pendiente.data:
+        for rev in revision_pendiente.data:
+            cliente.table("activities").update({
+                "estado": "Completada",
+                "fecha_completada": datetime.now(PERU_TZ).date().isoformat()
+            }).eq("id", rev["id"]).execute()
 
-    generar_plan_tratamiento(
-        cliente=cliente,
-        user_id=user_id,
-        plant_id=plant_id,
-        diagnosis_id=fila["id"],
-        disease_id=ficha["id"],
-        estado_diagnostico=fila["estado"],
-        apodo=planta.get("apodo", ""),
-        tratamiento_prioritario=t_prioritario,
-    )
+    # 2. Si la planta está sana, cerramos el resto de pendientes
+    if "sana" in estado_diag or "saludable" in estado_diag:
+        cliente.table("activities").update({"estado": "Completada"}).eq("plant_id", plant_id).eq("estado", "Pendiente").execute()
+    else:
+        # Si sigue enferma, generamos el nuevo plan de tratamiento sin cancelar la revisión ya completada
+        t_prioritario = _obtener_tratamiento_prioritario_raw(
+            clase_raw=fila["clase_raw"],
+            urgencia=ficha.get("urgencia", "Media"),
+            ficha=ficha,
+        )
+
+        generar_plan_tratamiento(
+            cliente=cliente,
+            user_id=user_id,
+            plant_id=plant_id,
+            diagnosis_id=fila["id"],
+            disease_id=ficha["id"],
+            estado_diagnostico=fila["estado"],
+            apodo=planta.get("apodo", ""),
+            tratamiento_prioritario=t_prioritario,
+        )
+        
     recalcular_estado(cliente, plant_id)
     recalcular_riego(cliente, plant_id)
 

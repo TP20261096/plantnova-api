@@ -6,32 +6,29 @@
     "nombre_cientifico": "Xanthomonas spp.",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Bacteriosis del pimiento que se dispersa con las salpicaduras de agua y penetra por heridas o estomas; en clima templado y húmedo puede defoliar la planta.",
-    "sintomas": "Manchas pequeñas de aspecto acuoso que se vuelven marrones y angulosas, con halo amarillo; en fruto aparecen costras rugosas.",
-    "causas": "Agua sobre el follaje, semilla o plantín contaminado y restos de cultivos anteriores en el suelo.",
-    "prevencion": "Usar semilla sana, regar en la base, no manipular las plantas mojadas y rotar el cultivo al menos dos años.",
+    "descripcion": "Bacteria del pimiento que entra por heridas y se contagia con las salpicaduras de agua. El tratamiento solo protege las hojas sanas; no cura las manchas secas que ya salieron.",
+    "sintomas": "Manchas pequeñas de apariencia mojada que luego se vuelven marrones y oscuras con borde amarillo; en los pimientos salen costras rugosas.",
+    "causas": "Salpicaduras al regar sobre las hojas, semillas contaminadas, manipular plantas mojadas y restos de cultivos anteriores.",
+    "prevencion": "Usa semillas sanas, riega solo en la tierra (nunca mojes las hojas), desinfecta las tijeras y no vuelvas a plantar pimiento en el mismo sitio por 2 años.",
     "riego_frecuencia_dias": 2,
-    "riego_nota": "Riego cada 2-3 días en climas cálidos. Evitar mojar el follaje; usar riego en la base. En clima más frío, puede ser cada 5-7 días.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, nunca mojando las hojas. Rotar cultivo: no sembrar pimiento en el mismo suelo por al menos 2 años.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega cada 2 o 3 días directamente a la tierra. No uses manguera por aspersión ni mojes el follaje.",
+    "otros_cuidados": "Si la zona roja en la foto es pequeña: corta con cuidado solo las hojas manchadas y bótalas en una bolsa (no las eches al compost). Si toda la planta está tomada: retírala completa. Desinfecta tus tijeras con alcohol al 70%.",
+    "insumos_no_caseros": [
+      "Cobre agrícola autorizado para pimiento",
+      "Alcohol al 70%"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
+        "receta_slug": "desinfeccion_alcohol",
+        "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días. Si la enfermedad persiste tras 2 semanas, pasar a caldo bordelés."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "nota": "Desinfecta el filo de las tijeras con alcohol entre cada corte para no contagiar otras ramas."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días. Usar si el tratamiento casero no funciona tras 2 semanas."
+        "num_aplicaciones": 3,
+        "nota": "Uso avanzado: rocía hojas sanas para protegerlas. No apliques si hace mucho calor."
       }
     ]
   },
@@ -42,66 +39,63 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Planta fuerte y sana, sin signos de manchas, bacterias ni plagas.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener la rutina de riego y revisar el envés de las hojas una vez por semana.",
+    "prevencion": "Mantén el riego en la base de la planta, buena ventilación y revisa detrás de las hojas una vez por semana.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días en climas cálidos. En clima más frío, cada 5-7 días. Mantener sustrato húmedo pero sin encharcar.",
-    "otros_cuidados": "Aplicar compost o abono orgánico cada 3-4 semanas. Revisar el envés de las hojas una vez por semana.",
+    "riego_nota": "Riega cada 2 a 3 días en días calurosos. Mantén la tierra húmeda sin encharcar.",
+    "otros_cuidados": "Abona con compost una vez al mes. Evita que la tierra salpique a las hojas más bajas.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
   {
     "clase_raw": "Brinjal_Diseased_Brinjal_Leaf_-_Cercospora_Leaf_Spot",
     "species_slug": "berenjena",
-    "nombre_enfermedad": "Mancha de Cercospora",
+    "nombre_enfermedad": "Mancha por Cercospora",
     "nombre_cientifico": "Cercospora solani-melongenae",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo foliar que avanza de las hojas bajas hacia arriba y reduce la superficie fotosintética de la berenjena.",
-    "sintomas": "Manchas circulares de centro grisáceo y borde oscuro; con el avance las hojas amarillean y caen.",
-    "causas": "Humedad prolongada sobre la hoja, follaje denso sin ventilación y restos vegetales infectados.",
-    "prevencion": "Espaciar las plantas, regar temprano y en la base, y retirar las hojas bajas en contacto con el suelo.",
+    "descripcion": "Hongo que sube desde las hojas más viejas hacia arriba, secándolas y debilitando la berenjena.",
+    "sintomas": "Manchas circulares con centro grisáceo y orilla marrón rojiza; las hojas se ponen amarillas y se caen.",
+    "causas": "Mucha humedad ambiental, plantas muy juntas sin aire y hojas viejas enfermas que quedan en el suelo.",
+    "prevencion": "Dale espacio a las plantas, riega temprano directo a la tierra y retira las hojas de abajo que toquen el suelo.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "En verano, regar cada 3-4 días; en invierno, cada 7-12 días. Mantener la tierra húmeda pero no encharcada.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Dejar espacio entre plantas para ventilación. Rotar el cultivo.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega en la base cada 3 o 4 días en verano; no mojes las hojas.",
+    "otros_cuidados": "Corta y bota las hojas de abajo muy manchadas. Coloca paja o acolchado sobre la tierra para que el agua no salpique el hongo hacia arriba.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado para berenjena",
+      "Jabón potásico agrícola"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días. Si no mejora en 2 semanas, pasar a caldo bordelés."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Rocía 3 g por litro de agua en hojas sanas al atardecer como apoyo preventivo. Prueba antes en 1 hoja por 24 horas."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si el tratamiento casero no es suficiente."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica solo si las manchas siguen saliendo después de haber cortado las hojas enfermas."
       }
     ]
   },
   {
     "clase_raw": "Brinjal_Fresh_Brinjal_Leaf",
     "species_slug": "berenjena",
-    "nombre_enfermedad": "Hoja sana",
+    "nombre_enfermedad": "Planta sana",
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "Follaje de berenjena sin síntomas de enfermedad ni presencia de plagas.",
+    "descripcion": "Hojas verdes y limpias, con crecimiento normal y libres de hongos.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener el riego regular y revisar semanalmente el envés de las hojas.",
+    "prevencion": "Deja suficiente espacio entre plantas para que corra el aire y revisa semanalmente el envés de las hojas.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "En verano, regar cada 3-4 días; en invierno, cada 7-12 días. Mantener la tierra húmeda pero no encharcada.",
-    "otros_cuidados": "Fertilizar con compost o humus de lombriz cada mes. Inspeccionar el envés de las hojas buscando insectos.",
+    "riego_nota": "Riega en la base cada 3 a 4 días; asegúrate de que la maceta o suelo drene bien.",
+    "otros_cuidados": "Quita malezas y corta ramas secas o brotes de abajo que rocen la tierra.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -112,68 +106,55 @@
     "nombre_cientifico": "Alternaria brassicicola",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo que ataca hojas y cabezas del repollo, especialmente en épocas de rocío abundante.",
-    "sintomas": "Manchas redondas con anillos concéntricos de color oscuro, a veces con centro que se desprende.",
-    "causas": "Follaje mojado por varias horas, semilla contaminada y restos de brásicas del ciclo anterior.",
-    "prevencion": "Rotar con cultivos que no sean brásicas, regar en la base y eliminar los restos de cosecha.",
+    "descripcion": "Hongo que mancha y pudre las hojas y cogollos del repollo, común cuando hay mucho rocío y humedad.",
+    "sintomas": "Manchas circulares con anillos concéntricos como círculos de un blanco de tiro; el centro se rompe y deja agujeros.",
+    "causas": "Hojas mojadas por muchas horas, restos de repollos o coles viejas y semillas con hongo.",
+    "prevencion": "No siembres col, repollo ni brócoli en el mismo sitio por 2 años; riega directo a la tierra y elimina hojas secas.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. En climas calurosos, regar día por medio. Evitar encharcar.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo cada temporada.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega al pie de la planta sin mojar la cabeza ni las hojas.",
+    "otros_cuidados": "Corta y bota las hojas exteriores con manchas. Limpiar la huerta es más efectivo que echarle líquidos todo el tiempo.",
+    "insumos_no_caseros": [
+      "Cobre orgánico comercial para repollo"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días. Si persiste tras 2 semanas, usar caldo bordelés."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Rocía 3 g por litro en hojas sanas como escudo protector. No reemplaza retirar las hojas enfermas."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica con cuidado si la enfermedad sigue avanzando. Respeta los días de espera antes de cosechar."
       }
     ]
   },
   {
     "clase_raw": "Cabbage_Bacterial_spot_rot",
     "species_slug": "repollo",
-    "nombre_enfermedad": "Mancha bacteriana / pudrición",
+    "nombre_enfermedad": "Mancha bacteriana y pudrición blanda",
     "nombre_cientifico": "Pseudomonas syringae pv. maculicola",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Bacteriosis que produce manchas foliares y, en condiciones húmedas, pudriciones blandas en la cabeza.",
-    "sintomas": "Manchas oscuras de aspecto empapado que se unen entre sí y tejido blando con mal olor en la cabeza.",
-    "causas": "Exceso de humedad, heridas por manipulación y agua de riego sobre el follaje.",
-    "prevencion": "Regar al sustrato, evitar heridas al cosechar, desinfectar herramientas y no trabajar con las plantas mojadas.",
+    "descripcion": "Bacteria que causa manchas oscuras y pudrición aguada en la cabeza del repollo si hay exceso de agua. Las recetas caseras no la curan.",
+    "sintomas": "Puntos oscuros que se juntan; el repollo se pone blando, aguado y bota mal olor.",
+    "causas": "Heridas al manipular la planta, regar mojando las hojas y exceso de humedad.",
+    "prevencion": "No toques las plantas cuando estén mojadas, no riegues por arriba y desinfecta las tijeras.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión. Mejorar el drenaje.",
-    "otros_cuidados": "Retirar plantas muy afectadas para frenar el contagio. Mejorar el drenaje y evitar encharcamientos. Desinfectar tijeras y herramientas.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega poco y directo al suelo; cuida que el agua no se quede estancada.",
+    "otros_cuidados": "Retira de inmediato la planta o cabeza podrida y bótala en una bolsa. No intentes lavarla para comerla. Desinfecta tus herramientas con alcohol al 70%.",
+    "insumos_no_caseros": [
+      "Alcohol al 70%",
+      "Bactericida de cobre autorizado"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días de forma preventiva o ante los primeros síntomas."
-      },
-      {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
-      },
-      {
-        "receta_slug": "leche_herramientas",
+        "receta_slug": "desinfeccion_alcohol",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+        "nota": "Desinfecta tus tijeras y cuchillos con alcohol después de cortar partes podridas."
       }
     ]
   },
@@ -184,86 +165,81 @@
     "nombre_cientifico": "Xanthomonas campestris pv. campestris",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Enfermedad bacteriana sistémica que entra por los bordes de la hoja y coloniza los vasos conductores.",
-    "sintomas": "Lesiones amarillas en forma de V desde el borde de la hoja, con nervaduras que se oscurecen.",
-    "causas": "Semilla infectada, salpicaduras de riego y restos de brásicas en el suelo.",
-    "prevencion": "Usar semilla certificada, rotar al menos dos años, regar en la base y retirar las plantas enfermas completas.",
+    "descripcion": "Bacteria muy destructiva que viaja por las venas internas de la planta. Ningún spray ni preparado casero cura una planta infectada.",
+    "sintomas": "Manchas amarillas en forma de 'V' que entran desde el borde de las hojas; las venas de la hoja se vuelven negras.",
+    "causas": "Semillas enfermas, salpicaduras de lluvia o manguera y restos de brásicas viejas.",
+    "prevencion": "Usa semillas limpias, no cultives coles en esa tierra por 2 o 3 años y desinfecta tus manos y tijeras.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión. Mejorar el drenaje.",
-    "otros_cuidados": "Retirar plantas muy afectadas. Usar semilla certificada o tratar semilla con agua caliente. Rotar cultivo por 2-3 años.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega suavemente al suelo, sin que salpique barro a las hojas.",
+    "otros_cuidados": "Arranca la planta completa desde la raíz y bótala en una bolsa cerrada. No la eches al compost de tu casa. Desinfecta tijeras y manos con alcohol al 70%.",
+    "insumos_no_caseros": [
+      "Alcohol al 70%",
+      "Cobre formulado (solo para proteger plantas sanas vecinas)"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días de forma preventiva."
-      },
-      {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
-      },
-      {
-        "receta_slug": "leche_herramientas",
+        "receta_slug": "desinfeccion_alcohol",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+        "nota": "Desinfección obligatoria de herramientas para no contagiar a plantas sanas."
       }
     ]
   },
   {
     "clase_raw": "Cabbage_Cabbage_aphid_colony",
     "species_slug": "repollo",
-    "nombre_enfermedad": "Colonia de pulgón (áfido)",
+    "nombre_enfermedad": "Colonia de pulgones",
     "nombre_cientifico": "Brevicoryne brassicae",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Plaga de insectos chupadores que forma colonias en el envés de las hojas y en los brotes tiernos.",
-    "sintomas": "Grupos de insectos grisáceos cubiertos de polvo ceroso, hojas deformadas y melaza pegajosa con fumagina.",
-    "causas": "Exceso de nitrógeno, brotes tiernos abundantes y ausencia de enemigos naturales.",
-    "prevencion": "Revisar el envés semanalmente, moderar la fertilización nitrogenada y favorecer la presencia de mariquitas.",
+    "descripcion": "Plaga de pulgones cubiertos de un polvillo blanco grisáceo que chupan la savia de los brotes y deforman el repollo.",
+    "sintomas": "Grupos apretados de bichos grisáceos en el envés de las hojas; hojas arrugadas, crecimiento detenido y sustancia pegajosa.",
+    "causas": "Demasiado abono nitrogenado tierno, clima seco y falta de mariquitas u otros insectos aliados.",
+    "prevencion": "Revisa detrás de las hojas cada semana, no abuses del abono químico y cuida a las mariquitas del jardín.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar encharcar.",
-    "otros_cuidados": "Lavar las hojas con agua para tumbar insectos. Atraer insectos benéficos (mariquitas) sembrando flores cerca.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riego normal al pie de la planta.",
+    "otros_cuidados": "Lava primero con un chorro suave de agua para tirar al suelo a la mayoría de pulgones antes de aplicar el jabón.",
+    "insumos_no_caseros": [
+      "Jabón potásico agrícola concentrado"
+    ],
     "tratamientos": [
       {
         "receta_slug": "jabon_potasico",
-        "frecuencia_dias": 3,
+        "frecuencia_dias": 4,
         "num_aplicaciones": null,
-        "nota": "Aplicar cada 2-3 días hasta que desaparezca la plaga."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "nota": "Rocía a 10 ml por litro mojando directo a los pulgones para disolver su capa de cera."
       },
       {
         "receta_slug": "trampas_amarillas",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Colocar trampas amarillas cerca de las plantas afectadas. Cambiar o limpiar cuando se llenen."
+        "nota": "Coloca trampas pegajosas amarillas cerca para atrapar a los pulgones con alas."
+      },
+      {
+        "receta_slug": "ajo_aji",
+        "frecuencia_dias": 7,
+        "num_aplicaciones": null,
+        "nota": "Rocía como repelente de apoyo una vez que hayas controlado el grueso de la plaga con el jabón potásico."
       }
     ]
   },
   {
     "clase_raw": "Cabbage_club_root",
     "species_slug": "repollo",
-    "nombre_enfermedad": "Hernia de la col (Club root)",
+    "nombre_enfermedad": "Hernia de la col",
     "nombre_cientifico": "Plasmodiophora brassicae",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Patógeno de suelo que deforma las raíces e impide que la planta absorba agua y nutrientes; persiste muchos años en el terreno.",
-    "sintomas": "Marchitez en las horas de calor pese al riego, crecimiento detenido y raíces engrosadas con forma de nudos.",
-    "causas": "Suelos ácidos, mal drenados y con historial de brásicas; se disemina con tierra, calzado y herramientas.",
-    "prevencion": "Subir el pH con cal agrícola, mejorar el drenaje, no reutilizar el sustrato y evitar sembrar brásicas por varios años.",
+    "descripcion": "Problema del suelo que deforma las raíces y no deja que la planta absorba agua. Rociar líquidos sobre las hojas no sirve de nada.",
+    "sintomas": "La planta se marchita con el sol y parece recuperarse de noche; no crece y sus raíces se deforman en nudos y bultos grandes.",
+    "causas": "Suelos ácidos con mal drenaje y tierra contaminada llevada en zapatos o palas.",
+    "prevencion": "Pon cal agrícola para corregir la acidez de la tierra, mejora el drenaje y no siembres coles en esa zona por varios años.",
     "riego_frecuencia_dias": 5,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. Mejorar el drenaje para evitar encharcamientos.",
-    "otros_cuidados": "No sembrar coles en ese suelo por varios años. Si es maceta, cambiar toda la tierra.",
-    "insumos_no_caseros": [],
+    "riego_nota": "No encharques la tierra; el agua acumulada ayuda a que el problema avance.",
+    "otros_cuidados": "Arranca la planta completa con toda su raíz y bótala a la basura. Si está en maceta: bota toda la tierra y lava bien el recipiente. No vuelvas a sembrar repollos ahí por 5 a 7 años.",
+    "insumos_no_caseros": [
+      "Cal agrícola (para mejorar la tierra antes de sembrar)"
+    ],
     "tratamientos": []
   },
   {
@@ -273,32 +249,22 @@
     "nombre_cientifico": "Hyaloperonospora parasitica",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Oomiceto favorecido por noches frescas y humedad alta, condiciones habituales del invierno limeño.",
-    "sintomas": "Manchas amarillas de bordes angulosos en el haz y polvillo grisáceo en el envés.",
-    "causas": "Alta humedad relativa, rocío persistente y follaje sin ventilación.",
-    "prevencion": "Separar las plantas, regar temprano en la base y retirar las hojas afectadas.",
+    "descripcion": "Hongo común en épocas de frío y neblina continua (muy típico del invierno).",
+    "sintomas": "Manchas amarillas con esquinas rectas en la parte de arriba de la hoja, y pelusa grisácea detrás.",
+    "causas": "Hojas húmedas durante toda la noche, plantas muy amontonadas y falta de sol y aire.",
+    "prevencion": "Riega en la base temprano por la mañana, dale espacio a cada planta y quita hojas enfermas.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión. Regar en la base.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Dejar espacio entre plantas para ventilación.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega temprano al pie para que las hojas se mantengan secas durante la noche.",
+    "otros_cuidados": "Corta las hojas que tengan pelusa por detrás. Los remedios caseros suaves no eliminan este problema; ventilar y podar es lo primero.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado para repollo"
+    ],
     "tratamientos": [
-      {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 3,
+        "nota": "Uso avanzado: rocía hojas sanas para protegerlas. No cura hojas ya amarillas."
       }
     ]
   },
@@ -309,13 +275,13 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Repollo sano, con hojas firmes y libres de manchas o gusanos.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener la rutina de riego y revisar el envés de las hojas una vez por semana.",
+    "prevencion": "Buen drenaje en la tierra y revisión semanal para que no se metan orugas o pulgones.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. En climas calurosos, regar día por medio. Mantener la tierra húmeda pero sin encharcar.",
-    "otros_cuidados": "Fertilizar con compost cada 3-4 semanas. Revisar el envés de las hojas semanalmente.",
+    "riego_nota": "Riego moderado a la base sin encharcar.",
+    "otros_cuidados": "Revisa entre las hojas del centro para detectar pulgones o huevitos a tiempo.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -326,32 +292,28 @@
     "nombre_cientifico": "Mycosphaerella brassicicola",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo foliar de clima fresco y húmedo que afecta hojas externas y reduce la calidad comercial.",
-    "sintomas": "Manchas circulares grises con anillos concéntricos y puntos negros diminutos en el centro.",
-    "causas": "Temperaturas frescas con humedad sostenida y restos de brásicas infectados.",
-    "prevencion": "Rotar el cultivo, eliminar restos vegetales y evitar el riego por aspersión al atardecer.",
+    "descripcion": "Hongo que aparece con frío y humedad continua, manchando sobre todo las hojas más viejas de afuera.",
+    "sintomas": "Manchas redondas grises con anillos concéntricos y puntitos negros en el centro.",
+    "causas": "Humedad que no seca y restos de repollos anteriores infectados.",
+    "prevencion": "Cambia de cultivo al siguiente año, retira hojas secas y no riegues sobre el follaje al atardecer.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riegos frecuentes pero de poco volumen. Evitar riego por aspersión.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo cada año.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega directo a la tierra sin mojar las hojas.",
+    "otros_cuidados": "Corta de inmediato las hojas con manchas para que las esporas no vuelen a las hojas sanas.",
+    "insumos_no_caseros": [
+      "Cobre formulado para hortalizas"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Usa 3 g por litro de agua como apoyo preventivo en hojas limpias al atardecer."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica si las manchas siguen apareciendo en las hojas de adentro."
       }
     ]
   },
@@ -362,32 +324,22 @@
     "nombre_cientifico": "Phyllosticta citricarpa",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo que afecta principalmente el fruto y deprecia la cosecha; las infecciones ocurren en fruto joven.",
-    "sintomas": "Manchas negras hundidas con borde rojizo en la cáscara y puntos oscuros en las hojas.",
-    "causas": "Lluvia o riego por aspersión durante el cuajado y hojarasca infectada bajo el árbol.",
-    "prevencion": "Recoger la hojarasca y los frutos caídos, podar para airear la copa y regar por goteo.",
+    "descripcion": "Hongo importante y regulado que hace huecos y manchas en la cáscara del fruto y en las hojas. Requiere atención profesional.",
+    "sintomas": "Manchas negras hundidas con centro gris y borde rojizo en la fruta y puntitos oscuros en las hojas.",
+    "causas": "Hojas secas caídas bajo el árbol que contagian a los frutos nuevos con la lluvia o riego por aspersión.",
+    "prevencion": "Barre y bota todas las hojas y frutos caídos debajo del árbol; poda ramas secas para que entre el sol.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "En verano, regar 2-3 veces por semana. En invierno, menos frecuente. Evitar encharcamientos.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Mantener limpio el suelo bajo el árbol, sin hojarasca.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega al suelo o por goteo. Nunca mojes la copa con manguera.",
+    "otros_cuidados": "No uses preparados caseros (ajo o bicarbonato) como solución principal. Si estás en Perú en una zona productora, avisa a SENASA ya que es una plaga bajo vigilancia.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado por SENASA para cítricos"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
         "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "frecuencia_dias": 14,
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: protege los frutos jóvenes y brotes nuevos. No borra manchas que ya salieron."
       }
     ]
   },
@@ -398,32 +350,29 @@
     "nombre_cientifico": "Xanthomonas citri subsp. citri",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Bacteriosis muy contagiosa que se dispersa con el viento con lluvia y por herramientas contaminadas.",
-    "sintomas": "Lesiones corchosas y elevadas en hoja, ramas y fruto, rodeadas de un halo amarillo.",
-    "causas": "Heridas por espinas o minador de los cítricos, salpicaduras de agua y material vegetal infectado.",
-    "prevencion": "Desinfectar las herramientas de poda, controlar el minador, evitar mojar el follaje y no traer plantones de zonas afectadas.",
+    "descripcion": "Bacteria muy contagiosa que se pega por el viento, lluvia y tijeras sucias. Provoca costras rugosas y no tiene cura interna.",
+    "sintomas": "Costras ásperas levantadas como granitos en hojas, ramas y frutos, rodeadas de un aro aceitoso amarillo.",
+    "causas": "Lluvia con viento fuerte, heridas del gusanito minador y podar con tijeras sin desinfectar.",
+    "prevencion": "Desinfecta tus tijeras con alcohol al 70%, controla al minador de hojas y no traigas plantones sin certificación.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "En verano, regar 2-3 veces por semana. En invierno, menos frecuente. Evitar encharcamientos.",
-    "otros_cuidados": "Retirar hojas o plantas muy afectadas. Usar plantas certificadas libres de la enfermedad. Consultar a la autoridad agrícola local (puede ser de reporte obligatorio).",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega al suelo sin salpicar las ramas ni el tronco.",
+    "otros_cuidados": "Aísla la planta y no traslades hojas ni ramas podadas. Comunícate con SENASA. Desinfecta minuciosamente tus herramientas.",
+    "insumos_no_caseros": [
+      "Alcohol al 70%",
+      "Cobre formulado para cítricos"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días de forma preventiva."
-      },
-      {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
-      },
-      {
-        "receta_slug": "leche_herramientas",
+        "receta_slug": "desinfeccion_alcohol",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+        "nota": "Desinfecta las tijeras de podar entre corte y corte para no enfermar ramas sanas."
+      },
+      {
+        "receta_slug": "caldo_bordeles_casero",
+        "frecuencia_dias": 14,
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: ayuda a que los brotes nuevos no se contagien; no quita las costras ya formadas."
       }
     ]
   },
@@ -434,26 +383,29 @@
     "nombre_cientifico": "Candidatus Liberibacter asiaticus",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Enfermedad bacteriana transmitida por el psílido asiático; no tiene cura y termina matando al árbol.",
-    "sintomas": "Moteado amarillo asimétrico en las hojas, brotes amarillentos y frutos pequeños, deformes y amargos.",
-    "causas": "Picadura del psílido Diaphorina citri y plantones infectados.",
-    "prevencion": "Controlar el psílido, comprar plantones certificados y eliminar de inmediato los árboles confirmados.",
-    "riego_frecuencia_dias": 1,
-    "riego_nota": "Riego frecuente es clave. Se recomienda riego diario, incluso 3 veces al día en intervalos cortos. Mantener humedad constante.",
-    "otros_cuidados": "Si la planta muestra síntomas avanzados, retirarla del huerto (no tiene cura). Cubrir plantas jóvenes con malla antiáfidos. Consultar con SENASA o autoridad agrícola.",
-    "insumos_no_caseros": [],
+    "descripcion": "La enfermedad más grave de los cítricos. Es transmitida por un insecto pequeño (psílido), no tiene cura y mata al árbol. No existe remedio casero para curarlo.",
+    "sintomas": "Hojas con manchas amarillas desiguales (un lado amarillo y el otro verde), ramas que se secan de repente y frutos chiquitos, amargos y deformes.",
+    "causas": "Picadura del insecto vector (Diaphorina citri) o injertos de plantas no certificadas.",
+    "prevencion": "Compra plantones certificados por SENASA, vigila la presencia del insecto vector y elimina de inmediato árboles confirmados.",
+    "riego_frecuencia_dias": 2,
+    "riego_nota": "Riego al suelo sin ahogar las raíces debilitadas.",
+    "otros_cuidados": "No guardes árboles enfermos en casa. Llama a SENASA de inmediato para su confirmación. El jabón potásico y las trampas solo sirven para combatir al insecto que transmite la bacteria, pero no curan el árbol.",
+    "insumos_no_caseros": [
+      "Jabón potásico formulado",
+      "Trampas pegajosas amarillas"
+    ],
     "tratamientos": [
-      {
-        "receta_slug": "jabon_potasico",
-        "frecuencia_dias": 5,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días sobre brotes nuevos para controlar el insecto vector (psílido)."
-      },
       {
         "receta_slug": "trampas_amarillas",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Colocar trampas amarillas para atrapar al insecto vector."
+        "nota": "Cuélgalas en el árbol para vigilar si llega el insecto que transmite la enfermedad."
+      },
+      {
+        "receta_slug": "jabon_potasico",
+        "frecuencia_dias": 5,
+        "num_aplicaciones": null,
+        "nota": "Rocía los brotes nuevos a 10 ml por litro solo para reducir la presencia del insecto vector."
       }
     ]
   },
@@ -464,13 +416,13 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Hojas verdes, brillantes y simétricas, sin deformaciones ni costras.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener el riego regular y revisar los brotes nuevos en busca de psílidos.",
+    "prevencion": "Revisa los brotes nuevos cada mes y haz podas suaves para que entre luz al centro del árbol.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "En verano, regar 2-3 veces por semana. En invierno, menos frecuente. Evitar encharcamientos.",
-    "otros_cuidados": "Fertilizar con compost o abono orgánico según la época. Revisar brotes nuevos buscando insectos.",
+    "riego_nota": "Riego espaciado cada 3 a 5 días según el calor.",
+    "otros_cuidados": "Abona con compost y fertilizantes con zinc y hierro en primavera y verano.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -481,32 +433,22 @@
     "nombre_cientifico": "Puccinia sorghi",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo foliar cuyas esporas viajan con el viento; prospera con temperaturas moderadas y humedad alta.",
-    "sintomas": "Pústulas alargadas de color canela a marrón en ambas caras de la hoja, que sueltan polvo al frotarlas.",
-    "causas": "Humedad prolongada sobre la hoja, siembra densa y variedades susceptibles.",
-    "prevencion": "Sembrar con distanciamiento adecuado, usar variedades resistentes y evitar el riego por aspersión.",
+    "descripcion": "Hongo transportado por el viento que llena las hojas de maicillo de granos de polvillo marrón.",
+    "sintomas": "Bultitos alargados de color canela o marrón en ambas caras de la hoja que manchan los dedos de polvo al tocarlos.",
+    "causas": "Clima templado, rocío nocturno y sembrar maíces muy sensibles a la roya.",
+    "prevencion": "Sembrar variedades de maíz resistentes y dar suficiente espacio entre plantas.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riegos innecesarios. Realizar riegos de auxilio solo si hay sequía.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Usar variedades resistentes a roya.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega por surco o manguera abajo. No mojes las hojas.",
+    "otros_cuidados": "Retira hojas secas o muy enfermas de abajo si la planta todavía tiene bastantes hojas verdes sanas.",
+    "insumos_no_caseros": [
+      "Fungicida registrado para maíz"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Apoyo preventivo (3 g por litro) sobre hojas sanas. No elimina el hongo en plantas ya llenas de polvo."
       }
     ]
   },
@@ -517,32 +459,22 @@
     "nombre_cientifico": "Cercospora zeae-maydis",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo que sobrevive en los rastrojos y avanza desde las hojas bajas; puede reducir mucho el rendimiento.",
-    "sintomas": "Lesiones rectangulares grises o bronceadas limitadas por las nervaduras de la hoja.",
-    "causas": "Rastrojo de maíz en superficie, alta humedad y siembra continua sin rotación.",
-    "prevencion": "Incorporar o retirar el rastrojo, rotar el cultivo y mejorar la ventilación entre plantas.",
+    "descripcion": "Hongo que sobrevive en los rastrojos secos del maíz y sube secando las hojas, achicando el choclo.",
+    "sintomas": "Manchas rectangulares estrechas entre las venas de la hoja, de color gris o canela.",
+    "causas": "Sembrar maíz siempre en el mismo sitio, dejar rastrojo seco infectado y humedad alta.",
+    "prevencion": "Alterna con otros cultivos que no sean maíz, retira o composta bien las cañas viejas y dale espacio a las matas.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riegos innecesarios.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Usar híbridos de maíz tolerantes a esta enfermedad.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega al pie del tallo. No siembres las plantas muy pegadas.",
+    "otros_cuidados": "Limpia los restos secos del cultivo anterior. La rotación de cultivos funciona mucho mejor que echar remedios caseros.",
+    "insumos_no_caseros": [
+      "Fungicida foliar para maíz"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Protección preventiva suave a 3 g por litro. No uses ajo ni ají para este hongo."
       }
     ]
   },
@@ -553,13 +485,13 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Caña y hojas de maíz fuertes y verdes, sin manchas ni signos de polvo de roya.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener el riego regular y revisar el cogollo y las hojas bajas una vez por semana.",
+    "prevencion": "Respeta la distancia entre surcos y asegura buen abono al momento de la siembra.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días.",
-    "otros_cuidados": "Aplicar compost o abono orgánico al momento de la siembra. Rotar el cultivo cada temporada.",
+    "riego_nota": "Riego regular, especialmente cuando florece y se forma la mazorca.",
+    "otros_cuidados": "Quita la mala hierba a tiempo para que no le robe agua ni sol.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -570,104 +502,75 @@
     "nombre_cientifico": "Exserohilum turcicum",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo foliar de clima fresco y húmedo que forma lesiones grandes y puede secar la hoja completa.",
-    "sintomas": "Lesiones alargadas en forma de cigarro, de color gris verdoso a marrón, que empiezan en las hojas bajas.",
-    "causas": "Rastrojo infectado, rocío prolongado y temperaturas moderadas.",
-    "prevencion": "Rotar el cultivo, eliminar el rastrojo y regar en la base para que la hoja no permanezca mojada.",
+    "descripcion": "Hongo que crea manchas secas grandes y alarga quemaduras en las hojas principales del maíz.",
+    "sintomas": "Manchas largas en forma de cigarro o puro (de 2 a 15 cm) de color verde grisáceo o marrón claro.",
+    "causas": "Hongos en residuos de cosechas viejas, rocío largo y clima fresco a templado.",
+    "prevencion": "Usa semillas resistentes, rota el terreno con frijol u otra planta y retira el rastrojo viejo.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riegos innecesarios.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. No sembrar maíz muy denso.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riego al suelo sin mojar el follaje.",
+    "otros_cuidados": "Quita las hojas de abajo muy dañadas para que el hongo no vuele hacia las hojas de la espiga.",
+    "insumos_no_caseros": [
+      "Fungicida agrícola registrado para maíz"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Apoyo suave a 3 g por litro de agua. No asegura el control en plantas muy vulnerables."
       }
     ]
   },
   {
     "clase_raw": "Lettuce_Bacterial",
     "species_slug": "lechuga",
-    "nombre_enfermedad": "Mancha bacteriana",
+    "nombre_enfermedad": "Mancha bacteriana de la lechuga",
     "nombre_cientifico": "Xanthomonas campestris pv. vitians",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Bacteriosis de la lechuga que se propaga con el agua y arruina rápidamente las hojas externas.",
-    "sintomas": "Manchas angulosas de aspecto acuoso que se vuelven negras y se secan como papel.",
-    "causas": "Riego por aspersión, alta densidad de siembra y semilla contaminada.",
-    "prevencion": "Regar en la base y por la mañana, distanciar las plantas y usar semilla sana.",
+    "descripcion": "Bacteria que se riega con el agua y arruina rápido las hojas de consumo fresco.",
+    "sintomas": "Manchas de aspecto mojado que se vuelven negras y se secan como papel arrugado.",
+    "causas": "Regar con manguera por arriba, lastimar las hojas en el trasplante y semillas de mala procedencia.",
+    "prevencion": "Riega siempre a la tierra por goteo, ventila bien y usa semillas garantizadas.",
     "riego_frecuencia_dias": 1,
-    "riego_nota": "Riegos frecuentes y con poca cantidad de agua. En etapas iniciales, riego diario. Evitar mojar el follaje.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Usar semilla certificada.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega todos los días en cantidades pequeñas directo al suelo por la mañana. No mojes las hojas.",
+    "otros_cuidados": "Corta con cuidado las hojas enfermas. Si casi toda la lechuga tiene manchas, coseche o retírela completa. No eches aceites ni remedios grasosos sobre lechugas listas para comer.",
+    "insumos_no_caseros": [
+      "Alcohol al 70%",
+      "Cobre autorizado para lechuga (respetando los días de espera antes de cosechar)"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
+        "receta_slug": "desinfeccion_alcohol",
+        "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "nota": "Desinfecta el cuchillo o tijera con alcohol al cortar para no pasar la bacteria a otras lechugas."
       }
     ]
   },
   {
     "clase_raw": "Lettuce_fungal",
     "species_slug": "lechuga",
-    "nombre_enfermedad": "Enfermedad fúngica (mildiu/mancha foliar)",
+    "nombre_enfermedad": "Mildiu de la lechuga",
     "nombre_cientifico": "Bremia lactucae",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Enfermedad fúngica u oomicética favorecida por el clima fresco y húmedo típico de Lima.",
-    "sintomas": "Manchas amarillas delimitadas por las nervaduras en el haz y vello blanquecino en el envés.",
-    "causas": "Humedad relativa alta, follaje mojado por la noche y poca circulación de aire.",
-    "prevencion": "Regar temprano y en la base, aumentar la separación entre plantas y retirar las hojas afectadas.",
+    "descripcion": "Hongo que arruina las hojas de abajo de la lechuga en épocas de frío y neblina constante.",
+    "sintomas": "Parches amarillos por arriba de la hoja y vellito blanco como algodón por detrás.",
+    "causas": "Hojas mojadas por más de 4 horas continuas, frío y plantas sembradas muy pegadas.",
+    "prevencion": "Separa las plantas a 30 cm, riega temprano por abajo y compra semillas resistentes.",
     "riego_frecuencia_dias": 1,
-    "riego_nota": "Riegos frecuentes y con poca cantidad de agua. En etapas iniciales, riego diario. Evitar mojar el follaje.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Dejar espacio entre plantas.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega la tierra por la mañana para que no quede humedad estancada de noche.",
+    "otros_cuidados": "Retira de inmediato las hojas que tengan pelusa por detrás. Ventila muy bien si cultivas en macetas o balcones.",
+    "insumos_no_caseros": [
+      "Fungicida comercial para lechuga"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Apoyo preventivo suave (3 g por litro) con prueba previa. No cura hojas con pelusa ya formada."
       }
     ]
   },
@@ -678,13 +581,13 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Hojas de lechuga crujientes, limpias y libres de manchas o insectos.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener el sustrato húmedo sin encharcar y revisar el envés de las hojas una vez por semana.",
+    "prevencion": "Mantén la tierra fresca y húmeda sin encharcar ni mojar el centro.",
     "riego_frecuencia_dias": 1,
-    "riego_nota": "Riegos frecuentes y con poca cantidad de agua. En etapas iniciales, riego diario. Mantener humedad constante.",
-    "otros_cuidados": "Fertilizar con compost cada 2-3 semanas. Revisar el cultivo con frecuencia por su ciclo corto.",
+    "riego_nota": "Riego diario y ligero a la tierra.",
+    "otros_cuidados": "Revisa las hojas de abajo que pegan al suelo una vez a la semana.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -695,32 +598,28 @@
     "nombre_cientifico": "Alternaria solani",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo que ataca primero a las hojas más viejas y se agrava cuando la planta está mal nutrida.",
-    "sintomas": "Manchas marrones con anillos concéntricos y halo amarillo, que comienzan en las hojas bajas.",
-    "causas": "Ciclos de mojado y secado del follaje, estrés nutricional y restos de cultivo infectados.",
-    "prevencion": "Rotar el cultivo, abonar de forma equilibrada, regar en la base y retirar las hojas bajas afectadas.",
+    "descripcion": "Hongo que ataca primero las hojas de abajo. Poner acolchado sobre la tierra y regar sin salpicar frena su avance.",
+    "sintomas": "Manchas marrones con aros concéntricos como una diana de tiro, con un borde amarillo.",
+    "causas": "Rocío matinal seguido de sol caliente, falta de abono y hojas secas enfermas en la tierra.",
+    "prevencion": "Pon paja sobre la tierra, no siembres papa en el mismo lugar seguido y abona equilibradamente.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riego cada 3-4 días. Evitar encharcamientos. Riego por goteo para limitar humedad en follaje.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Rotar el cultivo, no sembrar papa en el mismo suelo por 2-3 años.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega al suelo o por goteo evitando mojar las hojas.",
+    "otros_cuidados": "Corta las hojas de abajo enfermas. Poner paja en la tierra y abonar bien es mucho mejor que echar líquidos en exceso.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado para papa"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Aplica 3 g por litro sobre hojas sanas al atardecer como apoyo preventivo."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica si siguen saliendo manchas nuevas hacia la parte media de la mata."
       }
     ]
   },
@@ -731,13 +630,13 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Mata de papa vigorosa con tallos firmes, hojas verdes y sin manchas.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener el riego regular y aporcar para proteger los tubérculos.",
+    "prevencion": "Aporca (tapa con tierra el tallo) a tiempo para que no le dé sol a las papas bajo tierra.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riego cada 3-4 días. Evitar encharcamientos.",
-    "otros_cuidados": "Aplicar compost antes de la siembra. Aporcar (cubrir con tierra la base del tallo).",
+    "riego_nota": "Riego parejo manteniendo humedad estable mientras crecen los tubérculos.",
+    "otros_cuidados": "Revisa las hojas inferiores periódicamente para detectar cualquier hongo a tiempo.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -748,68 +647,62 @@
     "nombre_cientifico": "Phytophthora infestans",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Oomiceto que avanza muy rápido con humedad alta y temperaturas frescas; puede destruir el cultivo en pocos días.",
-    "sintomas": "Manchas acuosas marrón oscuro en hojas y tallos, con halo pálido y moho blanquecino en el envés.",
-    "causas": "Humedad relativa sostenida sobre 85 %, riego por aspersión y follaje sin ventilación.",
-    "prevencion": "Regar en la base, distanciar las plantas, aporcar bien y retirar de inmediato el follaje afectado.",
+    "descripcion": "Problema gravísimo que quema y pudre la mata de papa en pocos días con frío y neblina. Exige actuar de inmediato; no se soluciona con bicarbonato ni ajo.",
+    "sintomas": "Manchas oscuras grandes como hojas quemadas o sancochadas por agua hirviendo, con pelusa blanca por detrás cuando hay mucha humedad.",
+    "causas": "Mucha humedad constante, temperaturas frescas (12 a 20 °C) y viento que riega las esporas.",
+    "prevencion": "Usa semilla sana certificada, aporca bien alto y dale espacio a las plantas.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 3-4 días. Evitar encharcamientos. Riego por goteo para limitar humedad en follaje.",
-    "otros_cuidados": "Actuar rápido: retirar plantas muy afectadas. Mejorar el drenaje. Usar variedades con tolerancia a tizón tardío.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Suspende cualquier riego que moje las hojas; echa agua solo al pie.",
+    "otros_cuidados": "Si la zona roja en la foto es un punto: corta y embolsa de inmediato las hojas quemadas sin sacudirlas. Si casi toda la mata está quemada: córtala o arráncala para que las papas de abajo no se pudran. Revisa las tomateras cercanas.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado para tizón tardío",
+      "Alcohol al 70%"
+    ],
     "tratamientos": [
+      {
+        "receta_slug": "desinfeccion_alcohol",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfecta las tijeras con alcohol tras cortar ramas enfermas."
+      },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días de forma preventiva."
-      },
-      {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
-      },
-      {
-        "receta_slug": "leche_herramientas",
-        "frecuencia_dias": null,
-        "num_aplicaciones": null,
-        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+        "num_aplicaciones": 3,
+        "nota": "Uso avanzado: rocía hojas que aún estén verdes solo si actúas muy temprano. No cura hojas ya negras."
       }
     ]
   },
   {
     "clase_raw": "Tomato_Tomato_Bacterial_spot",
     "species_slug": "tomate",
-    "nombre_enfermedad": "Mancha bacteriana",
+    "nombre_enfermedad": "Mancha bacteriana del tomate",
     "nombre_cientifico": "Xanthomonas spp.",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Bacteriosis que se dispersa con salpicaduras de agua y penetra por heridas pequeñas del follaje.",
-    "sintomas": "Manchas pequeñas oscuras de aspecto grasiento con halo amarillo en hoja, y costras ásperas en fruto.",
-    "causas": "Riego sobre el follaje, semilla o plantín contaminado y manipulación de plantas mojadas.",
-    "prevencion": "Usar semilla sana, regar al sustrato, tutorar para separar el follaje del suelo y desinfectar herramientas.",
+    "descripcion": "Bacteria en hojas y frutos. El cobre ayuda a crear un escudo protector para hojas sanas, pero no borra las manchas existentes.",
+    "sintomas": "Puntitos negros circulares con borde amarillo en las hojas; costras ásperas levantadas en los tomates.",
+    "causas": "Salpicaduras al regar sobre las ramas, semillas contaminadas y podar con manos o tijeras húmedas.",
+    "prevencion": "Semilla sana, amarra la planta a tutores para que no toque el suelo, pon paja en la tierra y desinfecta tijeras.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base. No trabajar plantas mojadas.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Usar semilla o plántula certificada.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega siempre a la tierra sin mojar las hojas.",
+    "otros_cuidados": "Si la zona roja en la foto es chica: corta solo las hojas enfermas con tijeras desinfectadas. Si toda la planta está tomada: retírala. No la eches al compost.",
+    "insumos_no_caseros": [
+      "Cobre agrícola autorizado para tomate",
+      "Alcohol al 70%"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
+        "receta_slug": "desinfeccion_alcohol",
+        "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "nota": "Limpia las tijeras con alcohol durante 20 segundos entre cada planta."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 3,
+        "nota": "Uso avanzado: aplica para proteger hojas sanas. Respeta los días de espera antes de cosechar tomates."
       }
     ]
   },
@@ -820,32 +713,28 @@
     "nombre_cientifico": "Alternaria solani",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo que comienza en las hojas inferiores y sube; se agrava con plantas estresadas o mal nutridas.",
-    "sintomas": "Manchas marrones con anillos concéntricos tipo diana y halo amarillo en las hojas bajas.",
-    "causas": "Follaje mojado con frecuencia, restos de cultivo infectados y baja fertilidad del sustrato.",
-    "prevencion": "Rotar el cultivo, acolchar el suelo, regar en la base y retirar las hojas bajas afectadas.",
+    "descripcion": "Hongo común que empieza en las hojas más bajas. Amarrar la planta a una estaca y poner paja en la tierra es lo que más ayuda.",
+    "sintomas": "Manchas marrones redondas con círculos concéntricos como una diana y borde amarillo en hojas de abajo.",
+    "causas": "Hojas que tocan la tierra húmeda, salpicaduras de agua y ramas de abajo sin ventilación.",
+    "prevencion": "Poda las ramas y hojas que estén pegadas al suelo, entutora la planta y pon paja sobre la tierra.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega en la base cada 2 o 3 días. Mantén las hojas secas.",
+    "otros_cuidados": "Corta las hojas enfermas y bótalas. Quita chupones sobrantes para que el centro de la planta respire y le dé sol.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado para tomate"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Rocía 3 g por litro al atardecer sobre hojas sanas. Prueba antes en 1 hoja por 24 horas."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica si siguen apareciendo manchas hacia arriba tras haber podado lo enfermo."
       }
     ]
   },
@@ -856,13 +745,13 @@
     "nombre_cientifico": null,
     "estado": "Sana",
     "urgencia": "Baja",
-    "descripcion": "No se detectan signos de enfermedad ni de plaga en el follaje analizado.",
+    "descripcion": "Tomatera fuerte y verde, con hojas turgentes y sin manchas ni bichos.",
     "sintomas": null,
     "causas": null,
-    "prevencion": "Mantener la rutina de riego y revisar el envés de las hojas una vez por semana.",
+    "prevencion": "Entutora la planta en vertical, quita brotes secos de abajo y riega la tierra sin mojar el follaje.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar mojar las hojas para prevenir hongos.",
-    "otros_cuidados": "Fertilizar con compost cada 3-4 semanas. Entutorar las plantas para mejorar ventilación.",
+    "riego_nota": "Riego parejo para evitar que el tomate se raje o se pudra por debajo.",
+    "otros_cuidados": "Pon paja o corteza en el suelo y abona con compost cada mes.",
     "insumos_no_caseros": [],
     "tratamientos": []
   },
@@ -873,32 +762,29 @@
     "nombre_cientifico": "Phytophthora infestans",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Oomiceto que avanza muy rápido en condiciones de alta humedad, típicas del invierno limeño.",
-    "sintomas": "Manchas acuosas de color marrón oscuro en hojas y tallos, con halo pálido y moho blanquecino en el envés.",
-    "causas": "Humedad relativa sostenida por encima del 85 %, riego por aspersión y follaje sin ventilación.",
-    "prevencion": "Regar en la base y nunca sobre las hojas, separar las plantas para que circule el aire y retirar de inmediato el follaje afectado.",
+    "descripcion": "Enfermedad muy peligrosa que marchita hojas, tallos y tomates en pocos días con humedad y frío. Requiere cortar rápido.",
+    "sintomas": "Manchas oscuras grandes como hojas quemadas o hervidas en agua, con moho blanco por detrás cuando hay humedad.",
+    "causas": "Mucha humedad constante, regar con manguera por arriba y días frescos.",
+    "prevencion": "Ventilación máxima, plantas bien separadas y nunca regar mojando las hojas.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
-    "otros_cuidados": "Actuar rápido: retirar plantas muy afectadas. Mejorar el drenaje. Dar espacio entre plantas para ventilación.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega con mucho cuidado al suelo. Mantén la tomatera lo más seca y ventilada posible.",
+    "otros_cuidados": "Corta de inmediato las hojas o ramas afectadas y mételas a una bolsa cerrada. Si el tallo principal ya está tomado y negro, arranca la planta para salvar las tomateras vecinas. No uses bicarbonato ni ajo.",
+    "insumos_no_caseros": [
+      "Cobre autorizado para tomate",
+      "Alcohol al 70%"
+    ],
     "tratamientos": [
+      {
+        "receta_slug": "desinfeccion_alcohol",
+        "frecuencia_dias": null,
+        "num_aplicaciones": null,
+        "nota": "Desinfecta tus tijeras meticulosamente después de cada corte."
+      },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días de forma preventiva."
-      },
-      {
-        "receta_slug": "bicarbonato",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días en plantas sanas como apoyo."
-      },
-      {
-        "receta_slug": "leche_herramientas",
-        "frecuencia_dias": null,
-        "num_aplicaciones": null,
-        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+        "num_aplicaciones": 3,
+        "nota": "Uso avanzado: aplica temprano como escudo en hojas que aún estén verdes. No cura hojas ya negras."
       }
     ]
   },
@@ -909,128 +795,112 @@
     "nombre_cientifico": "Passalora fulva",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo típico de ambientes cerrados y húmedos, como invernaderos o patios con poca ventilación.",
-    "sintomas": "Manchas amarillas difusas en el haz y una capa aterciopelada verde oliva en el envés.",
-    "causas": "Humedad relativa muy alta, escasa ventilación y follaje demasiado denso.",
-    "prevencion": "Ventilar el espacio, podar hojas para abrir la planta y regar en la base por la mañana.",
+    "descripcion": "Hongo que sale en lugares encerrados y húmedos con poco viento (como patios cerrados o invernaderos). Abrir la ventilación es mucho más importante que echar cualquier líquido.",
+    "sintomas": "Manchas amarillas por arriba de la hoja y una felpa verde oliva o marrón terciopelo por detrás.",
+    "causas": "Humedad mayor al 85%, nula corriente de aire y hojas amontonadas.",
+    "prevencion": "Poda algunas hojas de al medio para que entre luz y viento, abre ventanas si está techado y riega temprano.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega directo al pie por la mañana para que la humedad baje durante el día.",
+    "otros_cuidados": "Corta las hojas que tengan esa felpa por detrás. Ventilar el lugar es lo más efectivo para que el hongo se detenga.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre formulado"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "caldo_bordeles_casero",
-        "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 3,
+        "nota": "Rocía 3 g por litro como protector sobre hojas sanas al atardecer."
       }
     ]
   },
   {
     "clase_raw": "Tomato_Tomato_Mosaic_virus",
     "species_slug": "tomate",
-    "nombre_enfermedad": "Virus del mosaico",
+    "nombre_enfermedad": "Virus del mosaico del tomate (ToMV)",
     "nombre_cientifico": "Tomato mosaic virus (ToMV)",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Virus muy estable que se transmite por contacto: manos, herramientas y restos vegetales. No tiene cura.",
-    "sintomas": "Mosaico verde claro y oscuro en las hojas, follaje deformado o afilado y crecimiento desigual.",
-    "causas": "Manipulación de plantas sin higiene, semilla infectada y restos de cultivos contaminados.",
-    "prevencion": "Lavarse las manos y desinfectar herramientas antes de podar, no fumar cerca del cultivo y eliminar las plantas confirmadas.",
+    "descripcion": "Virus muy contagioso que se pasa con las manos, tijeras, ropa y herramientas. No existe ningún remedio casero ni químico que lo cure.",
+    "sintomas": "Hojas manchadas con partes verdes claras y oscuras (como un mosaico), hojas deformes o afiladas y la planta no crece.",
+    "causas": "Tocar plantas enfermas y luego sanas sin lavarse las manos, tijeras sin desinfectar y semillas con virus.",
+    "prevencion": "Lávate las manos con agua y jabón antes de trabajar con tus tomateras, desinfecta estacas y tijeras con alcohol al 70%.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar mojar el follaje.",
-    "otros_cuidados": "No existe cura: retirar y sacar la planta enferma. Lavarse bien las manos antes de manipular las plantas. Usar semilla certificada libre de virus.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riego normal al sustrato.",
+    "otros_cuidados": "No pulverices ningún remedio (no sirve para virus). Arranca la planta completa desde la raíz con guantes, métela en una bolsa y bótala a la basura. Desinfecta tus tijeras, manos y estacas con alcohol al 70%.",
+    "insumos_no_caseros": [
+      "Alcohol al 70%"
+    ],
     "tratamientos": [
       {
-        "receta_slug": "leche_herramientas",
+        "receta_slug": "desinfeccion_alcohol",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Desinfectar herramientas con alcohol o leche entre planta y planta."
+        "nota": "Desinfecta a fondo tijeras y tutores que hayan rozado a la planta sospechosa."
       }
     ]
   },
   {
     "clase_raw": "Tomato_Tomato_Septoria_leaf_spot",
     "species_slug": "tomate",
-    "nombre_enfermedad": "Mancha foliar de Septoria",
+    "nombre_enfermedad": "Mancha por Septoria",
     "nombre_cientifico": "Septoria lycopersici",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo foliar que provoca defoliación desde abajo y expone los frutos al sol.",
-    "sintomas": "Manchas pequeñas y numerosas de centro gris claro con borde oscuro y puntos negros en el centro.",
-    "causas": "Salpicaduras de agua desde el suelo, humedad alta y restos de cultivo infectados.",
-    "prevencion": "Acolchar la base, regar al sustrato, tutorar y retirar las hojas bajas afectadas.",
+    "descripcion": "Hongo que sube desde abajo secando la tomatera. Poner paja en la tierra, amarrar a estacas y dar ventilación son los pasos clave.",
+    "sintomas": "Muchos puntitos redondos pequeños con centro gris claro, borde oscuro y puntitos negros diminutos en el medio.",
+    "causas": "Salpicaduras de agua desde el suelo hacia las hojas inferiores en días cálidos y húmedos.",
+    "prevencion": "Pon paja en el suelo, poda hojas bajas hasta 30 cm del suelo, amarra las ramas en vertical y riega al pie.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega la tierra despacio para que el barro no salpique a las hojas.",
+    "otros_cuidados": "Corta con tijeras las hojas que tengan manchas apenas aparezcan y sácalas del huerto.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre autorizado para tomate"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Rocía 3 g por litro en hojas sanas al atardecer para protegerlas."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica si las manchas siguen subiendo tras haber podado."
       }
     ]
   },
   {
     "clase_raw": "Tomato_Tomato_Spider_mites",
     "species_slug": "tomate",
-    "nombre_enfermedad": "Ácaros (araña roja)",
+    "nombre_enfermedad": "Araña roja (ácaros)",
     "nombre_cientifico": "Tetranychus urticae",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Plaga de ácaros que prolifera con calor y ambiente seco, chupando la savia del envés de las hojas.",
-    "sintomas": "Punteado amarillo fino en el haz, telarañas muy delgadas en el envés y hojas que se secan y caen.",
-    "causas": "Ambiente caluroso y seco, plantas con estrés hídrico y polvo acumulado en el follaje.",
-    "prevencion": "Aumentar la humedad ambiental, mojar el envés con agua a presión suave y revisar semanalmente con lupa.",
+    "descripcion": "Diminutos ácaros que chupan la savia detrás de las hojas. Les encanta el calor seco, el polvo y las plantas con sed. Las trampas amarillas no sirven porque estos bichos no vuelan.",
+    "sintomas": "Puntitos amarillos diminutos en la parte de arriba de la hoja, aspecto seco y telarañas muy finas detrás de las hojas.",
+    "causas": "Ambiente seco y caliente, falta de riego y polvo acumulado en las hojas.",
+    "prevencion": "No dejes que la planta pase sed, mantén algo de humedad y lava las hojas de vez en cuando.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar estrés hídrico.",
-    "otros_cuidados": "Lavar las hojas con agua para tumbar ácaros. Revisar el envés de las hojas cada semana.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega a tiempo; una planta con sed es el blanco perfecto para la araña roja.",
+    "otros_cuidados": "Lava la parte de atrás de las hojas con agua a presión moderada para romper las telarañas y botar los ácaros. Quita hojas muy secas.",
+    "insumos_no_caseros": [
+      "Jabón potásico agrícola líquido"
+    ],
     "tratamientos": [
       {
         "receta_slug": "jabon_potasico",
-        "frecuencia_dias": 3,
+        "frecuencia_dias": 5,
         "num_aplicaciones": null,
-        "nota": "Aplicar cada 2-3 días hasta que desaparezca la plaga."
+        "nota": "Rocía a 10 ml por litro mojando muy bien la parte de atrás de las hojas para empapar a los ácaros."
       },
       {
         "receta_slug": "ajo_aji",
         "frecuencia_dias": 7,
         "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
-      },
-      {
-        "receta_slug": "trampas_amarillas",
-        "frecuencia_dias": null,
-        "num_aplicaciones": null,
-        "nota": "Colocar trampas amarillas cerca de las plantas afectadas."
+        "nota": "Úsalo como repelente para que no regresen después de haber lavado con el jabón potásico."
       }
     ]
   },
@@ -1041,62 +911,61 @@
     "nombre_cientifico": "Corynespora cassiicola",
     "estado": "Enferma",
     "urgencia": "Media",
-    "descripcion": "Hongo foliar de clima cálido y húmedo que también puede afectar tallos y frutos.",
-    "sintomas": "Manchas marrones con anillos concéntricos y centro claro que puede perforarse.",
-    "causas": "Humedad alta sostenida, follaje denso y restos de cultivo infectados.",
-    "prevencion": "Podar para ventilar, regar en la base y eliminar los restos vegetales del cultivo anterior.",
+    "descripcion": "Hongo que mancha hojas, ramas y tomates en climas calurosos y húmedos, haciendo que la tomatera pierda muchas hojas.",
+    "sintomas": "Manchas marrones con aros concéntricos bien marcados (como círculos de diana) con centros claros que se rompen con facilidad.",
+    "causas": "Humedad alta constante, hojas muy apretadas y restos vegetales secos de plantas anteriores.",
+    "prevencion": "Quita chupones para abrir espacio, amarra a estacas y riega sin mojar las hojas.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar riego por aspersión. Regar en la base.",
-    "otros_cuidados": "Retirar hojas con manchas y sacarlas del huerto. Regar en la base, sin mojar el follaje. Rotar el cultivo.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riega en la base cada 2 o 3 días.",
+    "otros_cuidados": "Corta rápido las hojas con manchas para que el hongo no pase a los tomates o a las flores.",
+    "insumos_no_caseros": [
+      "Fungicida de cobre registrado para hortalizas"
+    ],
     "tratamientos": [
       {
         "receta_slug": "bicarbonato",
         "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días."
-      },
-      {
-        "receta_slug": "ajo_aji",
-        "frecuencia_dias": 7,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días como refuerzo."
+        "num_aplicaciones": 3,
+        "nota": "Rocía 3 g por litro sobre hojas sanas al atardecer como apoyo preventivo."
       },
       {
         "receta_slug": "caldo_bordeles_casero",
         "frecuencia_dias": 10,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 7-10 días si los remedios caseros no funcionan."
+        "num_aplicaciones": 2,
+        "nota": "Uso avanzado: aplica con moderación si siguen saliendo manchas nuevas en hojas intermedias."
       }
     ]
   },
   {
     "clase_raw": "Tomato_Tomato_Yellow_Leaf_Curl_Virus",
     "species_slug": "tomate",
-    "nombre_enfermedad": "Virus del rizado amarillo (TYLCV)",
+    "nombre_enfermedad": "Virus de la cuchara / Rizado amarillo (TYLCV)",
     "nombre_cientifico": "Tomato yellow leaf curl virus (TYLCV)",
     "estado": "Enferma",
     "urgencia": "Alta",
-    "descripcion": "Virus transmitido por la mosca blanca; no tiene cura y el manejo se centra en controlar al insecto vector.",
-    "sintomas": "Hojas pequeñas, enrolladas hacia arriba y con bordes amarillos; la planta detiene su crecimiento.",
-    "causas": "Picadura de la mosca blanca Bemisia tabaci y plantines ya infectados.",
-    "prevencion": "Usar mallas o trampas amarillas, revisar el envés en busca de mosca blanca y eliminar las plantas confirmadas.",
+    "descripcion": "Virus transmitido por la mosca blanca. La tomatera infectada no tiene cura; todo el manejo consiste en eliminar la planta enferma y combatir a la mosca.",
+    "sintomas": "Hojas chiquitas enrolladas hacia arriba como una cuchara, bordes amarillos, la planta deja de crecer y se le caen las flores.",
+    "causas": "Picadura de la mosca blanca (Bemisia tabaci) y plantines que ya venían contagiados del vivero.",
+    "prevencion": "Usa mallas finas para huerto, cuelga trampas amarillas y compra variedades de tomate resistentes al virus.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego cada 2-3 días. Evitar estrés hídrico.",
-    "otros_cuidados": "Si la planta muestra síntomas avanzados, retirarla del huerto (no tiene cura). Cubrir plantas jóvenes con malla antiáfidos. Usar variedades resistentes al virus.",
-    "insumos_no_caseros": [],
+    "riego_nota": "Riego en la base para mantener fuerte la planta.",
+    "otros_cuidados": "No hay cura: arranca la planta enferma completa, métela en una bolsa y bótala para que las moscas no sigan picando y contagiando al resto de tomateras. Echa jabón potásico en las tomateras sanas vecinas para combatir la mosca blanca.",
+    "insumos_no_caseros": [
+      "Jabón potásico formulado",
+      "Trampas pegajosas amarillas"
+    ],
     "tratamientos": [
-      {
-        "receta_slug": "jabon_potasico",
-        "frecuencia_dias": 5,
-        "num_aplicaciones": null,
-        "nota": "Aplicar cada 5-7 días sobre brotes nuevos para controlar el insecto vector (mosca blanca)."
-      },
       {
         "receta_slug": "trampas_amarillas",
         "frecuencia_dias": null,
         "num_aplicaciones": null,
-        "nota": "Colocar trampas amarillas para atrapar al insecto vector."
+        "nota": "Cuélgalas en las puntas de las tomateras sanas para atrapar moscas blancas voladoras."
+      },
+      {
+        "receta_slug": "jabon_potasico",
+        "frecuencia_dias": 5,
+        "num_aplicaciones": null,
+        "nota": "Rocía detrás de las hojas de las plantas sanas vecinas para bajar la cantidad de mosca blanca."
       }
     ]
   }
