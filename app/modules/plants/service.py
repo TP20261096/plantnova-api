@@ -16,6 +16,7 @@ from app.modules.plants.schemas import (
     PlantaDetalle,
     PlantaResumen,
     PlantaUpdate,
+    RecetaOut
 )
 
 PERU_TZ = timezone(timedelta(hours=-5))
@@ -53,59 +54,56 @@ def _proximo_riego(planta: dict) -> tuple[date | None, int | None]:
     return proximo, faltan
 
 
-def _proximo_tratamiento(cliente: Client, planta_id: str) -> tuple[date | None, int | None, str | None]:
-    # 1. Buscamos primero si hay alguna actividad de tipo 'Revision' en estado 'Pendiente'
-    revision_pendiente = (
-        cliente.table("activities")
-        .select("*")
-        .eq("plant_id", planta_id)
-        .eq("tipo", "Revision")
-        .eq("estado", "Pendiente")
-        .order("fecha_programada", desc=False)
-        .limit(1)
-        .execute()
-    )
-    
-    if revision_pendiente.data:
-        actividad = revision_pendiente.data[0]
-        tipo_actividad = "Revision"
-    else:
-        # 2. Si no hay revisión pendiente, buscamos un tratamiento pendiente normal usando el repositorio
-        actividad = repo.proxima_actividad_tratamiento(cliente, planta_id)
-        tipo_actividad = "Tratamiento"
-        
-        if not actividad:
-            # 3. Si tampoco hay tratamiento, buscamos si la revisión ya fue completada
-            revision_completada = (
-                cliente.table("activities")
-                .select("*")
-                .eq("plant_id", planta_id)
-                .eq("tipo", "Revision")
-                .eq("estado", "Completada")
-                .order("fecha_completada", desc=False)
-                .limit(1)
-                .execute()
+def _indexar_seguimiento(actividades: list[dict], hoy: date) -> dict[str, tuple[date, int, str]]:
+    """
+    Decide, por planta, qué tarea de seguimiento mostrar.
+    Respeta el mismo orden de preferencia que antes se resolvía en
+    tres viajes a la base: primero una revisión pendiente, luego una
+    aplicación pendiente y, en último lugar, la revisión completada.
+    Entre varias candidatas del mismo rango gana la más próxima.
+    """
+    mejor: dict[str, tuple[int, date, str]] = {}
+
+    for act in actividades:
+        tipo, estado = act["tipo"], act["estado"]
+        if tipo == "Revision" and estado == "Pendiente":
+            rango, campo, etiqueta = 0, "fecha_programada", "Revision"
+        elif tipo == "Tratamiento" and estado == "Pendiente":
+            rango, campo, etiqueta = (
+                1, "fecha_programada", "Tratamiento",
             )
-            if revision_completada.data:
-                actividad = revision_completada.data[0]
-                tipo_actividad = "RevisionCompletada"
-            else:
-                return None, None, None
+        elif tipo == "Revision":
+            rango, campo, etiqueta = (
+                2, "fecha_completada", "RevisionCompletada",
+            )
+        else:
+            continue
 
-    fecha_str = actividad.get("fecha_completada") if tipo_actividad == "RevisionCompletada" else actividad.get("fecha_programada")
-    if not fecha_str:
-        return None, None, None
+        crudo = act.get(campo)
+        if not crudo:
+            continue
 
-    fecha_dt = date.fromisoformat(str(fecha_str)[:10])
-    hoy_peru = datetime.now(PERU_TZ).date()
-    faltan = (fecha_dt - hoy_peru).days
-    
-    return fecha_dt, faltan, tipo_actividad
+        fecha = date.fromisoformat(str(crudo)[:10])
+        actual = mejor.get(act["plant_id"])
+        if actual is None or (rango, fecha) < (actual[0], actual[1]):
+            mejor[act["plant_id"]] = (rango, fecha, etiqueta)
+
+    return {
+        pid: (fecha, (fecha - hoy).days, etiqueta)
+        for pid, (_, fecha, etiqueta) in mejor.items()
+    }
 
 
-def _a_resumen(cliente: Client, planta: dict) -> PlantaResumen:
+def _seguimiento_de(cliente: Client, user_id: str) -> dict:
+    return _indexar_seguimiento(
+        repo.actividades_de_seguimiento(cliente, user_id),
+        datetime.now(PERU_TZ).date(),
+    )
+
+def _a_resumen(planta: dict,
+    seguimiento: tuple[date, int, str] | None = None,) -> PlantaResumen:
     proximo, faltan = _proximo_riego(planta)
-    prox_trat, faltan_trat, tipo_prox = _proximo_tratamiento(cliente, planta["id"])
+    prox_trat, faltan_trat, tipo_prox = seguimiento or (None, None, None)
     especie = planta.get("species") or {}
 
     ultimo = None
@@ -128,6 +126,25 @@ def _a_resumen(cliente: Client, planta: dict) -> PlantaResumen:
         dias_para_tratamiento=faltan_trat,
         proximo_tipo=tipo_prox,  # <--- Envía el tipo correcto al front
     )
+    
+def _distrito_de(cliente: Client, user_id: str) -> str | None:
+    """Lee el distrito del perfil, que fija el punto del clima.
+
+    Args:
+        cliente: Cliente Supabase del usuario.
+        user_id: UUID del dueño de la planta.
+
+    Returns:
+        Nombre del distrito, o None si el usuario no eligió ninguno.
+    """
+    perfil = (
+        cliente.table("profiles")
+        .select("distrito")
+        .eq("id", user_id)
+        .limit(1)
+        .execute()
+    )
+    return perfil.data[0]["distrito"] if perfil.data else None
 
 
 def recalcular_estado(cliente: Client, planta_id: str) -> str:
@@ -155,7 +172,7 @@ def recalcular_riego(cliente: Client, planta_id: str) -> int | None:
     frecuencia = calcular_frecuencia(
         _base_dias(planta, diagnosticos[0] if diagnosticos else None),
         planta["ubicacion"],
-        obtener_clima(),
+        obtener_clima(distrito=_distrito_de(cliente, planta["user_id"])),
     )
 
     repo.actualizar(
@@ -188,17 +205,26 @@ def crear_planta(
     fila = datos.model_dump(mode="json", exclude_none=True)
     fila["user_id"] = usuario.id
     fila["riego_frecuencia_dias"] = calcular_frecuencia(
-        base, datos.ubicacion, obtener_clima()
+        base,
+        datos.ubicacion,
+        obtener_clima(distrito=_distrito_de(cliente, usuario.id)),
     )
 
     creada = repo.crear(cliente, fila)
     completa = repo.obtener(cliente, creada["id"])
-    return _a_resumen(cliente, completa)
+    return _a_resumen(completa)
 
 
-def listar_plantas(usuario: CurrentUser) -> list[PlantaResumen]:
+def listar_plantas(
+    usuario: CurrentUser, estado: str | None = None
+) -> list[PlantaResumen]:
+    
     cliente = user_client(usuario.token)
-    return [_a_resumen(cliente, p) for p in repo.listar(cliente, usuario.id)]
+    seguimiento = _seguimiento_de(cliente, usuario.id)
+    return [
+        _a_resumen(p, seguimiento.get(p["id"]))
+        for p in repo.listar(cliente, usuario.id, estado)
+    ]
 
 
 def obtener_planta(usuario: CurrentUser, planta_id: str) -> PlantaDetalle:
@@ -213,13 +239,39 @@ def obtener_planta(usuario: CurrentUser, planta_id: str) -> PlantaDetalle:
 
     firmadas = firmar_varias([d["imagen_url"] for d in diagnosticos])
 
-    resumen = _a_resumen(cliente, planta)
+    resumen = _a_resumen(
+        planta, _seguimiento_de(cliente, planta["user_id"]).get(planta_id)
+    )
+    
+    tratamientos = []
+    if ultimo and ultimo.get("disease_id"):
+        tratamientos = [
+            RecetaOut(
+                nombre=t["recetas"]["nombre"],
+                descripcion=t["recetas"].get("descripcion"),
+                ingredientes=t["recetas"].get("ingredientes") or [],
+                preparacion=t["recetas"].get("preparacion") or [],
+                modo_uso=t["recetas"].get("modo_uso"),
+                precauciones=t["recetas"].get("precauciones"),
+                costo_aprox=t["recetas"].get("costo_aprox"),
+                fuentes=t["recetas"].get("fuentes") or [],
+                frecuencia_dias=t.get("frecuencia_dias"),
+                num_aplicaciones=t.get("num_aplicaciones"),
+                nota=t.get("nota"),
+            )
+            for t in repo.tratamientos_de(
+                cliente, ultimo["disease_id"]
+            )
+            if t.get("recetas")
+        ]
+        
     return PlantaDetalle(
         **resumen.model_dump(),
         species_id=planta.get("species_id"),
         fecha_siembra=planta.get("fecha_siembra"),
         riego_nota=catalogo.get("riego_nota"),
         otros_cuidados=catalogo.get("otros_cuidados"),
+        tratamientos=tratamientos,
         created_at=planta["created_at"],
         diagnosticos=[
             DiagnosticoResumen(
@@ -258,7 +310,10 @@ def actualizar_planta(
     if {"ubicacion", "species_id", "ultimo_riego"} & valores.keys():
         recalcular_riego(cliente, planta_id)
 
-    return _a_resumen(cliente, repo.obtener(cliente, planta_id))
+    return _a_resumen(
+        repo.obtener(cliente, planta_id),
+        _seguimiento_de(cliente, usuario.id).get(planta_id),
+    )
 
 
 def eliminar_planta(usuario: CurrentUser, planta_id: str) -> None:

@@ -11,6 +11,8 @@ from app.modules.profile.schemas import (
     PerfilOut,
     PerfilUpdate,
 )
+from app.modules.plants import repository as plants_repo
+from app.modules.plants.service import recalcular_riego
 
 
 def _cargar(usuario: CurrentUser) -> PerfilOut:
@@ -33,6 +35,30 @@ def _cargar(usuario: CurrentUser) -> PerfilOut:
         cliente.table("plants")
         .select("id", count="exact")
         .eq("user_id", usuario.id)
+        .limit(1)
+        .execute()
+    )
+    diagnosticos = (
+        cliente.table("diagnoses")
+        .select("id", count="exact")
+        .eq("user_id", usuario.id)
+        .limit(1)
+        .execute()
+    )
+    tareas = (
+        cliente.table("activities")
+        .select("id", count="exact")
+        .eq("user_id", usuario.id)
+        .eq("estado", "Pendiente")
+        .limit(1)
+        .execute()
+    )
+    completadas = (
+        cliente.table("activities")
+        .select("id", count="exact")
+        .eq("user_id", usuario.id)
+        .eq("estado", "Completada")
+        .limit(1)
         .execute()
     )
 
@@ -57,8 +83,30 @@ def _cargar(usuario: CurrentUser) -> PerfilOut:
         notificaciones=fila["notificaciones"],
         plantas_registradas=plantas.count or 0,
         created_at=fila["created_at"],
+        diagnosticos_realizados=diagnosticos.count or 0,
+        tareas_pendientes=tareas.count or 0,
+        tareas_completadas=completadas.count or 0,
+        tema=fila["tema"],
     )
 
+def _recalcular_riegos(usuario: CurrentUser) -> None:
+    """Recalcula el riego de todas las plantas del usuario.
+
+    Se invoca al cambiar de distrito: el clima que alimenta la
+    fórmula pasa a ser otro, así que las frecuencias vigentes
+    quedaron calculadas sobre un dato que ya no corresponde.
+
+    Args:
+        usuario: Usuario autenticado.
+    """
+    cliente = user_client(usuario.token)
+    for planta in plants_repo.listar(cliente, usuario.id):
+        try:
+            recalcular_riego(cliente, planta["id"])
+        except Exception:  # noqa: BLE001
+            # Que falle una planta no debe impedir guardar el perfil
+            # ni cortar el recálculo de las demás.
+            continue
 
 def obtener_perfil(usuario: CurrentUser) -> PerfilOut:
     return _cargar(usuario)
@@ -103,6 +151,9 @@ def actualizar_perfil(
     cliente.table("profiles").update(valores).eq(
         "id", usuario.id
     ).execute()
+
+    if "distrito" in valores:
+        _recalcular_riegos(usuario)
 
     return _cargar(usuario)
 

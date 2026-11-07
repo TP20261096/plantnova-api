@@ -11,6 +11,7 @@ from app.modules.activities.schemas import (
     ActividadCreate,
     ActividadOut,
     ActividadUpdate,
+    ProximaTarea
 )
 from app.modules.plants import repository as plants_repo
 from app.modules.plants.service import recalcular_estado, recalcular_riego
@@ -58,13 +59,18 @@ def _fecha_proximo_riego(planta: dict) -> date | None:
 
 
 def _materializar_riegos(
-    cliente: Client, user_id: str, dia: date
+    cliente: Client,
+    user_id: str,
+    dia: date,
+    plantas: list[dict],
+    con_riego: set[str],
 ) -> None:
-    for planta in plants_repo.listar(cliente, user_id):
+    
+    for planta in plantas:
         proximo = _fecha_proximo_riego(planta)
         if proximo is None or proximo > dia:
             continue
-        if repo.pendiente_de_tipo(cliente, planta["id"], "Riego"):
+        if planta["id"] in con_riego:
             continue
 
         repo.crear(
@@ -74,18 +80,22 @@ def _materializar_riegos(
                 "plant_id": planta["id"],
                 "tipo": "Riego",
                 "titulo": f"Regar {planta['apodo']}",
-                "descripcion": "Riega en la base, evitando mojar el follaje.",
+                "descripcion": (
+                    "Riega en la base, evitando mojar el follaje."
+                ),
                 "fecha_programada": proximo.isoformat(),
             },
         )
+        con_riego.add(planta["id"])
 
 
 def _proyectar_riegos(
-    cliente: Client, user_id: str, dia: date
+    plantas: list[dict], con_riego: set[str], dia: date
 ) -> list[ActividadOut]:
+    
     proyectadas = []
-    for planta in plants_repo.listar(cliente, user_id):
-        if repo.pendiente_de_tipo(cliente, planta["id"], "Riego"):
+    for planta in plantas:
+        if planta["id"] in con_riego:
             continue
         if _fecha_proximo_riego(planta) != dia:
             continue
@@ -112,21 +122,31 @@ def _proyectar_riegos(
     return proyectadas
 
 
+def _contexto(cliente: Client, user_id: str) -> tuple[list[dict], set[str]]:
+    
+    return (
+        plants_repo.listar(cliente, user_id),
+        repo.plantas_con_pendiente(cliente, user_id, "Riego"),
+    )
+
+
 def listar_agenda(
     usuario: CurrentUser, dia: date | None = None
 ) -> list[ActividadOut]:
-    hoy_peru = datetime.now(PERU_TZ).date()
-    dia = dia or hoy_peru
+    
+    hoy = datetime.now(PERU_TZ).date()
+    dia = dia or hoy
     cliente = user_client(usuario.token)
+    plantas, con_riego = _contexto(cliente, usuario.id)
 
-    if dia > hoy_peru:
+    if dia > hoy:
         reales = [
             _a_salida(f, dia)
             for f in repo.programadas_desde(cliente, usuario.id, dia)
         ]
-        return reales + _proyectar_riegos(cliente, usuario.id, dia)
+        return reales + _proyectar_riegos(plantas, con_riego, dia)
 
-    _materializar_riegos(cliente, usuario.id, dia)
+    _materializar_riegos(cliente, usuario.id, dia, plantas, con_riego)
     actividades = [
         _a_salida(f, dia)
         for f in repo.agenda(cliente, usuario.id, dia)
@@ -137,6 +157,77 @@ def listar_agenda(
     return actividades
 
 
+# límite existe para que nadie pida un año por accidente.
+MAX_DIAS_RANGO = 31
+
+
+def listar_rango(
+    usuario: CurrentUser, desde: date, hasta: date
+) -> dict[str, list[ActividadOut]]:
+    
+    if hasta < desde:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="La fecha final no puede ser anterior a la inicial",
+        )
+    if (hasta - desde).days + 1 > MAX_DIAS_RANGO:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"El rango no puede superar {MAX_DIAS_RANGO} días",
+        )
+
+    cliente = user_client(usuario.token)
+    hoy = datetime.now(PERU_TZ).date()
+    plantas, con_riego = _contexto(cliente, usuario.id)
+
+    # Se materializa antes de consultar, para que las tareas recién
+    # creadas entren en el resultado.
+    if desde <= hoy:
+        _materializar_riegos(
+            cliente, usuario.id, min(hoy, hasta), plantas, con_riego
+        )
+
+    pendientes, cerradas = repo.rango(cliente, usuario.id, desde, hasta)
+
+    agenda: dict[str, list[ActividadOut]] = {}
+    dia = desde
+    while dia <= hasta:
+        if dia <= hoy:
+            items = [
+                _a_salida(f, dia)
+                for f in pendientes
+                if date.fromisoformat(f["fecha_programada"]) <= dia
+            ] + [
+                _a_salida(f, dia)
+                for f in cerradas
+                if f.get("fecha_completada")
+                and date.fromisoformat(f["fecha_completada"]) == dia
+            ]
+            items.sort(key=lambda a: (-a.dias_atraso, a.tipo))
+        else:
+            items = [
+                _a_salida(f, dia)
+                for f in pendientes
+                if date.fromisoformat(f["fecha_programada"]) == dia
+            ] + _proyectar_riegos(plantas, con_riego, dia)
+
+        agenda[dia.isoformat()] = items
+        dia += timedelta(days=1)
+
+    return agenda
+
+def listar_rango_por_defecto(
+    usuario: CurrentUser,
+    desde: date | None,
+    hasta: date | None,
+) -> dict[str, list[ActividadOut]]:
+    
+    hoy = datetime.now(PERU_TZ).date()
+    desde = desde or hoy
+    hasta = hasta or desde + timedelta(days=6)
+    return listar_rango(usuario, desde, hasta)
+
+
 def generar_plan_tratamiento(
     cliente: Client,
     user_id: str,
@@ -144,8 +235,6 @@ def generar_plan_tratamiento(
     diagnosis_id: str,
     disease_id: str,
     estado_diagnostico: str,
-    apodo: str,
-    tratamiento_prioritario: dict | None = None,
 ) -> None:
     repo.cancelar_pendientes(
         cliente, plant_id, ["Tratamiento", "Revision"]
@@ -154,7 +243,7 @@ def generar_plan_tratamiento(
     if estado_diagnostico == "Sana":
         return
 
-    plan = tratamiento_prioritario or repo.tratamiento_de_enfermedad(cliente, disease_id)
+    plan = repo.tratamiento_de_enfermedad(cliente, disease_id)
     if plan is None:
         return
 
@@ -352,9 +441,26 @@ def actualizar_actividad(
         _encadenar_siguiente(cliente, actualizada)
         recalcular_estado(cliente, fila["plant_id"])
 
-    return _a_salida(
-        repo.obtener(cliente, actividad_id), datetime.now(PERU_TZ).date()
+    salida = _a_salida(
+        repo.obtener(cliente, actividad_id),
+        datetime.now(PERU_TZ).date(),
     )
+
+    if completa:
+        siguiente = repo.proxima_pendiente(cliente, fila["user_id"])
+        if siguiente:
+            salida.proxima_tarea = ProximaTarea(
+                id=siguiente["id"],
+                plant_id=siguiente["plant_id"],
+                planta=(siguiente.get("plants") or {}).get("apodo"),
+                tipo=siguiente["tipo"],
+                titulo=siguiente["titulo"],
+                fecha_programada=date.fromisoformat(
+                    siguiente["fecha_programada"]
+                ),
+            )
+
+    return salida
 
 
 def eliminar_actividad(

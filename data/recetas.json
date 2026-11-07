@@ -25,7 +25,13 @@
     ],
     "modo_uso": "Rocía con atomizador tanto la parte de arriba como la parte de atrás de las hojas sanas, siempre al atardecer (nunca con sol directo). Repite cada 7 a 10 días si hay mucha humedad. Esto es solo un apoyo: podar y ventilar la planta sigue siendo lo más importante.",
     "precauciones": "Haz una prueba rociando solo 1 o 2 hojas y espera 24 a 48 horas para confirmar que no se quemen. No apliques si hace más de 28 °C ni en plantas marchitas por falta de agua. No abuses en macetas, ya que el sodio se acumula en la tierra y daña las raíces.\n\nFuentes de respaldo técnico:\n• INTA: Compuestos biorracionales para el manejo de enfermedades vegetales (https://inta.gob.ar)\n• UC IPM: Pautas para el uso de bicarbonato potásico y sales minerales (https://ipm.ucanr.edu)",
-    "costo_aprox": null
+    "costo_aprox": null,
+    "fuentes": [
+      {
+        "titulo": "Nombre del documento o institución",
+        "url": "https://..."
+      }
+    ]
   },
   {
     "slug": "jabon_potasico",
@@ -48,7 +54,13 @@
     ],
     "modo_uso": "Rocía directamente sobre los insectos. Moja muy bien la parte de atrás de las hojas y los brotes nuevos, que es donde se esconden. Repite cada 5 a 7 días mientras veas presencia de plagas.",
     "precauciones": "Nunca uses detergente de cocina ni jabón de lavar ropa; tienen químicos y sal que queman las hojas y arruinan la tierra. No apliques sobre flores abiertas para no afectar a las abejas. Evita usarlo bajo sol fuerte.\n\nFuentes de respaldo técnico:\n• University of Minnesota Extension: Insecticidal soaps and horticultural oils (https://extension.umn.edu)\n• UC IPM: Manejo fitosanitario orgánico con jabones insecticidas (https://ipm.ucanr.edu)",
-    "costo_aprox": null
+    "costo_aprox": null,
+    "fuentes": [
+      {
+        "titulo": "Nombre del documento o institución",
+        "url": "https://..."
+      }
+    ]
   },
   {
     "slug": "ajo_aji",
@@ -81,7 +93,13 @@
     ],
     "modo_uso": "Rocía al atardecer sobre las partes donde veas insectos. Aplica cada 5 a 7 días como protección para mantener alejadas a las plagas.",
     "precauciones": "Usa guantes y cuidado con los ojos; el ají irrita bastante. Prueba primero en una sola hoja para comprobar que la planta lo tolere bien. No rocíes sobre flores abiertas.\n\nFuentes de respaldo técnico:\n• FAO: Directrices para el uso de pesticidas botánicos en agricultura sostenible (https://www.fao.org)\n• UC ANR: Repelentes botánicos en el Manejo Integrado de Plagas (https://ipm.ucanr.edu)",
-    "costo_aprox": null
+    "costo_aprox": null,
+    "fuentes": [
+      {
+        "titulo": "Nombre del documento o institución",
+        "url": "https://..."
+      }
+    ]
   },
   {
     "slug": "desinfeccion_alcohol",
@@ -103,7 +121,13 @@
     ],
     "modo_uso": "Limpia la tierra y savia de la herramienta con el papel. Remoja o frota el filo con alcohol durante 15 a 30 segundos cada vez que cambies de planta o cortes una parte sospechosa. Deja secar al aire.",
     "precauciones": "El alcohol es inflamable; no lo uses cerca del fuego. Al terminar el día, seca bien las tijeras y ponles unas gotas de aceite lubricante para que no se oxiden.\n\nFuentes de respaldo técnico:\n• University of Minnesota Extension: Prevención y manejo sanitario de virus hortícolas (https://extension.umn.edu)\n• UC ANR: Saneamiento y desinfección de herramientas de poda (https://ipm.ucanr.edu)",
-    "costo_aprox": null
+    "costo_aprox": null,
+    "fuentes": [
+      {
+        "titulo": "Nombre del documento o institución",
+        "url": "https://..."
+      }
+    ]
   },
   {
     "slug": "caldo_bordeles_casero",
@@ -132,7 +156,13 @@
     ],
     "modo_uso": "Rocía de forma fina cubriendo arriba y abajo de las hojas sanas, por la mañana temprano o al atardecer. Máximo 3 veces por ciclo de cultivo, esperando de 10 a 14 días entre aplicaciones.",
     "precauciones": "Receta avanzada: si queda mal mezclada o ácida, quemará las hojas al instante. No apliques en floración, ni con calor fuerte, ni si la planta tiene sed. Espera al menos 15 días antes de comer frutos o verduras tratadas. Usa guantes, mascarilla y lentes. No abuses porque el cobre se acumula en la tierra.\n\nFuentes de respaldo técnico:\n• INTA: Pautas para la preparación y uso seguro del caldo bordelés (https://inta.gob.ar)\n• University of Minnesota Extension: Uso responsable de compuestos cúpricos en agricultura (https://extension.umn.edu)",
-    "costo_aprox": null
+    "costo_aprox": null,
+    "fuentes": [
+      {
+        "titulo": "Nombre del documento o institución",
+        "url": "https://..."
+      }
+    ]
   },
   {
     "slug": "trampas_amarillas",
@@ -158,6 +188,12 @@
     ],
     "modo_uso": "Cuélgalas a la altura de las hojas más altas (unos 10 o 20 cm por encima). Revísalas cada semana para ver cuántas plagas caen y cámbialas cuando estén llenas de polvo o insectos.",
     "precauciones": "Sirve para detectar a tiempo la llegada de plagas; si la planta ya está repleta de insectos por debajo, la trampa sola no solucionará el problema. Retíralas si ves que caen abejas u otros insectos buenos.\n\nFuentes de respaldo técnico:\n• SENASA Perú: Vigilancia fitosanitaria y uso de trampas de monitoreo (https://www.gob.pe/senasa)\n• FAO: Monitoreo fitosanitario y herramientas físicas en agroecología (https://www.fao.org)",
-    "costo_aprox": null
+    "costo_aprox": null,
+    "fuentes": [
+      {
+        "titulo": "Nombre del documento o institución",
+        "url": "https://..."
+      }
+    ]
   }
 ]

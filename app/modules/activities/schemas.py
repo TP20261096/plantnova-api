@@ -25,6 +25,16 @@ class ActividadUpdate(BaseModel):
     estado: EstadoActividad | None = None
 
 
+class ProximaTarea(BaseModel):
+    
+    id: str
+    plant_id: str
+    planta: str | None
+    tipo: TipoActividad
+    titulo: str
+    fecha_programada: date
+    
+
 class ActividadOut(BaseModel):
     
     id: str | None
@@ -42,3 +52,4 @@ class ActividadOut(BaseModel):
     receta_nombre: str | None
     diagnosis_id: str | None
     proyectada: bool = False
+    proxima_tarea: ProximaTarea | None = None

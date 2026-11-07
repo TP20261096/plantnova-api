@@ -4,7 +4,8 @@ try:
 except ImportError: 
     from gotrue.errors import AuthApiError
 
-from app.core.supabase import anon_client
+from app.core.security import CurrentUser
+from app.core.supabase import anon_client, user_client
 from app.modules.auth.schemas import (
     LoginRequest,
     RegistroRequest,
@@ -12,6 +13,21 @@ from app.modules.auth.schemas import (
     UsuarioResponse,
 )
 
+def usuario_actual(usuario: CurrentUser) -> UsuarioResponse:
+    #Devuelve la identidad del usuario con su nombre de perfil.
+    perfil = (
+        user_client(usuario.token)
+        .table("profiles")
+        .select("nombre")
+        .eq("id", usuario.id)
+        .limit(1)
+        .execute()
+    )
+    return UsuarioResponse(
+        id=usuario.id,
+        email=usuario.email,
+        nombre=perfil.data[0]["nombre"] if perfil.data else None,
+    )
 
 def _a_sesion(respuesta) -> SesionResponse:
     

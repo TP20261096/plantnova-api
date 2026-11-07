@@ -1,21 +1,12 @@
 from datetime import datetime
-
+from app.core.distritos import DISTRITOS
 from pydantic import BaseModel, Field
+from typing import Literal
 
-# Distritos con puntos de venta de insumos registrados en el
-# catálogo. Se valida contra esta lista para que el filtro de
-# insumos del diagnóstico no falle por un nombre mal escrito.
-DISTRITOS_LIMA = [
-    "Ate", "Barranco", "Breña", "Callao", "Carabayllo",
-    "Chorrillos", "Comas", "El Agustino", "Independencia",
-    "Jesús María", "La Molina", "La Victoria", "Lima",
-    "Lince", "Los Olivos", "Lurín", "Magdalena del Mar",
-    "Miraflores", "Pachacámac", "Pueblo Libre", "Puente Piedra",
-    "Rímac", "San Borja", "San Isidro", "San Juan de Lurigancho",
-    "San Juan de Miraflores", "San Luis", "San Martín de Porres",
-    "San Miguel", "Santa Anita", "Santiago de Surco",
-    "Surquillo", "Villa El Salvador", "Villa María del Triunfo",
-]
+Tema = Literal["Sistema", "Claro", "Oscuro"]
+
+
+DISTRITOS_LIMA = sorted(DISTRITOS)
 
 
 class PerfilOut(BaseModel):
@@ -26,7 +17,11 @@ class PerfilOut(BaseModel):
     foto_url: str | None
     distrito: str | None
     notificaciones: bool
+    tema: Tema
     plantas_registradas: int
+    diagnosticos_realizados: int
+    tareas_pendientes: int
+    tareas_completadas: int
     created_at: datetime
 
 
@@ -37,6 +32,7 @@ class PerfilUpdate(BaseModel):
     foto_url: str | None = None
     distrito: str | None = None
     notificaciones: bool | None = None
+    tema: Tema | None = None
 
 
 class PasswordUpdate(BaseModel):

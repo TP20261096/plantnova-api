@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "riego_manana",
+    "titulo": "Riega temprano",
+    "contenido": "Riega a primera hora de la mañana. El sustrato absorbe mejor y las hojas alcanzan a secarse durante el día, lo que reduce el riesgo de hongos.",
+    "orden": 1
+  },
+  {
+    "slug": "dedo_sustrato",
+    "titulo": "Comprueba antes de regar",
+    "contenido": "Mete el dedo dos centímetros en la tierra. Si sale húmedo, espera. En el invierno limeño las plantas necesitan bastante menos agua que en verano.",
+    "orden": 2
+  },
+  {
+    "slug": "no_mojar_follaje",
+    "titulo": "Riega la tierra, no las hojas",
+    "contenido": "Dirige el agua a la base de la planta. El follaje mojado con humedad alta es la combinación que más enfermedades fúngicas provoca.",
+    "orden": 3
+  },
+  {
+    "slug": "enves_hojas",
+    "titulo": "Revisa el envés de las hojas",
+    "contenido": "Dale la vuelta a algunas hojas una vez por semana. Pulgones y arañita roja empiezan ahí, y detectarlos temprano evita tener que tratar toda la planta.",
+    "orden": 4
+  },
+  {
+    "slug": "limpiar_polvo",
+    "titulo": "Quita el polvo de las hojas",
+    "contenido": "Pasa un paño húmedo por las hojas cada quince días. El polvo que se acumula en Lima bloquea la luz y la planta crece más lento.",
+    "orden": 5
+  },
+  {
+    "slug": "ventilacion",
+    "titulo": "Separa las macetas",
+    "contenido": "Deja espacio entre una planta y otra para que circule el aire. Amontonadas, la humedad se queda atrapada entre el follaje y los hongos se propagan.",
+    "orden": 6
+  },
+  {
+    "slug": "desinfectar_tijeras",
+    "titulo": "Desinfecta las tijeras",
+    "contenido": "Limpia la herramienta con alcohol entre una planta y otra. Es la forma más común de contagiar una enfermedad sin darte cuenta.",
+    "orden": 7
+  },
+  {
+    "slug": "retirar_hojas_enfermas",
+    "titulo": "Retira las hojas afectadas",
+    "contenido": "Corta las hojas secas o con manchas y sácalas de casa. Dejarlas en la maceta mantiene el foco de infección junto a la planta.",
+    "orden": 8
+  }
+]

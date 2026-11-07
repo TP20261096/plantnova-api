@@ -36,6 +36,15 @@ class SpeciesIn(BaseModel):
     secciones: dict[Seccion, str]
 
 
+class TipIn(BaseModel):
+    """Un consejo general de la pantalla de Inicio."""
+
+    slug: str = Field(pattern=r"^[a-z0-9_]+$")
+    titulo: str
+    contenido: str
+    orden: int = Field(default=0, ge=0, le=999)
+
+
 class RecetaIn(BaseModel):
     """Un remedio casero."""
 
@@ -47,6 +56,7 @@ class RecetaIn(BaseModel):
     modo_uso: str | None = None
     precauciones: str | None = None
     costo_aprox: str | None = None
+    fuentes: list[dict] = []
 
 
 class TratamientoIn(BaseModel):
@@ -56,6 +66,7 @@ class TratamientoIn(BaseModel):
     frecuencia_dias: int = Field(default=7, ge=1, le=30)
     num_aplicaciones: int = Field(default=3, ge=1, le=10)
     nota: str | None = None
+    prioridad: int = Field(default=1, ge=0, le=9)
     
     @model_validator(mode="before")
     @classmethod
@@ -220,6 +231,7 @@ def cargar_diseases() -> None:
                     "frecuencia_dias": t.frecuencia_dias,
                     "num_aplicaciones": t.num_aplicaciones,
                     "nota": t.nota,
+                    "prioridad": t.prioridad,
                 }
             )
 
@@ -230,10 +242,20 @@ def cargar_diseases() -> None:
     print(f"  disease_catalog: {len(filas)} | tratamientos: {len(vinculos)}")
 
 
+def cargar_tips() -> None:
+    """Inserta o actualiza los consejos generales."""
+    consejos = _leer("tips.json", TipIn)
+    service_client().table("tips").upsert(
+        [c.model_dump() for c in consejos], on_conflict="slug"
+    ).execute()
+    print(f"  tips: {len(consejos)}")
+
+
 CARGAS = {
     "species": cargar_species,
     "recetas": cargar_recetas,
     "diseases": cargar_diseases,
+    "tips": cargar_tips,
 }
 
 

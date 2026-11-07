@@ -7,10 +7,11 @@ from supabase import Client
 
 _FICHA = (
     "*, species(slug, nombre_comun), "
-    "disease_treatments(receta_id, frecuencia_dias, num_aplicaciones, nota, "
+    "disease_treatments(receta_id, prioridad, frecuencia_dias, "
+    "num_aplicaciones, nota, "
     "recetas(slug, nombre, descripcion, ingredientes, preparacion, "
-    "modo_uso, precauciones, costo_aprox))"
-)   
+    "modo_uso, precauciones, costo_aprox, fuentes))"
+) 
 
 
 def buscar_ficha(cliente: Client, clase_raw: str) -> dict | None:

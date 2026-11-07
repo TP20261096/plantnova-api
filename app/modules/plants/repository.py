@@ -15,16 +15,18 @@ def crear(cliente: Client, datos: dict) -> dict:
     return respuesta.data[0]
 
 
-def listar(cliente: Client, user_id: str) -> list[dict]:
-    """Devuelve las plantas del usuario con el nombre de su especie."""
-    respuesta = (
+def listar(
+    cliente: Client, user_id: str, estado: str | None = None
+) -> list[dict]:
+    
+    consulta = (
         cliente.table("plants")
         .select("*, species(nombre_comun)")
         .eq("user_id", user_id)
-        .order("created_at", desc=True)
-        .execute()
     )
-    return respuesta.data
+    if estado:
+        consulta = consulta.eq("estado", estado)
+    return consulta.order("created_at", desc=True).execute().data
 
 
 def obtener(cliente: Client, planta_id: str) -> dict | None:
@@ -60,7 +62,7 @@ def historial(cliente: Client, planta_id: str) -> list[dict]:
     respuesta = (
         cliente.table("diagnoses")
         .select(
-            "id, estado, confianza, imagen_url, created_at, "
+            "id, estado, confianza, imagen_url, created_at, disease_id, "
             "disease_catalog(nombre_enfermedad, riego_frecuencia_dias, "
             "riego_nota, otros_cuidados)"
         )
@@ -85,31 +87,54 @@ def tiene_tratamiento_pendiente(cliente: Client, planta_id: str) -> bool:
     return bool(respuesta.data)
 
 
-def proxima_actividad_tratamiento(cliente: Client, planta_id: str) -> dict | None:
-    """Obtiene la actividad pendiente más próxima, priorizando revisiones si existen."""
-    # 1. Buscar primero si hay una Revisión Pendiente
-    revision = (
-        cliente.table("activities")
-        .select("*")
-        .eq("plant_id", planta_id)
-        .eq("tipo", "Revision")
-        .eq("estado", "Pendiente")
-        .order("fecha_programada", desc=False)
-        .limit(1)
-        .execute()
-    )
-    if revision.data:
-        return revision.data[0]
-
-    # 2. Si no hay revisión, buscar el Tratamiento pendiente
+def actividades_de_seguimiento(
+    cliente: Client, user_id: str
+) -> list[dict]:
+    """
+    Cada tarjeta del jardín muestra la próxima revisión o aplicación
+    pendiente y, si ya no queda ninguna, la revisión que se completó.
+    Resolverlo planta por planta costaba tres consultas por tarjeta.
+    """
     respuesta = (
         cliente.table("activities")
-        .select("*")
-        .eq("plant_id", planta_id)
-        .eq("tipo", "Tratamiento")
-        .eq("estado", "Pendiente")
-        .order("fecha_programada", desc=False)
-        .limit(1)
+        .select(
+            "plant_id, tipo, estado, fecha_programada, "
+            "fecha_completada"
+        )
+        .eq("user_id", user_id)
+        .in_("tipo", ["Tratamiento", "Revision"])
+        .or_(
+            "estado.eq.Pendiente,"
+            "and(tipo.eq.Revision,estado.eq.Completada)"
+        )
         .execute()
     )
-    return respuesta.data[0] if respuesta.data else None
+    return respuesta.data
+
+
+def tratamientos_de(cliente: Client, disease_id: str) -> list[dict]:
+    """Recetas asociadas a una enfermedad, con sus pautas.
+
+    Solo se consulta para el detalle de una planta, así que no
+    encarece el listado del jardín.
+
+    Args:
+        cliente: Cliente Supabase del usuario.
+        disease_id: UUID de la enfermedad del diagnóstico vigente.
+
+    Returns:
+        Filas de disease_treatments con la receta embebida.
+    """
+    respuesta = (
+        cliente.table("disease_treatments")
+        .select(
+            "frecuencia_dias, num_aplicaciones, nota, "
+            "recetas(nombre, descripcion, ingredientes, preparacion, "
+            "modo_uso, precauciones, costo_aprox, fuentes)"
+        )
+        .eq("disease_id", disease_id)
+        .order("prioridad", desc=False)
+        .order("frecuencia_dias", desc=False)
+        .execute()
+    )
+    return respuesta.data

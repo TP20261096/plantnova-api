@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, File, UploadFile, status
+from fastapi import APIRouter, Depends, File, Query, UploadFile, status
 
 from app.core.security import CurrentUser, get_current_user
 from app.modules.plants import service
 from app.modules.plants.schemas import (
+    EstadoPlanta,
     PlantaCreate,
     PlantaDetalle,
     PlantaResumen,
@@ -32,10 +33,14 @@ def crear(
     summary="Lista las plantas del usuario",
 )
 def listar(
+    estado: EstadoPlanta | None = Query(
+        default=None,
+        description="Filtra por estado: Sana o En_tratamiento",
+    ),
     usuario: CurrentUser = Depends(get_current_user),
 ) -> list[PlantaResumen]:
-    """Devuelve todas las plantas registradas."""
-    return service.listar_plantas(usuario)
+    """Devuelve las plantas registradas, filtradas si se indica."""
+    return service.listar_plantas(usuario, estado)
 
 
 @router.get(

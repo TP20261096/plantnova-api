@@ -28,6 +28,23 @@ def agenda(
     
     return service.listar_agenda(usuario, fecha)
 
+@router.get(
+    "/range",
+    response_model=dict[str, list[ActividadOut]],
+    summary="Agenda de varios días",
+)
+def rango(
+    desde: date | None = Query(
+        default=None, description="Primer día. Por defecto, hoy"
+    ),
+    hasta: date | None = Query(
+        default=None,
+        description="Último día. Por defecto, seis días después",
+    ),
+    usuario: CurrentUser = Depends(get_current_user),
+) -> dict[str, list[ActividadOut]]:
+    
+    return service.listar_rango_por_defecto(usuario, desde, hasta)
 
 @router.post(
     "",

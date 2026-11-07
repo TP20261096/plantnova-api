@@ -21,6 +21,8 @@ class RecetaOut(BaseModel):
     modo_uso: str | None
     precauciones: str | None
     costo_aprox: str | None
+    # Respaldo documental: [{"titulo": "...", "url": "..."}]
+    fuentes: list[dict] = []
     frecuencia_dias: int | None = None
     num_aplicaciones: int | None = None
     nota: str | None

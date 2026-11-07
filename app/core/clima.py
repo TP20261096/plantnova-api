@@ -1,22 +1,16 @@
-"""Clima diario de Lima usado para ajustar la frecuencia de riego.
-
-El dato se obtiene de forma perezosa: la primera consulta del día
-llama a Open-Meteo y guarda el resultado en la tabla clima_diario;
-el resto de peticiones de esa jornada leen el caché. Si la API
-externa no responde, se usa el promedio estacional de Lima para no
-bloquear el cálculo de riego.
-"""
-
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 
 import httpx
+import time
 
 from app.core.config import settings
 from app.core.supabase import service_client
+from app.core.distritos import DISTRITOS, coordenadas
 
 _API_URL = "https://api.open-meteo.com/v1/forecast"
 _TIMEOUT = 6.0
+PERU_TZ = timezone(timedelta(hours=-5))
 
 # Promedios de Lima Metropolitana. De mayo a octubre domina la garúa
 # y la humedad se mantiene alta; el resto del año baja con el verano.
@@ -62,8 +56,8 @@ def _estacional(fecha: date) -> Clima:
     )
 
 
-def _consultar_api(fecha: date) -> Clima | None:
-    """Consulta Open-Meteo para la fecha indicada.
+def _consultar_api(fecha: date, distrito: str) -> Clima | None:
+    """Consulta Open-Meteo para una fecha y un distrito.
 
     Se piden los valores por hora y se agregan aquí, en lugar de usar
     los agregados diarios, porque los primeros están disponibles para
@@ -71,13 +65,15 @@ def _consultar_api(fecha: date) -> Clima | None:
 
     Args:
         fecha: Día consultado.
+        distrito: Distrito cuyo centroide se consulta.
 
     Returns:
         Clima observado, o None si la API falla o no trae datos.
     """
+    lat, lon = coordenadas(distrito)
     parametros = {
-        "latitude": settings.clima_lat,
-        "longitude": settings.clima_lon,
+        "latitude": lat,
+        "longitude": lon,
         "hourly": "relative_humidity_2m,precipitation,temperature_2m",
         "timezone": "America/Lima",
         "start_date": fecha.isoformat(),
@@ -106,23 +102,28 @@ def _consultar_api(fecha: date) -> Clima | None:
     )
 
 
-def obtener_clima(fecha: date | None = None) -> Clima:
-    """Devuelve el clima de la fecha, usando el caché si ya existe.
+def obtener_clima(
+    fecha: date | None = None, distrito: str | None = None
+) -> Clima:
+    """Devuelve el clima del día en un distrito, usando el caché.
 
     Args:
-        fecha: Día consultado. Por defecto, hoy.
+        fecha: Día consultado. Por defecto, hoy en Lima.
+        distrito: Distrito del perfil. Sin él se usa Lima centro.
 
     Returns:
         Clima del día. Nunca lanza excepción: si todo falla recurre al
-        promedio estacional.
+        promedio estacional, que es común a toda Lima.
     """
-    fecha = fecha or date.today()
+    fecha = fecha or datetime.now(PERU_TZ).date()
+    clave = distrito if distrito in DISTRITOS else "Lima"
     cliente = service_client()
 
     guardado = (
         cliente.table("clima_diario")
         .select("*")
         .eq("fecha", fecha.isoformat())
+        .eq("distrito", clave)
         .limit(1)
         .execute()
     )
@@ -139,21 +140,90 @@ def obtener_clima(fecha: date | None = None) -> Clima:
             fuente=fila["fuente"],
         )
 
-    clima = _consultar_api(fecha) or _estacional(fecha)
+    clima = _consultar_api(fecha, clave) or _estacional(fecha)
 
     # Solo se cachea el dato observado. El estimado no se guarda para
     # que un fallo puntual de la API no fije un valor inventado en la
-    # base de datos durante el resto del día.
+    # base durante el resto del día.
     if clima.fuente == "open-meteo":
         cliente.table("clima_diario").upsert(
             {
                 "fecha": fecha.isoformat(),
+                "distrito": clave,
                 "humedad_media": clima.humedad_media,
                 "precipitacion_mm": clima.precipitacion_mm,
                 "temp_media": clima.temp_media,
                 "fuente": clima.fuente,
             },
-            on_conflict="fecha",
+            on_conflict="fecha,distrito",
         ).execute()
 
+    return clima
+
+
+@dataclass(frozen=True)
+class ClimaActual:
+    """Condiciones del momento, para el encabezado de Inicio.
+
+    Attributes:
+        temperatura: Grados Celsius.
+        humedad: Humedad relativa en porcentaje.
+        viento_kmh: Velocidad del viento en kilómetros por hora.
+        observado: Momento de la medición según la fuente.
+    """
+
+    temperatura: float
+    humedad: float
+    viento_kmh: float
+    observado: str
+
+
+# Caché en memoria, por proceso. La pantalla de Inicio se abre muchas
+# veces al día y el dato no cambia tanto; diez minutos evitan castigar
+# a Open-Meteo sin necesidad de una tabla.
+_CACHE_ACTUAL: dict[str, tuple[float, ClimaActual]] = {}
+_VIGENCIA_ACTUAL = 600
+
+
+def clima_actual(distrito: str | None = None) -> ClimaActual | None:
+    """Devuelve las condiciones del momento en un distrito de Lima.
+
+    Args:
+        distrito: Distrito del perfil. Sin él se usa Lima centro.
+
+    Returns:
+        Condiciones actuales. Si la fuente no responde se devuelve la
+        última lectura conocida de ese distrito, y None solo si nunca
+        hubo ninguna.
+    """
+    lat, lon = coordenadas(distrito)
+    clave = f"{lat},{lon}"
+
+    ahora = time.monotonic()
+    guardado = _CACHE_ACTUAL.get(clave)
+    if guardado and ahora - guardado[0] < _VIGENCIA_ACTUAL:
+        return guardado[1]
+
+    parametros = {
+        "latitude": lat,
+        "longitude": lon,
+        "current": "temperature_2m,relative_humidity_2m,wind_speed_10m",
+        "timezone": "America/Lima",
+    }
+    try:
+        respuesta = httpx.get(
+            _API_URL, params=parametros, timeout=_TIMEOUT
+        )
+        respuesta.raise_for_status()
+        actual = respuesta.json()["current"]
+    except (httpx.HTTPError, KeyError, ValueError):
+        return guardado[1] if guardado else None
+
+    clima = ClimaActual(
+        temperatura=round(float(actual["temperature_2m"]), 1),
+        humedad=round(float(actual["relative_humidity_2m"])),
+        viento_kmh=round(float(actual["wind_speed_10m"]), 1),
+        observado=actual.get("time", ""),
+    )
+    _CACHE_ACTUAL[clave] = (ahora, clima)
     return clima

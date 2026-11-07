@@ -63,8 +63,4 @@ def logout(usuario: CurrentUser = Depends(get_current_user)) -> None:
 )
 def me(usuario: CurrentUser = Depends(get_current_user)) -> UsuarioResponse:
     #Permite a la app verificar si la sesión sigue siendo válida.
-    return UsuarioResponse(
-        id=usuario.id,
-        email=usuario.email,
-        nombre=None,
-    )
+    return service.usuario_actual(usuario)

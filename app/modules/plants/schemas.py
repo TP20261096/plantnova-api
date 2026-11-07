@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from typing import Literal
-
+from app.modules.diagnoses.schemas import RecetaOut
 from pydantic import BaseModel, Field
 
 Ubicacion = Literal[
@@ -63,5 +63,18 @@ class PlantaDetalle(PlantaResumen):
     fecha_siembra: date | None
     riego_nota: str | None
     otros_cuidados: str | None
+    created_at: datetime
+    diagnosticos: list[DiagnosticoResumen]
+    
+    
+class PlantaDetalle(PlantaResumen):
+    #Vista completa de una planta con su historial.
+    species_id: str | None
+    fecha_siembra: date | None
+    riego_nota: str | None
+    otros_cuidados: str | None
+    # Tratamientos del diagnóstico vigente. Vacío si la planta está
+    # sana o nunca fue diagnosticada.
+    tratamientos: list[RecetaOut]
     created_at: datetime
     diagnosticos: list[DiagnosticoResumen]
