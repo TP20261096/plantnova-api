@@ -101,7 +101,19 @@ def refrescar(refresh_token: str) -> SesionResponse:
 
 
 def cerrar_sesion(token: str) -> None:
-    
-    cliente = anon_client()
-    cliente.auth.set_session(token, "")
-    cliente.auth.sign_out()
+    """Cierra solo la sesión de este dispositivo.
+
+    El alcance es "local" a propósito. Con el alcance por defecto, "global",
+    sign_out revoca todos los refresh tokens del usuario: cerrar sesión en
+    el móvil echaría también al mismo usuario de cualquier otro dispositivo.
+
+    Se usa admin.sign_out directamente en lugar de set_session + sign_out
+    porque set_session con un refresh token vacío lanza excepción cuando el
+    token de acceso ya venció, y además guarda la sesión en el cliente.
+    """
+    try:
+        anon_client().auth.admin.sign_out(token, "local")
+    except AuthApiError:
+        # El token ya no vale: la sesión que se quería cerrar no existe,
+        # que es justo el estado deseado.
+        return
