@@ -8,6 +8,11 @@ class RegistroRequest(BaseModel):
     password: str = Field(min_length=8, max_length=72)
     nombre: str = Field(min_length=2, max_length=60)
 
+    # Se pide al registrarse porque determina el clima de referencia con el
+    # que se calcula el riego: sin él, las primeras plantas del usuario se
+    # programarían con el clima de Lima centro.
+    distrito: str = Field(min_length=2, max_length=60)
+
 
 class LoginRequest(BaseModel):
     #Credenciales de acceso.

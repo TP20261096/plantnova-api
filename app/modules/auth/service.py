@@ -4,6 +4,7 @@ try:
 except ImportError: 
     from gotrue.errors import AuthApiError
 
+from app.core.distritos import DISTRITOS
 from app.core.security import CurrentUser
 from app.core.supabase import anon_client, user_client
 from app.modules.auth.schemas import (
@@ -55,12 +56,26 @@ def _a_sesion(respuesta) -> SesionResponse:
 
 def registrar(datos: RegistroRequest) -> SesionResponse:
     
+    # Se valida antes de crear la cuenta: con un distrito no admitido es
+    # preferible rechazar el registro que dejar una cuenta a medio
+    # configurar que el usuario tendría que arreglar desde el perfil.
+    if datos.distrito not in DISTRITOS:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="El distrito no está en la lista admitida",
+        )
+
     try:
         respuesta = anon_client().auth.sign_up(
             {
                 "email": datos.email,
                 "password": datos.password,
-                "options": {"data": {"nombre": datos.nombre}},
+                "options": {
+                    "data": {
+                        "nombre": datos.nombre,
+                        "distrito": datos.distrito,
+                    }
+                },
             }
         )
     except AuthApiError as exc:
