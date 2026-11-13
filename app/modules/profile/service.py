@@ -178,7 +178,7 @@ def cambiar_password(
     except AuthApiError as exc:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="La contraseña actual no es correcta",
+            detail="La contraseña actual es incorrecta",
         ) from exc
 
     try:

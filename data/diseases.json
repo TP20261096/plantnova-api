@@ -11,7 +11,7 @@
     "causas": "Salpicaduras al regar sobre las hojas, semillas contaminadas, manipular plantas mojadas y restos de cultivos anteriores.",
     "prevencion": "Usa semillas sanas, riega solo en la tierra (nunca mojes las hojas), desinfecta las tijeras y no vuelvas a plantar pimiento en el mismo sitio por 2 años.",
     "riego_frecuencia_dias": 2,
-    "riego_nota": "Riega cada 2 o 3 días directamente a la tierra. No uses manguera por aspersión ni mojes el follaje.",
+    "riego_nota": "Riega directamente a la tierra. No uses manguera por aspersión ni mojes el follaje.",
     "otros_cuidados": "Si la zona roja en la foto es pequeña: corta con cuidado solo las hojas manchadas y bótalas en una bolsa (no las eches al compost). Si toda la planta está tomada: retírala completa. Desinfecta tus tijeras con alcohol al 70%.",
     "insumos_no_caseros": [
       "Cobre agrícola autorizado para pimiento",
@@ -44,7 +44,7 @@
     "causas": null,
     "prevencion": "Mantén el riego en la base de la planta, buena ventilación y revisa detrás de las hojas una vez por semana.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riega cada 2 a 3 días en días calurosos. Mantén la tierra húmeda sin encharcar.",
+    "riego_nota": "Mantén la tierra húmeda sin encharcar. En días calurosos revisa el sustrato más seguido.",
     "otros_cuidados": "Abona con compost una vez al mes. Evita que la tierra salpique a las hojas más bajas.",
     "insumos_no_caseros": [],
     "tratamientos": []
@@ -61,7 +61,7 @@
     "causas": "Mucha humedad ambiental, plantas muy juntas sin aire y hojas viejas enfermas que quedan en el suelo.",
     "prevencion": "Dale espacio a las plantas, riega temprano directo a la tierra y retira las hojas de abajo que toquen el suelo.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riega en la base cada 3 o 4 días en verano; no mojes las hojas.",
+    "riego_nota": "Riega en la base y no mojes las hojas. En verano el sustrato se seca más rápido.",
     "otros_cuidados": "Corta y bota las hojas de abajo muy manchadas. Coloca paja o acolchado sobre la tierra para que el agua no salpique el hongo hacia arriba.",
     "insumos_no_caseros": [
       "Fungicida de cobre autorizado para berenjena",
@@ -94,7 +94,7 @@
     "causas": null,
     "prevencion": "Deja suficiente espacio entre plantas para que corra el aire y revisa semanalmente el envés de las hojas.",
     "riego_frecuencia_dias": 4,
-    "riego_nota": "Riega en la base cada 3 a 4 días; asegúrate de que la maceta o suelo drene bien.",
+    "riego_nota": "Riega en la base y asegúrate de que la maceta o el suelo drenen bien.",
     "otros_cuidados": "Quita malezas y corta ramas secas o brotes de abajo que rocen la tierra.",
     "insumos_no_caseros": [],
     "tratamientos": []
@@ -421,7 +421,7 @@
     "causas": null,
     "prevencion": "Revisa los brotes nuevos cada mes y haz podas suaves para que entre luz al centro del árbol.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riego espaciado cada 3 a 5 días según el calor.",
+    "riego_nota": "Riego espaciado: deja que la capa superior del sustrato se seque entre riegos.",
     "otros_cuidados": "Abona con compost y fertilizantes con zinc y hierro en primavera y verano.",
     "insumos_no_caseros": [],
     "tratamientos": []
@@ -533,7 +533,7 @@
     "causas": "Regar con manguera por arriba, lastimar las hojas en el trasplante y semillas de mala procedencia.",
     "prevencion": "Riega siempre a la tierra por goteo, ventila bien y usa semillas garantizadas.",
     "riego_frecuencia_dias": 1,
-    "riego_nota": "Riega todos los días en cantidades pequeñas directo al suelo por la mañana. No mojes las hojas.",
+    "riego_nota": "Riega en cantidades pequeñas directo al suelo por la mañana. No mojes las hojas.",
     "otros_cuidados": "Corta con cuidado las hojas enfermas. Si casi toda la lechuga tiene manchas, coseche o retírela completa. No eches aceites ni remedios grasosos sobre lechugas listas para comer.",
     "insumos_no_caseros": [
       "Alcohol al 70%",
@@ -718,7 +718,7 @@
     "causas": "Hojas que tocan la tierra húmeda, salpicaduras de agua y ramas de abajo sin ventilación.",
     "prevencion": "Poda las ramas y hojas que estén pegadas al suelo, entutora la planta y pon paja sobre la tierra.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riega en la base cada 2 o 3 días. Mantén las hojas secas.",
+    "riego_nota": "Riega en la base. Mantén las hojas secas.",
     "otros_cuidados": "Corta las hojas enfermas y bótalas. Quita chupones sobrantes para que el centro de la planta respire y le dé sol.",
     "insumos_no_caseros": [
       "Fungicida de cobre autorizado para tomate"
@@ -916,7 +916,7 @@
     "causas": "Humedad alta constante, hojas muy apretadas y restos vegetales secos de plantas anteriores.",
     "prevencion": "Quita chupones para abrir espacio, amarra a estacas y riega sin mojar las hojas.",
     "riego_frecuencia_dias": 3,
-    "riego_nota": "Riega en la base cada 2 o 3 días.",
+    "riego_nota": "Riega en la base, directo al pie de la planta.",
     "otros_cuidados": "Corta rápido las hojas con manchas para que el hongo no pase a los tomates o a las flores.",
     "insumos_no_caseros": [
       "Fungicida de cobre registrado para hortalizas"

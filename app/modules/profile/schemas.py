@@ -37,5 +37,8 @@ class PerfilUpdate(BaseModel):
 
 class PasswordUpdate(BaseModel):
 
-    password_actual: str = Field(min_length=8, max_length=72)
+    # La actual solo se verifica, no se establece: exigirle 8 caracteres
+    # devolvia un 422 de validacion en lugar de "La contraseña actual es
+    # incorrecta" cuando el usuario escribia una contrasena corta y erronea.
+    password_actual: str = Field(min_length=1, max_length=72)
     password_nueva: str = Field(min_length=8, max_length=72)
