@@ -102,7 +102,7 @@ def analizar(imagen: bytes) -> Inferencia:
     ]
 
     indice_principal = int(indices[0])
-    with GradCAM(model=modelo, target_layers=[modelo.cbam]) as cam:
+    with GradCAM(model=modelo, target_layers=[modelo.capa_objetivo]) as cam:
         mapa = cam(
             input_tensor=tensor,
             targets=[ClassifierOutputTarget(indice_principal)],

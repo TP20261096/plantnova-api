@@ -100,7 +100,7 @@ class DiseaseIn(BaseModel):
     riego_frecuencia_dias: int | None = Field(default=None, ge=1, le=30)
     riego_nota: str | None = None
     otros_cuidados: str | None = None
-    insumos_no_caseros: list[dict] = []
+    insumos_no_caseros: list[str] = []
     tratamientos: list[TratamientoIn] = []
 
 

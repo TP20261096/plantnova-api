@@ -54,7 +54,7 @@ class DiagnosticoOut(BaseModel):
     otros_cuidados: str | None
 
     tratamientos: list[RecetaOut]
-    insumos_no_caseros: list[str]  # <-- CAMBIA list[dict] por list[str]
+    insumos_no_caseros: list[str]
 
     imagen_url: str | None
     gradcam_url: str | None

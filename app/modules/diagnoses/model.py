@@ -9,6 +9,13 @@ from app.core.config import settings
 # Orden exacto con el que ImageFolder indexó las clases durante el
 # entrenamiento. El índice que devuelve el modelo se traduce con esta
 # lista, así que su orden no puede alterarse jamás.
+#
+# El config del entrenamiento escribe estos mismos nombres con doble guion
+# bajo entre cultivo y patología ("Bell_pepper__Bell_pepper_Bacterial_spot").
+# Aquí van con uno solo porque es la forma que guarda disease_catalog en
+# clase_raw: copiar la lista del config rompería la búsqueda de la ficha en
+# las 36 clases. El orden sí coincide posición por posición y es lo único
+# que el modelo necesita.
 CLASS_NAMES = [
     "Bell_pepper_Bell_pepper_Bacterial_spot",
     "Bell_pepper_Bell_pepper_Healthy",
@@ -50,81 +57,67 @@ CLASS_NAMES = [
 
 NUM_CLASSES = len(CLASS_NAMES)
 
+# Cabeza de clasificación. Los índices importan: el state_dict guarda
+# classifier.0 (LayerNorm) y classifier.2 (Linear), de modo que el Dropout
+# tiene que ocupar la posición 1 aunque no aporte parámetros.
+DROPOUT = 0.3
 
-class CBAM(nn.Module):
-
-    def __init__(self, channels: int, reduction: int = 16) -> None:
-        
-        super().__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.max_pool = nn.AdaptiveMaxPool2d(1)
-        self.fc = nn.Sequential(
-            nn.Conv2d(channels, channels // reduction, 1, bias=False),
-            nn.ReLU(),
-            nn.Conv2d(channels // reduction, channels, 1, bias=False),
-        )
-        self.sigmoid = nn.Sigmoid()
-        self.conv_spa = nn.Conv2d(
-            2, 1, kernel_size=7, padding=3, bias=False
-        )
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        
-        avg_out = self.fc(self.avg_pool(x))
-        max_out = self.fc(self.max_pool(x))
-        x = x * self.sigmoid(avg_out + max_out)
-
-        avg_s = torch.mean(x, dim=1, keepdim=True)
-        max_s, _ = torch.max(x, dim=1, keepdim=True)
-        x = x * self.sigmoid(
-            self.conv_spa(torch.cat([avg_s, max_s], dim=1))
-        )
-        return x
+# Identificador de timm con el que se entrenó. El sufijo indica los pesos de
+# partida del ajuste fino; la arquitectura es la misma que "convnext_small".
+BACKBONE = "convnext_small.in12k_ft_in1k"
 
 
-class ConvNeXtWithCBAM(nn.Module):
-    
+class ConvNeXtPlano(nn.Module):
+    """ConvNeXt-Small sin módulo de atención.
+
+    Sustituye a la variante con CBAM tras la comparación de arquitecturas:
+    el backbone se usa como extractor con num_classes=0, de modo que
+    entrega el vector de 768 características ya agrupado, y encima va la
+    cabeza propia de normalización y clasificación.
+    """
+
     def __init__(
         self,
         num_classes: int,
         pretrained: bool = False,
-        dropout: float = 0.3,
+        dropout: float = DROPOUT,
     ) -> None:
-        
+
         super().__init__()
         self.backbone = timm.create_model(
-            "convnext_small",
+            BACKBONE,
             pretrained=pretrained,
             num_classes=0,
-            global_pool="",
         )
         self.num_features = self.backbone.num_features
 
-        self.cbam = CBAM(self.num_features, reduction=16)
-        self.pool = nn.AdaptiveAvgPool2d(1)
-
         self.classifier = nn.Sequential(
-            nn.Flatten(),
             nn.LayerNorm(self.num_features),
             nn.Dropout(p=dropout),
             nn.Linear(self.num_features, num_classes),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        
+
         x = self.backbone(x)
-        x = self.cbam(x)
-        x = self.pool(x)
         x = self.classifier(x)
         return x
 
+    @property
+    def capa_objetivo(self) -> nn.Module:
+        """Capa que observa Grad-CAM.
+
+        Es la última etapa convolucional del backbone, la última que
+        conserva resolución espacial: después de ella el vector ya está
+        agrupado y no habría mapa que dibujar.
+        """
+        return self.backbone.stages[-1]
+
 
 @lru_cache
-def cargar_modelo() -> ConvNeXtWithCBAM:
-    
-    modelo = ConvNeXtWithCBAM(
-        num_classes=NUM_CLASSES, pretrained=False
-    )
+def cargar_modelo() -> ConvNeXtPlano:
+
+    modelo = ConvNeXtPlano(num_classes=NUM_CLASSES, pretrained=False)
     pesos = torch.load(
         settings.model_path, map_location="cpu", weights_only=True
     )

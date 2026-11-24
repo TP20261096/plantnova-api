@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     supabase_publishable_key: str
     supabase_secret_key: str
 
-    model_path: str = "models/model_convnext.pth"
+    model_path: str = "models/convnext_plain.pth"
     storage_bucket: str = "diagnoses"
 
     # Coordenadas de Lima centro para la consulta de clima.
